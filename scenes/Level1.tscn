@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://donakoc8kfgdr"]
 
 [ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="1_6ovph"]
+[ext_resource type="PackedScene" uid="uid://cs6vf01j0yvhu" path="res://scenes/damage_hitbox.tscn" id="3_dw26h"]
 [ext_resource type="PackedScene" uid="uid://ixnf6jqlqi8n" path="res://scenes/enemy/enemy_regular.tscn" id="3_odhdn"]
 
 [node name="Level1" type="Node2D" unique_id=106251467]
@@ -16,3 +17,8 @@ position = Vector2(515, -19)
 
 [node name="Player" parent="." unique_id=1281337577 instance=ExtResource("1_6ovph")]
 position = Vector2(4, 5)
+
+[node name="DamageHitbox" parent="." unique_id=340150669 instance=ExtResource("3_dw26h")]
+position = Vector2(148, -6)
+damage = 20.0
+attacker = 1

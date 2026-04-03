@@ -1,14 +1,15 @@
 extends Area2D
 
 
-var damage : float
+@export var damage : float
 
 enum Attacker { PLAYER, ENEMY, ENV }
-var attacker : int
+@export_enum("PLAYER", "ENEMY", "ENV") var attacker : int
 
 
 func _on_body_entered(body: Node2D) -> void:
 	# Урон игроку
+	print(attacker)
 	if body.is_in_group("player") and attacker != Attacker.PLAYER:
 		body.deal_damage(damage)
 	# Урон врагам

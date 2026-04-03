@@ -8,12 +8,13 @@ extends CharacterBody2D
 @export var direction := last_direction
 
 @export_group("Vitals")
-@export var health : float = 100.0
+@export var max_health : float = 100.0
+@export var health : float = max_health
 @export var stamina : float = 50.0
 @export var ultimate_charge : float = 0.0
 
 # Разделение статов по массиву идет вот так - Stronger/Harder/Faster/Better
-@export_group("Stats (S/H/F/B)")
+@export_group("Stats")
 var punch_damage : float
 @export var punch_damage_shfb : Array = [50, 25, 10, 50]
 
@@ -28,6 +29,9 @@ var kick_time : float; var kick_timer : float = 0  # in seconds
 
 enum Mode { STRONGER, HARDER, FASTER, BETTER }
 @export var current_mode : int = Mode.STRONGER
+
+@export_group("References")
+@export var health_bar : Node
 
 
 func change_mode(mode: int) -> void:
@@ -52,8 +56,17 @@ func deal_damage(damage: float) -> void:
 	health -= damage * take_damage_multi
 
 
+func _ready() -> void:
+	change_mode(Mode.STRONGER)
+
+
 func _process(delta: float) -> void:
 	z_index = global_position.y
+	
+	print(health)
+	
+	if health_bar:
+		health_bar.value = health / max_health
 
 
 func _physics_process(delta: float) -> void:
