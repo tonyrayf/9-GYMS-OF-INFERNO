@@ -20,7 +20,7 @@ position = Vector2(515, -19)
 position = Vector2(4, 5)
 
 [node name="DamageHitbox" parent="." unique_id=340150669 instance=ExtResource("3_dw26h")]
-position = Vector2(148, -6)
+position = Vector2(186, 1)
 damage = 20.0
 attacker = 1
 

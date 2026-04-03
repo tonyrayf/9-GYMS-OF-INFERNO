@@ -9,6 +9,14 @@ extends RigidBody2D
 
 var look_vector
 
+
+func deal_damage(damage: float) -> void:
+	health -= damage
+
+
 func _process(delta: float) -> void:
 	look_vector = linear_velocity.normalized()
 	z_index = global_position.y
+	
+	if health <= 0:
+		queue_free()
