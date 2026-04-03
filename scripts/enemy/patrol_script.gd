@@ -1,14 +1,14 @@
 extends Node
 
-@export var path_to_follow: Path2D # Выбираем путь прямо в редакторе
+@export var path_to_follow: Path2D
 var enemy
 var curve
 var target_pos
 
 var progress = 0.0
-var speed = 100.0
+var speed
+var direction
 
-# Called when the node enters the scene tree for the first time.
 
 func enter() -> void:
 	set_physics_process(true)
@@ -21,16 +21,17 @@ func _ready() -> void:
 		printerr("Не назначен путь")
 		return
 	enemy = get_parent().get_parent()
+	speed = enemy.speed
 	curve = path_to_follow.curve
 	set_physics_process(false)
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	progress += speed * delta
 		
 	if progress > curve.get_baked_length():
 		progress = 0.0
 		
-	#target_pos = path_to_follow.global_position + curve.sample_baked(progress)
 	target_pos = path_to_follow.to_global(curve.sample_baked(progress))
-	enemy.global_position = target_pos
+	#enemy.global_position = target_pos
+	direction = (target_pos - enemy.global_position).normalized()
+	enemy.apply_central_force(direction * speed)
