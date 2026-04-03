@@ -5,8 +5,9 @@
 
 [node name="Level1" type="Node2D" unique_id=106251467]
 
+[node name="Camera" parent="." unique_id=197222917 node_paths=PackedStringArray("player_node") instance=ExtResource("1_bwv4p")]
+position_smoothing_enabled = false
+player_node = NodePath("../Player")
+
 [node name="Player" parent="." unique_id=1281337577 instance=ExtResource("1_6ovph")]
 position = Vector2(4, 5)
-
-[node name="Camera" parent="Player" unique_id=197222917 instance=ExtResource("1_bwv4p")]
-limit_smoothed = true
