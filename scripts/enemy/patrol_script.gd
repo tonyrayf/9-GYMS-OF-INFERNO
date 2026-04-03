@@ -6,7 +6,7 @@ var curve
 var target_pos
 
 var progress = 0.0
-var speed
+var speed = 0
 var direction
 
 
@@ -26,12 +26,15 @@ func _ready() -> void:
 	set_physics_process(false)
 	
 func _physics_process(delta: float) -> void:
-	progress += speed * delta
+	if speed and progress:
+		progress += speed * delta
 		
-	if progress > curve.get_baked_length():
+	if curve and progress and progress > curve.get_baked_length():
 		progress = 0.0
 		
-	target_pos = path_to_follow.to_global(curve.sample_baked(progress))
+	if curve:
+		target_pos = path_to_follow.to_global(curve.sample_baked(progress))
 	#enemy.global_position = target_pos
-	direction = (target_pos - enemy.global_position).normalized()
-	enemy.apply_central_force(direction * speed)
+	if enemy:
+		direction = (target_pos - enemy.global_position).normalized()
+		enemy.apply_central_force(direction * speed)
