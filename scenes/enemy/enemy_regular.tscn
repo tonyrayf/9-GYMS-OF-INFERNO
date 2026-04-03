@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://braj51qvjpv05" path="res://scripts/enemy/enemy_script.gd" id="1_7tubb"]
 [ext_resource type="Texture2D" uid="uid://d35dsi2i7ne7k" path="res://assets/sprites/enemy_regular.webp" id="1_x5pdb"]
+[ext_resource type="Script" uid="uid://ufyufsglq1sm" path="res://scripts/sprite_script.gd" id="3_dq3v8"]
 [ext_resource type="PackedScene" uid="uid://b7xogisgrj488" path="res://nodes/state_node.tscn" id="3_lv24u"]
 [ext_resource type="PackedScene" uid="uid://ddslmwbpca3pq" path="res://nodes/patrol_node.tscn" id="4_dq3v8"]
 
@@ -15,10 +16,11 @@ script = ExtResource("1_7tubb")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747581024]
 scale = Vector2(0.23910257, 0.23910257)
 texture = ExtResource("1_x5pdb")
+script = ExtResource("3_dq3v8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251935809]
 shape = SubResource("CircleShape2D_g2els")
 
-[node name="StateNode" parent="." unique_id=1597899314 instance=ExtResource("3_lv24u")]
+[node name="state_node" parent="." unique_id=1597899314 instance=ExtResource("3_lv24u")]
 
-[node name="PatrolNode" parent="StateNode" unique_id=830549236 instance=ExtResource("4_dq3v8")]
+[node name="patrol_node" parent="state_node" unique_id=830549236 instance=ExtResource("4_dq3v8")]

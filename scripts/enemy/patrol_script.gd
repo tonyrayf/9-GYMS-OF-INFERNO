@@ -32,9 +32,14 @@ func _physics_process(delta: float) -> void:
 	if curve and progress and progress > curve.get_baked_length():
 		progress = 0.0
 		
+<<<<<<< HEAD
 	if curve:
 		target_pos = path_to_follow.to_global(curve.sample_baked(progress))
 	#enemy.global_position = target_pos
 	if enemy:
 		direction = (target_pos - enemy.global_position).normalized()
 		enemy.apply_central_force(direction * speed)
+=======
+	target_pos = path_to_follow.to_global(curve.sample_baked(progress))
+	enemy.move_to(target_pos)
+>>>>>>> a4ff613 (some architecture improvments for enemy_regular)
