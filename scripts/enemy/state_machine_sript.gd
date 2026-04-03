@@ -1,16 +1,16 @@
 extends Node
 
 #states
-#patrol
+#patrol attack death
 var current_state
-
-func enter() -> void:
-	
+var enemy
 
 func _ready() -> void:
 	current_state = "patrol"
-	
+	enemy = get_parent()
 
 func _process(delta: float) -> void:
-	if(true):
+	if (enemy.health<=0):
+		get_node("death_node").enter()
+	else:
 		get_node(current_state+"_node").enter()
