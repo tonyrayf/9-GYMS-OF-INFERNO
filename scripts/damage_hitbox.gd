@@ -9,7 +9,6 @@ enum Attacker { PLAYER, ENEMY, ENV }
 
 func _on_body_entered(body: Node2D) -> void:
 	# Урон игроку
-	print(attacker)
 	if body.is_in_group("player") and attacker != Attacker.PLAYER:
 		body.deal_damage(damage)
 	# Урон врагам

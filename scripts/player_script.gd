@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 
+# Разделение переменных по массиву идет вот так - Stronger/Harder/Faster/Better
 @export_group("Movement")
 @export var speed : float = 480
-@export var faster_speed : float = 520
+@export var speed_shfb : Array = [470, 420, 520, 520]
+@export var S : float = 520
 @export var last_direction : Vector2 = Vector2(1, 1)
 @export var direction := last_direction
 
@@ -13,7 +15,6 @@ extends CharacterBody2D
 @export var stamina : float = 50.0
 @export var ultimate_charge : float = 0.0
 
-# Разделение статов по массиву идет вот так - Stronger/Harder/Faster/Better
 @export_group("Stats")
 var punch_damage : float
 @export var punch_damage_shfb : Array = [50, 25, 10, 50]
@@ -37,6 +38,7 @@ enum Mode { STRONGER, HARDER, FASTER, BETTER }
 func change_mode(mode: int) -> void:
 	current_mode = mode
 	
+	speed = speed_shfb[mode]
 	punch_damage = punch_damage_shfb[mode]
 	take_damage_multi = take_damage_multi_shfb[mode]
 	punch_time = punch_damage_shfb[mode]
@@ -57,16 +59,19 @@ func deal_damage(damage: float) -> void:
 
 
 func _ready() -> void:
-	change_mode(Mode.STRONGER)
+	change_mode(Mode.FASTER)
 
 
 func _process(delta: float) -> void:
 	z_index = global_position.y
 	
-	print(health)
-	
+	# Health bar
 	if health_bar:
-		health_bar.value = health / max_health
+		health_bar.value = lerp(health_bar.value, health / max_health, 0.2)
+	
+	# Death
+	if health <= 0:
+		queue_free()
 
 
 func _physics_process(delta: float) -> void:

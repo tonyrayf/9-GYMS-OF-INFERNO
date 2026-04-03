@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://px1lx8svw37x" path="res://scripts/player_script.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://480ifahfe6ln" path="res://assets/sprites/character.webp" id="2_g2els"]
-[ext_resource type="PackedScene" uid="uid://cl2hjnveuiyo1" path="res://scenes/main_camera.tscn" id="3_gmlin"]
 [ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="4_lvxji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
@@ -34,5 +33,3 @@ texture_under = ExtResource("4_lvxji")
 texture_progress = ExtResource("4_lvxji")
 tint_under = Color(0.7756207, 0.29858285, 0.9748538, 1)
 tint_progress = Color(0.96862745, 0, 0, 1)
-
-[node name="Camera" parent="." unique_id=197222917 instance=ExtResource("3_gmlin")]
