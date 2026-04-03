@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3mo35ekh1w0o"
-path="res://.godot/imported/lol.png-30bb52f13df2189b91200d833a5b5d10.ctex"
+uid="uid://480ifahfe6ln"
+path="res://.godot/imported/character.webp-17fe722d0d792617500ff5c2a2e8dbda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lol.png"
-dest_files=["res://.godot/imported/lol.png-30bb52f13df2189b91200d833a5b5d10.ctex"]
+source_file="res://assets/sprites/character.webp"
+dest_files=["res://.godot/imported/character.webp-17fe722d0d792617500ff5c2a2e8dbda.ctex"]
 
 [params]
 

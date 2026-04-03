@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cs6vf01j0yvhu"]
+
+[ext_resource type="Script" uid="uid://b42n20yq4onro" path="res://scripts/damage_hitbox.gd" id="1_7jxbo"]
+[ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="2_k5f3k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7jxbo"]
+radius = 56.0357
+
+[node name="DamageHitbox" type="Area2D" unique_id=340150669]
+script = ExtResource("1_7jxbo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1536389325]
+shape = SubResource("CircleShape2D_7jxbo")
+
+[node name="Pixel" type="Sprite2D" parent="." unique_id=912840000]
+modulate = Color(1, 0.32156864, 0.26666668, 1)
+position = Vector2(-0.25, 1.4999981)
+scale = Vector2(106.5, 113)
+texture = ExtResource("2_k5f3k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
