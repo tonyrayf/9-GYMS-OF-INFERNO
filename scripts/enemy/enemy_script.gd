@@ -11,7 +11,7 @@ var look_vector
 var move_direction
 
 
-func deal_damage(damage: float) -> void:
+func get_damage(damage: float) -> void:
 	health -= damage
 
 
