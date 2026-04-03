@@ -36,5 +36,4 @@ func _physics_process(delta: float) -> void:
 		target_pos = path_to_follow.to_global(curve.sample_baked(progress))
 	#enemy.global_position = target_pos
 	if enemy:
-		direction = (target_pos - enemy.global_position).normalized()
-		enemy.apply_central_force(direction * speed)
+		enemy.move_to(target_pos)

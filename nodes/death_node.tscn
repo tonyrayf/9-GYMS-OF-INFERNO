@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bhhd2awumwmfl"]
+
+[ext_resource type="Script" uid="uid://caf46cqs76igq" path="res://scripts/enemy/death_script.gd" id="1_4gx1y"]
+
+[node name="death_node" type="Node" unique_id=1649806453]
+script = ExtResource("1_4gx1y")

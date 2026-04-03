@@ -1,14 +1,16 @@
 extends Node
 
-var states = {0:"PatrolNode"}
+#states
+#patrol attack death
 var current_state
+var enemy
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_state = 0
-	
+	current_state = "patrol"
+	enemy = get_parent()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	get_node(states[current_state]).enter()
+	if (enemy.health<=0):
+		get_node("death_node").enter()
+	else:
+		get_node(current_state+"_node").enter()
