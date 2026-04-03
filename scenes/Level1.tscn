@@ -15,4 +15,5 @@ damage = 20.0
 attacker = 1
 
 [node name="Camera" parent="." unique_id=197222917 node_paths=PackedStringArray("player") instance=ExtResource("1_bwv4p")]
+zoom = Vector2(1, 1)
 player = NodePath("../Player")

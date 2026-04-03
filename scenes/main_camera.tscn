@@ -3,10 +3,12 @@
 [ext_resource type="Script" uid="uid://p8745cevr357" path="res://scripts/main_camera.gd" id="1_r5jk0"]
 
 [node name="Camera" type="Camera2D" unique_id=197222917]
-zoom = Vector2(0.7, 0.7)
+ignore_rotation = false
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 2.5
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 10.0
 drag_left_margin = 0.25
 drag_top_margin = 0.18
 drag_right_margin = 0.25
