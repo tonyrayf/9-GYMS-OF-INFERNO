@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://donakoc8kfgdr"]
+
+[ext_resource type="PackedScene" uid="uid://ixnf6jqlqi8n" path="res://scenes/enemy/enemy_regular.tscn" id="1_mbhkc"]
+[ext_resource type="Script" uid="uid://ufyufsglq1sm" path="res://scripts/sprite_script.gd" id="2_olfml"]
+
+[sub_resource type="Curve2D" id="Curve2D_mbhkc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 25.999998, 47.999996, 0, 0, 0, 0, 11, 52, 0, 0, 0, 0, 36.399998, 119.59999, 0, 0, 0, 0, 152.99998, 104.799995, 0, 0, 0, 0, 173.2, 18.199999, 0, 0, 0, 0, 133.99998, 2.3999999, 0, 0, 0, 0, 25.999998, 47.999996)
+}
+point_count = 7
+
+[node name="Level1" type="Node2D" unique_id=106251467]
+
+[node name="test_path" type="Path2D" parent="." unique_id=1636877340]
+position = Vector2(373, 19.000011)
+rotation = 0.4660029
+scale = Vector2(5, 5)
+curve = SubResource("Curve2D_mbhkc")
+
+[node name="Enemy" parent="." unique_id=1614761449 instance=ExtResource("1_mbhkc")]
+speed = 60.0
+
+[node name="Sprite2D" parent="Enemy" index="0" unique_id=1747581024]
+script = ExtResource("2_olfml")
+
+[node name="PatrolNode" parent="Enemy/StateNode" parent_id_path=PackedInt32Array(1614761449, 1597899314) index="0" unique_id=830549236 node_paths=PackedStringArray("path_to_follow")]
+path_to_follow = NodePath("../../../test_path")
+
+[editable path="Enemy"]
