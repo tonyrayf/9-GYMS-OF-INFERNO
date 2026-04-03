@@ -19,6 +19,8 @@ extends CharacterBody2D
 var punch_damage : float
 @export var punch_damage_shfb : Array = [50, 25, 10, 50]
 
+@export var punch_radius : float = 10
+
 var take_damage_multi : float
 @export var take_damage_multi_shfb : Array = [1, 0.3, 2, 0.3]
 
@@ -33,6 +35,8 @@ enum Mode { STRONGER, HARDER, FASTER, BETTER }
 
 @export_group("References")
 @export var health_bar : Node
+
+@onready var damage_hitbox_scene := preload("res://scenes/damage_hitbox.tscn")
 
 
 func change_mode(mode: int) -> void:
@@ -72,6 +76,19 @@ func _process(delta: float) -> void:
 	# Death
 	if health <= 0:
 		queue_free()
+	
+	# == Attacks ==
+	if Input.is_action_just_pressed("attack_punch"):
+		var mouse_pos := get_global_mouse_position()
+		
+		var direction = (mouse_pos - global_position).normalized()
+		var spawn_pos = global_position + direction * punch_radius
+		
+		Global.spawn_damage_hitbox( \
+			punch_damage, \
+			spawn_pos, \
+			Global.Attacker.PLAYER
+		)
 
 
 func _physics_process(delta: float) -> void:

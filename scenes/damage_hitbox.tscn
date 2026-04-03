@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="2_k5f3k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7jxbo"]
-radius = 56.0357
+radius = 50.0
 
 [node name="DamageHitbox" type="Area2D" unique_id=340150669]
 script = ExtResource("1_7jxbo")
+sphere_collision = SubResource("CircleShape2D_7jxbo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1536389325]
 shape = SubResource("CircleShape2D_7jxbo")
