@@ -4,6 +4,9 @@ extends Node
 #patrol
 var current_state
 
+func enter() -> void:
+	
+
 func _ready() -> void:
 	current_state = "patrol"
 	
