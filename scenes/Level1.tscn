@@ -1,8 +1,21 @@
 [gd_scene format=3 uid="uid://donakoc8kfgdr"]
 
-[ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player.tscn" id="1_6ovph"]
+[ext_resource type="PackedScene" uid="uid://ur36b844b80s" path="res://scenes/baseEnemy.tscn" id="1_6ovph"]
+
+[sub_resource type="Curve2D" id="Curve2D_6ovph"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 5, 19, 0, 0, 0, 0, 11, 52, 0, 0, 0, 0, 64, 43, 0, 0, 0, 0, 66, -15, 0, 0, 0, 0, -6, -46, 0, 0, 0, 0, -44, -8)
+}
+point_count = 6
 
 [node name="Level1" type="Node2D" unique_id=106251467]
 
-[node name="Player" parent="." unique_id=1281337577 instance=ExtResource("1_6ovph")]
-position = Vector2(4, 5)
+[node name="BaseEnemy1" parent="." unique_id=731410105 instance=ExtResource("1_6ovph")]
+
+[node name="PatrolNode" parent="BaseEnemy1/StateNode" parent_id_path=PackedInt32Array(731410105, 1597899314) index="0" unique_id=730947162 node_paths=PackedStringArray("path_to_follow")]
+path_to_follow = NodePath("../../../BaseEnemy1Path")
+
+[node name="BaseEnemy1Path" type="Path2D" parent="." unique_id=1636877340]
+curve = SubResource("Curve2D_6ovph")
+
+[editable path="BaseEnemy1"]
