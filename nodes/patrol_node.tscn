@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://cask5easadk8u" path="res://scripts/enemy/patrol_script.gd" id="1_kse56"]
 
-[node name="PatrolNode" type="Node" unique_id=830549236]
+[node name="patrol_node" type="Node" unique_id=830549236]
 script = ExtResource("1_kse56")

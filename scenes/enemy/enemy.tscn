@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://braj51qvjpv05" path="res://scripts/enemy/enemy_script.gd" id="1_7tubb"]
 [ext_resource type="Texture2D" uid="uid://d35dsi2i7ne7k" path="res://assets/sprites/enemy_regular.webp" id="1_x5pdb"]
 [ext_resource type="Script" uid="uid://ufyufsglq1sm" path="res://scripts/sprite_script.gd" id="3_dq3v8"]
-[ext_resource type="PackedScene" uid="uid://b7xogisgrj488" path="res://nodes/state_node.tscn" id="3_lv24u"]
+[ext_resource type="PackedScene" uid="uid://b7xogisgrj488" path="res://nodes/state_machine_node.tscn" id="3_lv24u"]
 [ext_resource type="PackedScene" uid="uid://ddslmwbpca3pq" path="res://nodes/patrol_node.tscn" id="4_dq3v8"]
 [ext_resource type="PackedScene" uid="uid://dfbaai843j3aq" path="res://nodes/attack_node.tscn" id="6_o4ugq"]
 [ext_resource type="PackedScene" uid="uid://bhhd2awumwmfl" path="res://nodes/death_node.tscn" id="8_82oub"]
@@ -24,18 +24,17 @@ script = ExtResource("3_dq3v8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251935809]
 shape = SubResource("CircleShape2D_g2els")
 
-[node name="state_node" parent="." unique_id=1597899314 instance=ExtResource("3_lv24u")]
+[node name="StateMachine" parent="." unique_id=1597899314 instance=ExtResource("3_lv24u")]
 
-[node name="patrol_node" parent="state_node" unique_id=830549236 instance=ExtResource("4_dq3v8")]
+[node name="patrol_node" parent="StateMachine" unique_id=830549236 instance=ExtResource("4_dq3v8")]
 
-[node name="attack_node" parent="state_node" unique_id=1210613329 instance=ExtResource("6_o4ugq")]
+[node name="attack_node" parent="StateMachine" unique_id=1210613329 instance=ExtResource("6_o4ugq")]
 
-[node name="death_node" parent="state_node" unique_id=1649806453 instance=ExtResource("8_82oub")]
+[node name="death_node" parent="StateMachine" unique_id=1649806453 instance=ExtResource("8_82oub")]
 
-[node name="waiting_node" parent="state_node" unique_id=1415356871 instance=ExtResource("8_fa78f")]
+[node name="waiting_node" parent="StateMachine" unique_id=1415356871 instance=ExtResource("8_fa78f")]
 
 [node name="Vision" parent="." unique_id=340150669 instance=ExtResource("9_fa78f")]
-scale = Vector2(5, 5)
 
 [node name="LoseTargetTimer" type="Timer" parent="." unique_id=1295276921]
 wait_time = 2.0

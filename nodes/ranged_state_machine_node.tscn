@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c2kdsn64jbkp2"]
+
+[ext_resource type="Script" uid="uid://5g8cwactllo4" path="res://scripts/enemy/ranged_state_machine_script.gd" id="1_mptnb"]
+
+[node name="RangedStateMachine" type="Node" unique_id=579420398]
+script = ExtResource("1_mptnb")
