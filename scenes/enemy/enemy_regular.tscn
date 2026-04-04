@@ -37,4 +37,6 @@ script = ExtResource("7_82oub")
 scale = Vector2(5, 5)
 
 [node name="LoseTargetTimer" type="Timer" parent="." unique_id=1295276921]
-wait_time = 10.0
+wait_time = 2.0
+
+[node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1925307689]
