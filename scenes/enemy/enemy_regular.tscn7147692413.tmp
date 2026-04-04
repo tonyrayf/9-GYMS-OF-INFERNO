@@ -13,14 +13,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 45.01111
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1657433947 groups=["enemy"]]
+[node name="Enemy" type="RigidBody2D" unique_id=1614761449 groups=["enemy"]]
+gravity_scale = 0.0
 script = ExtResource("1_7tubb")
-patrol_speed = null
-attack_speed = null
-health = null
-damage = null
-attack_cooldown = null
-attack_range = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747581024]
 scale = Vector2(0.23910257, 0.23910257)
@@ -44,5 +39,3 @@ scale = Vector2(5, 5)
 
 [node name="LoseTargetTimer" type="Timer" parent="." unique_id=1295276921]
 wait_time = 2.0
-
-[node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1925307689]

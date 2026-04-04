@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="1_6ovph"]
 [ext_resource type="PackedScene" uid="uid://cs6vf01j0yvhu" path="res://scenes/damage_hitbox.tscn" id="3_dw26h"]
-[ext_resource type="PackedScene" uid="uid://ixnf6jqlqi8n" path="res://scenes/enemy/enemy_regular.tscn" id="3_odhdn"]
-[ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="4_ph5t1"]
+[ext_resource type="PackedScene" uid="uid://cl2hjnveuiyo1" path="res://scenes/player/main_camera.tscn" id="1_bwv4p"]
+[ext_resource type="PackedScene" path="res://scenes/damage_hitbox.tscn" id="3_dw26h"]
 
 [node name="Level1" type="Node2D" unique_id=106251467]
 

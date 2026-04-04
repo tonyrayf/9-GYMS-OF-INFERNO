@@ -2,38 +2,43 @@ extends Node
 
 @export var path_to_follow: Path2D
 var enemy
-var curve
-var target_pos
-
+var curve: Curve2D
 var progress = 0.0
-var speed = 0
-var direction
-
+var no_path_pos: Vector2
 
 func enter() -> void:
+	enemy.current_speed = enemy.patrol_speed
 	set_physics_process(true)
+	if curve and enemy:
+		var local_pos = path_to_follow.to_local(enemy.global_position)
+		progress = curve.get_closest_offset(local_pos)
+		var target_pos = path_to_follow.to_global(curve.sample_baked(progress))
+		enemy.move_to(target_pos,0)
+	if enemy:
+		enemy.move_to(no_path_pos,10)
 	
 func exit() -> void:
 	set_physics_process(false)
+	if is_instance_valid(enemy):
+		enemy.moving = false
+		enemy.velocity = Vector2.ZERO
 
 func _ready() -> void:
+	set_physics_process(false)
+	enemy = get_parent().get_parent()
 	if not path_to_follow:
 		printerr("Не назначен путь")
+		no_path_pos = enemy.global_position
 		return
-	enemy = get_parent().get_parent()
-	speed = enemy.speed
 	curve = path_to_follow.curve
-	set_physics_process(false)
 	
 func _physics_process(delta: float) -> void:
-	if speed and progress:
-		progress += speed * delta
-	
-	if curve and progress and progress > curve.get_baked_length():
+	if not curve or not enemy:
+		return
+	progress += 1.1 * enemy.current_speed * delta
+		
+	if progress > curve.get_baked_length():
 		progress = 0.0
 		
-	if curve:
-		target_pos = path_to_follow.to_global(curve.sample_baked(progress))
-	#enemy.global_position = target_pos
-	if enemy:
-		enemy.move_to(target_pos)
+	var target_pos = path_to_follow.to_global(curve.sample_baked(progress))
+	enemy.move_to(target_pos,0)
