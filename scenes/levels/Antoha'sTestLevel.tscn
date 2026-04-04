@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="1_6ovph"]
 [ext_resource type="PackedScene" uid="uid://dwab0ac5ejsdu" path="res://scenes/tile_map_layer.tscn" id="1_ph5t1"]
 [ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="3_ph5t1"]
-[ext_resource type="PackedScene" path="res://scenes/enemy/enemy.tscn" id="5_ffqwx"]
-[ext_resource type="PackedScene" uid="uid://dt7yce835khlm" path="res://scenes/enemy/ranged_enemy.tscn" id="5_we0tf"]
+[ext_resource type="PackedScene" uid="uid://ixnf6jqlqi8n" path="res://scenes/enemy/enemy.tscn" id="5_ffqwx"]
+[ext_resource type="PackedScene" uid="uid://bt0yq0qflwfu" path="res://scenes/enemy/ranged_enemy.tscn" id="5_we0tf"]
 
 [sub_resource type="Curve2D" id="Curve2D_6i2l0"]
 _data = {

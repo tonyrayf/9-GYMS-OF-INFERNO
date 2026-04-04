@@ -16,14 +16,13 @@ radius = 45.01111
 [sub_resource type="LabelSettings" id="LabelSettings_gmlin"]
 font_size = 58
 
-[node name="Player" type="CharacterBody2D" unique_id=1281337577 node_paths=PackedStringArray("health_bar", "style_label", "color_rect_faster", "sprite", "aura_bar", "punch_sprite") groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1281337577 node_paths=PackedStringArray("health_bar", "style_label", "color_rect_faster", "sprite", "aura_bar") groups=["player"]]
 script = ExtResource("1_g2els")
 health_bar = NodePath("CanvasLayer/HealthBar")
 style_label = NodePath("CanvasLayer/Style")
 color_rect_faster = NodePath("CanvasLayer/ColorRect_Faster")
 sprite = NodePath("Sprite2D")
 aura_bar = NodePath("CanvasLayer/AuraBar")
-punch_sprite = NodePath("Punch")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1745650649]
 modulate = Color(1, 1, 1, 0.34509805)

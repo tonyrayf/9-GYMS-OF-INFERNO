@@ -12,7 +12,7 @@ extends CharacterBody2D
 @export_group("Vitals")
 @export var max_health : float = 100.0
 @export var health : float = max_health
-@export var stamina : float = 50.0
+@export var aura : float = 0.0
 @export var ultimate_charge : float = 0.0
 
 @export_group("Stats")
@@ -53,6 +53,8 @@ var mode_switch_timer : float = 0
 @export var style_label : Node
 @export var color_rect_faster : Node
 @export var sprite : Node
+@export var aura_bar : Node
+@export var punch_sprite : Node
 
 @export_group("Visual params")
 @export var stronger_punch_shake_amplitude : float = 40
@@ -80,14 +82,17 @@ func change_mode(mode: int) -> void:
 	match mode:
 		Mode.STRONGER:
 			style_label.text = "STRONGER"
+			style_label.label_settings.font_color = Color.RED
 			toggle_faster_shader(false)
 		
 		Mode.HARDER:
 			style_label.text = "HARDER"
+			style_label.label_settings.font_color = Color.YELLOW
 			toggle_faster_shader(false)
 		
 		Mode.FASTER:
 			style_label.text = "FASTER"
+			style_label.label_settings.font_color = Color.SKY_BLUE
 			toggle_faster_shader(true)
 			Engine.time_scale = 0.7
 
@@ -95,9 +100,11 @@ func mode_stronger_logic(delta: float) -> void:
 	if stronger_charge_timer > 0:
 		stronger_charge_timer = max(stronger_charge_timer - delta, 0)
 	
+	# Начало заряда кулака
 	if Input.is_action_just_pressed("attack_punch") and punch_timer <= 0:
 		stronger_charge_timer = stronger_charge_time
 	
+	# Удар непосредственно с учетом сколько игрок удерживал удар
 	var punched : bool = false
 	if Input.is_action_just_released("attack_punch") and punch_timer <= 0:
 		punch_timer = punch_time
@@ -115,7 +122,9 @@ func mode_stronger_logic(delta: float) -> void:
 			charged_damage = punch_damage * 2
 		
 		print("Урон он заряда/Таймер: ", charged_damage, "/", stronger_charge_timer)
-			
+		
+		do_punch()
+		
 		punched = Global.spawn_damage_hitbox(
 				charged_damage,
 				spawn_pos,
@@ -214,6 +223,15 @@ func deal_damage(damage: float) -> void:
 	health -= damage * take_damage_multi
 
 
+func do_punch() -> void:
+	var mouse_pos = get_global_mouse_position()
+	var direction = (mouse_pos - global_position).normalized()
+	var angle = global_position.angle_to_point(mouse_pos)
+	
+	punch_sprite.position = direction * 120
+	punch_sprite.rotation = angle
+
+
 func toggle_faster_shader(active: bool):
 	var t = create_tween()
 	var property_tweener
@@ -275,7 +293,7 @@ func _process(delta: float) -> void:
 		Mode.FASTER: mode_faster_logic(delta)
 		Mode.BETTER: mode_better_logic(delta)
 	
-	sprite.scale.x = lerp(sprite.scale.x, sprite_scale_x * last_direction.x, 0.2)
+	sprite.scale.x = lerp(sprite.scale.x, sprite_scale_x * sign(get_global_mouse_position().x - global_position.x), 0.2)
 
 
 func _physics_process(delta: float) -> void:
