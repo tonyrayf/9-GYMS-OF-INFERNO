@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var patrol_speed: float = 150.0
 @export var attack_speed: float = 300.0
 @export var waiting_speed: float = 300.0
+@export var max_speed:float = 600.0
+@export var acceleration:float = 5.0
 
 var current_speed
 
@@ -19,10 +21,11 @@ var move_direction
 var personal_space
 
 func deal_damage(damage: float) -> void:
+	print("WAS DAMAGED")
 	health -= damage
 
 
-func _process(delta: float,personal_space: float=100) -> void:
+func _process(delta: float) -> void:
 	look_vector = velocity.normalized()
 	z_index = global_position.y
 

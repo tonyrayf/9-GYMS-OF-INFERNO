@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c5inhhx8md38c"]
+
+[ext_resource type="Script" uid="uid://717llsxnajb7" path="res://scripts/enemy/runner_attack_script.gd" id="1_0eoxw"]
+
+[node name="runner_attack_node" type="Node" unique_id=2080454364]
+script = ExtResource("1_0eoxw")

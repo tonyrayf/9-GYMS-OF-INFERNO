@@ -14,6 +14,7 @@ func _on_body_entered(body: Node2D) -> void:
 		body.deal_damage(damage)
 	# Урон врагам
 	elif body.is_in_group("enemy") and attacker != Global.Attacker.ENEMY:
+		print("QWE TEST")
 		body.deal_damage(damage)
 
 
