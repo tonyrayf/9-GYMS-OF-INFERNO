@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="1_6ovph"]
 [ext_resource type="PackedScene" uid="uid://dwab0ac5ejsdu" path="res://scenes/tile_map_layer.tscn" id="1_ph5t1"]
-[ext_resource type="PackedScene" path="res://scenes/enemy/enemy_regular.tscn" id="2_6i2l0"]
 [ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="3_ph5t1"]
+[ext_resource type="PackedScene" path="res://scenes/enemy/enemy.tscn" id="5_ffqwx"]
 [ext_resource type="PackedScene" uid="uid://dt7yce835khlm" path="res://scenes/enemy/ranged_enemy.tscn" id="5_we0tf"]
 
 [sub_resource type="Curve2D" id="Curve2D_6i2l0"]
@@ -22,36 +22,6 @@ tile_map_data = PackedByteArray("AAACAAMAAQAAAAAAAAACAAIAAQAAAAAAAAADAAIAAQAAAAA
 [node name="Player" parent="." unique_id=1281337577 instance=ExtResource("1_6ovph")]
 position = Vector2(-17, 31)
 
-[node name="Enemy" parent="." unique_id=1657433947 instance=ExtResource("2_6i2l0")]
-position = Vector2(-449, -23)
-patrol_speed = 150.0
-attack_speed = 300.0
-health = 100.0
-damage = 1.0
-attack_cooldown = 1.0
-attack_range = 100.0
-
-[node name="Enemy2" parent="." unique_id=945614013 instance=ExtResource("2_6i2l0")]
-position = Vector2(93, -440)
-patrol_speed = 150.0
-attack_speed = 300.0
-health = 100.0
-damage = 1.0
-attack_cooldown = 1.0
-attack_range = 100.0
-
-[node name="Enemy3" parent="." unique_id=1461185985 instance=ExtResource("2_6i2l0")]
-position = Vector2(661, -169)
-patrol_speed = 150.0
-attack_speed = 300.0
-health = 100.0
-damage = 1.0
-attack_cooldown = 1.0
-attack_range = 100.0
-
-[node name="patrol_node" parent="Enemy3/state_node" parent_id_path=PackedInt32Array(1461185985, 1597899314) index="0" unique_id=830549236 node_paths=PackedStringArray("path_to_follow")]
-path_to_follow = NodePath("../../../Path2D")
-
 [node name="Camera" parent="." unique_id=197222917 instance=ExtResource("3_ph5t1")]
 position = Vector2(-14, -24)
 
@@ -62,4 +32,11 @@ curve = SubResource("Curve2D_6i2l0")
 [node name="EnemyRanged" parent="." unique_id=2055528447 instance=ExtResource("5_we0tf")]
 position = Vector2(677, 392)
 
-[editable path="Enemy3"]
+[node name="Enemy" parent="." unique_id=1657433947 instance=ExtResource("5_ffqwx")]
+position = Vector2(-384, -167)
+
+[node name="Enemy2" parent="." unique_id=1118820909 instance=ExtResource("5_ffqwx")]
+position = Vector2(348, -607)
+
+[node name="Enemy3" parent="." unique_id=56595815 instance=ExtResource("5_ffqwx")]
+position = Vector2(1011, -233)

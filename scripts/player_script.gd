@@ -40,7 +40,7 @@ var kick_time : float; var kick_timer : float = 0 # время между пин
 var skill_e_time : float; var skill_e_timer : float = 0
 @export var skill_e_time_shfb : Array = [4.5, 4.5, 2, 4.5]
 
-@export var faster_dash_speed : float = 1000
+@export var faster_dash_distance : float = 300
 
 enum Mode { STRONGER, HARDER, FASTER, BETTER }
 @export_enum("STRONGER", "HARDER", "FASTER", "BETTER") var current_mode : int = Mode.STRONGER
@@ -168,9 +168,8 @@ func mode_faster_logic(delta: float) -> void:
 		var mouse_pos := get_global_mouse_position()
 		var direction = (mouse_pos - global_position).normalized()
 		
-		velocity = direction * faster_dash_speed
-	
-	
+		global_position += direction * faster_dash_distance
+
 func mode_better_logic(delta: float) -> void:
 	if stronger_charge_timer > 0:
 		stronger_charge_timer = max(stronger_charge_timer - delta, 0)
@@ -268,7 +267,7 @@ func _process(delta: float) -> void:
 	# Skill E timer
 	if skill_e_timer > 0:
 		skill_e_timer = max(skill_e_timer - delta, 0)
-	
+		
 	# Выполняем логику SHFB
 	match current_mode:
 		Mode.STRONGER: mode_stronger_logic(delta)
