@@ -6,6 +6,7 @@ var curve: Curve2D
 var progress = 0.0
 
 func enter() -> void:
+	enemy.current_speed = enemy.patrol_speed
 	set_physics_process(true)
 	if curve and enemy:
 		var local_pos = path_to_follow.to_local(enemy.global_position)
@@ -30,7 +31,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not curve or not enemy:
 		return
-	progress += 1.1 * enemy.speed * delta
+	progress += 1.1 * enemy.current_speed * delta
 		
 	if progress > curve.get_baked_length():
 		progress = 0.0

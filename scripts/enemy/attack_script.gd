@@ -7,7 +7,9 @@ var attack_cooldown_timer
 var attack_cooldown_flag: bool = false
 
 func enter() -> void:
+	enemy.current_speed = enemy.attack_speed
 	set_physics_process(true)
+	
 	
 func exit() -> void:
 	set_physics_process(false)
@@ -29,16 +31,12 @@ func _physics_process(_delta: float) -> void:
 	if vision_area.current_body_name=="Player" and \
 		enemy.global_position.distance_to(last_player_pos) <= enemy.attack_range:
 			if not attack_cooldown_flag:	
-				Global.spawn_damage_hitbox(enemy.damage,enemy.global_position+enemy.look_vector*0,Global.Attacker.ENEMY)
+				Global.spawn_damage_hitbox(enemy.damage,enemy.global_position,Global.Attacker.ENEMY,enemy.attack_range)
 				#Тут костыль, надо чутка решиьт вопрос
 				attack_cooldown_flag = true
 				attack_cooldown_timer.start()
 	
-	if enemy.global_position.distance_to(last_player_pos) > 15.0:
-		enemy.move_to(last_player_pos)
-	else:
-		enemy.moving = false
-		enemy.velocity = Vector2.ZERO
+	enemy.move_to(last_player_pos)
 		
 func _on_attack_cooldown() -> void:
 	attack_cooldown_flag = false

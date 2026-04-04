@@ -2,13 +2,16 @@ extends CharacterBody2D
 
 
 @export_group("Movement")
-@export var speed : float = 180.0
+@export var patrol_speed: float = 150.0
+@export var attack_speed: float = 300.0
+
+var current_speed
 
 @export_group("Stats")
 @export var health: float = 100.0
 @export var damage: float = 10.0
 @export var attack_cooldown: float = 1.0
-@export var attack_range: float = 100.0
+@export var attack_range: float = 200.0
 
 var look_vector
 var move_direction
@@ -18,7 +21,7 @@ func deal_damage(damage: float) -> void:
 	health -= damage
 
 
-func _process(delta: float) -> void:
+func _process(delta: float,personal_space: float=100) -> void:
 	look_vector = velocity.normalized()
 	z_index = global_position.y
 
@@ -26,18 +29,22 @@ func _process(delta: float) -> void:
 var target_pos
 var moving
 
-func move_to(target: Vector2) -> void:
-	if moving and target_pos.is_equal_approx(target):
-		return
-	
+func move_to(target: Vector2,personal_space: float = 100) -> void:
 	target_pos = target
+	
+	if global_position.distance_to(target_pos) < personal_space:
+			moving = false
+			velocity = Vector2.ZERO
+			return
+	
 	moving = true
 	
 func _physics_process(_delta: float) -> void:
 	if moving:
-		move_direction = (target_pos - global_position).normalized()
-		velocity = move_direction * speed
-		move_and_slide()
-		if global_position.distance_to(target_pos) < 5.0:
+		if global_position.distance_to(target_pos) < 105.0:
 			moving = false
 			velocity = Vector2.ZERO
+			return
+		move_direction = (target_pos - global_position).normalized()
+		velocity = move_direction * current_speed
+		move_and_slide()
