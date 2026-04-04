@@ -34,7 +34,7 @@ position = Vector2(1018, 84)
 path_to_follow = NodePath("../../../Enemy3Path")
 
 [node name="EnemyRanged" parent="." unique_id=2055528447 instance=ExtResource("4_5hrp4")]
-position = Vector2(2119, -34)
+position = Vector2(2341, -773)
 
 [node name="RunnerEnemy" parent="." unique_id=897800292 instance=ExtResource("5_ff8rk")]
 position = Vector2(550, 976)

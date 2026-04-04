@@ -16,4 +16,6 @@ func _ready() -> void:
 	set_physics_process(false) 
 
 func _physics_process(_delta: float) -> void:
+	if enemy.current_speed < enemy.max_speed:
+		enemy.current_speed+=enemy.acceleration
 	enemy.move_to(state_machine.constant_target.global_position,5)

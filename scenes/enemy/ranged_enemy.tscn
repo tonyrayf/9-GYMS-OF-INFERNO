@@ -12,19 +12,19 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ul2o7"]
 radius = 45.01111
 
-[node name="EnemyRanged" type="CharacterBody2D" unique_id=2055528447]
+[node name="EnemyRanged" type="CharacterBody2D" unique_id=2055528447 groups=["enemy"]]
 script = ExtResource("1_olk6i")
 attack_speed = 240.0
 damage = 10.0
 attack_cooldown = 3.0
-attack_range = 900.0
+attack_range = 1350.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=487829434]
 scale = Vector2(7, 7)
 texture = ExtResource("2_olk6i")
 script = ExtResource("2_5l6pi")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=958945757]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=958945757]
 shape = SubResource("CircleShape2D_ul2o7")
 
 [node name="RangedStateMachine" parent="." unique_id=579420398 instance=ExtResource("3_npp3m")]
@@ -36,7 +36,7 @@ shape = SubResource("CircleShape2D_ul2o7")
 [node name="ranged_attack_node" parent="RangedStateMachine" unique_id=1809071044 instance=ExtResource("7_ypdm1")]
 
 [node name="Vision" parent="." unique_id=340150669 instance=ExtResource("3_mvi7f")]
-detection_radius = 600.0
+detection_radius = 1500.0
 
 [node name="LoseTargetTimer" type="Timer" parent="." unique_id=940938665]
 wait_time = 4.0
