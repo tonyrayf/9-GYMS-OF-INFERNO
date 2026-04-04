@@ -15,6 +15,7 @@ func enter() -> void:
 	
 func exit() -> void:
 	set_physics_process(false)
+	enemy.state_node.on_exit()
 
 func _ready() -> void:
 	if not path_to_follow:

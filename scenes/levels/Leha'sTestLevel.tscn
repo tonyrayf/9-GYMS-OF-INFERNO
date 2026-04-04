@@ -10,7 +10,6 @@ _data = {
 point_count = 7
 
 [node name="Level1" type="Node2D" unique_id=106251467]
-position = Vector2(-89, -55)
 
 [node name="test_path" type="Path2D" parent="." unique_id=1636877340]
 position = Vector2(373, 19.000011)
@@ -25,6 +24,6 @@ position = Vector2(96, 57)
 path_to_follow = NodePath("../../../test_path")
 
 [node name="DetectHitbox" parent="." unique_id=863679224 instance=ExtResource("2_olfml")]
-position = Vector2(321, 332)
+position = Vector2(227, 1092)
 
 [editable path="Enemy"]

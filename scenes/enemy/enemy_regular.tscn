@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b7xogisgrj488" path="res://nodes/state_node.tscn" id="3_lv24u"]
 [ext_resource type="PackedScene" uid="uid://ddslmwbpca3pq" path="res://nodes/patrol_node.tscn" id="4_dq3v8"]
 [ext_resource type="PackedScene" uid="uid://dfbaai843j3aq" path="res://nodes/attack_node.tscn" id="6_o4ugq"]
-[ext_resource type="Script" path="res://scripts/enemy/attack_script.gd" id="7_82oub"]
+[ext_resource type="Script" uid="uid://dwmt0077pdpyo" path="res://scripts/enemy/attack_script.gd" id="7_82oub"]
 [ext_resource type="PackedScene" uid="uid://bhhd2awumwmfl" path="res://nodes/death_node.tscn" id="8_82oub"]
+[ext_resource type="PackedScene" uid="uid://dxnly5cq2feps" path="res://scenes/detect_hitbox.tscn" id="9_fa78f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 45.01111
@@ -32,3 +33,6 @@ shape = SubResource("CircleShape2D_g2els")
 script = ExtResource("7_82oub")
 
 [node name="death_node" parent="state_node" unique_id=1649806453 instance=ExtResource("8_82oub")]
+
+[node name="Vision" parent="." unique_id=340150669 instance=ExtResource("9_fa78f")]
+scale = Vector2(3, 3)
