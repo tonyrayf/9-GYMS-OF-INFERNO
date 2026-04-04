@@ -13,8 +13,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 45.01111
 
-[node name="Enemy" type="RigidBody2D" unique_id=1614761449 groups=["enemy"]]
-gravity_scale = 0.0
+[node name="Enemy" type="CharacterBody2D" unique_id=1657433947 groups=["enemy"]]
 script = ExtResource("1_7tubb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747581024]
