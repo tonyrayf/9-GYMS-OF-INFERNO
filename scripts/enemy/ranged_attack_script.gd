@@ -37,7 +37,6 @@ func _physics_process(_delta: float) -> void:
 	a.distance_to(last_player_pos) > enemy.attack_range*0.4:
 		if not attack_cooldown_flag:
 			get_tree().create_timer(2.0).timeout.connect(_on_done.bind(b))
-			#Global.spawn_damage_hitbox(enemy.damage,vision_area.current_body.global_position,Global.Attacker.ENEMY,100)
 			attack_cooldown_flag = true
 			attack_cooldown_timer.start()
 	

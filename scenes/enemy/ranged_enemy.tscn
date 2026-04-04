@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bt0yq0qflwfu"]
 
 [ext_resource type="Script" uid="uid://braj51qvjpv05" path="res://scripts/enemy/enemy_script.gd" id="1_olk6i"]
-[ext_resource type="Texture2D" uid="uid://bynbh8ijqa23a" path="res://assets/sprites/enemy_ranged.png" id="1_w87q7"]
 [ext_resource type="Script" uid="uid://ufyufsglq1sm" path="res://scripts/sprite_script.gd" id="2_5l6pi"]
+[ext_resource type="Texture2D" uid="uid://de7713o572odn" path="res://assets/sprites/ranger.png" id="2_olk6i"]
 [ext_resource type="PackedScene" uid="uid://dxnly5cq2feps" path="res://scenes/detect_hitbox.tscn" id="3_mvi7f"]
 [ext_resource type="PackedScene" uid="uid://c2kdsn64jbkp2" path="res://nodes/ranged_state_machine_node.tscn" id="3_npp3m"]
 [ext_resource type="PackedScene" uid="uid://ddslmwbpca3pq" path="res://nodes/patrol_node.tscn" id="4_ypdm1"]
@@ -21,7 +21,7 @@ attack_range = 900.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=487829434]
 scale = Vector2(0.23910257, 0.23910257)
-texture = ExtResource("1_w87q7")
+texture = ExtResource("2_olk6i")
 script = ExtResource("2_5l6pi")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=958945757]

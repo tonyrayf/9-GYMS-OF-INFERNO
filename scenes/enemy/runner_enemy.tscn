@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://c0s7ucidtkxvh" path="res://nodes/runner_state_machine_node.tscn" id="4_3kxfm"]
 [ext_resource type="PackedScene" uid="uid://bhhd2awumwmfl" path="res://nodes/death_node.tscn" id="5_x3ob2"]
 [ext_resource type="PackedScene" uid="uid://ddslmwbpca3pq" path="res://nodes/patrol_node.tscn" id="6_kuw3e"]
+[ext_resource type="PackedScene" uid="uid://c5inhhx8md38c" path="res://nodes/runner_attack_node.tscn" id="7_3kxfm"]
 [ext_resource type="PackedScene" uid="uid://dxnly5cq2feps" path="res://scenes/detect_hitbox.tscn" id="7_7d574"]
-[ext_resource type="Script" uid="uid://717llsxnajb7" path="res://scripts/enemy/runner_attack_script.gd" id="7_qpb7b"]
+[ext_resource type="Script" uid="uid://ch0ymjhwwv318" path="res://scripts/enemy/stunned_script.gd" id="8_3kxfm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_00d2t"]
 radius = 45.01111
@@ -29,8 +30,10 @@ shape = SubResource("CircleShape2D_00d2t")
 
 [node name="patrol_node" parent="RunnerStateMachine" unique_id=830549236 instance=ExtResource("6_kuw3e")]
 
-[node name="runner_attack_node" type="Node" parent="RunnerStateMachine" unique_id=1858441144]
-script = ExtResource("7_qpb7b")
+[node name="runner_attack_node" parent="RunnerStateMachine" unique_id=2080454364 instance=ExtResource("7_3kxfm")]
+
+[node name="stunned_node" type="Node" parent="RunnerStateMachine" unique_id=432455176]
+script = ExtResource("8_3kxfm")
 
 [node name="Vision" parent="." unique_id=340150669 instance=ExtResource("7_7d574")]
 detection_radius = 350.0
