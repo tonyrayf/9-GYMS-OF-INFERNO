@@ -4,8 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dfibdbujutaw4" path="res://assets/sprites/IMG_20260404_170357_013.png" id="2_lvxji"]
 [ext_resource type="Texture2D" uid="uid://djm7oui3ss80" path="res://assets/sprites/shadow.png" id="2_p47bc"]
 [ext_resource type="Material" uid="uid://brw0ci8n76jlh" path="res://shaders/faster_mat.tres" id="3_lvxji"]
-[ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="4_lvxji"]
 [ext_resource type="Material" uid="uid://cn1hggvk3yf8u" path="res://shaders/vignette.tres" id="5_75vfm"]
+[ext_resource type="Texture2D" uid="uid://dqpu0n6fhktqv" path="res://assets/sprites/шкала здоровья.png" id="6_qek5x"]
+[ext_resource type="Texture2D" uid="uid://didd2l1qiijh7" path="res://assets/sprites/шкала здоровья линия.png" id="7_5gtgg"]
+[ext_resource type="Texture2D" uid="uid://irf5hpnuv5ni" path="res://assets/sprites/шкала манылиния.png" id="8_h17s1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 45.01111
@@ -40,29 +42,13 @@ material = ExtResource("5_75vfm")
 offset_right = 1937.0
 offset_bottom = 1097.0
 
-[node name="BackBufferCopy" type="BackBufferCopy" parent="CanvasLayer" unique_id=2009732532]
-position = Vector2(950.5, 523)
-scale = Vector2(10.505, 6.23)
-
 [node name="ColorRect_Faster" type="ColorRect" parent="CanvasLayer" unique_id=433167855]
 visible = false
 material = ExtResource("3_lvxji")
 offset_right = 1937.0
 offset_bottom = 1097.0
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=728120266]
-offset_left = 133.0
-offset_top = 110.0
-offset_right = 528.0
-offset_bottom = 129.0
-max_value = 1.0
-step = 0.01
-value = 1.0
-nine_patch_stretch = true
-texture_under = ExtResource("4_lvxji")
-texture_progress = ExtResource("4_lvxji")
-tint_under = Color(0.7756207, 0.29858285, 0.9748538, 1)
-tint_progress = Color(0.96862745, 0, 0, 1)
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1387557800]
 
 [node name="Style" type="Label" parent="CanvasLayer" unique_id=977114152]
 offset_left = 157.0
@@ -71,3 +57,40 @@ offset_right = 461.0
 offset_bottom = 950.0
 text = "STRONGER"
 label_settings = SubResource("LabelSettings_gmlin")
+
+[node name="ШкалаЗдоровья" type="Sprite2D" parent="CanvasLayer" unique_id=1137647940]
+position = Vector2(310, 129.495)
+scale = Vector2(3.4374986, 3.4374986)
+texture = ExtResource("6_qek5x")
+
+[node name="ШкалаЗдоровья2" type="Sprite2D" parent="CanvasLayer" unique_id=167393719]
+position = Vector2(310, 192.595)
+scale = Vector2(3.4374986, 3.4374986)
+texture = ExtResource("6_qek5x")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=728120266]
+offset_left = 155.0
+offset_top = 115.555
+offset_right = 464.0
+offset_bottom = 142.55475
+max_value = 1.0
+step = 0.01
+value = 1.0
+nine_patch_stretch = true
+texture_under = ExtResource("6_qek5x")
+texture_progress = ExtResource("7_5gtgg")
+tint_under = Color(0.7756207, 0.29858285, 0.9748538, 1)
+tint_progress = Color(0.96862745, 0, 0, 1)
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="CanvasLayer" unique_id=558900916]
+offset_left = 155.0
+offset_top = 179.0
+offset_right = 464.0
+offset_bottom = 205.99976
+max_value = 1.0
+step = 0.01
+value = 1.0
+nine_patch_stretch = true
+texture_progress = ExtResource("8_h17s1")
+tint_under = Color(0.7756207, 0.29858285, 0.9748538, 1)
+tint_progress = Color(0.6370646, 0.784852, 0.96493226, 1)
