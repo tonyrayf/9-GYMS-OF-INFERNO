@@ -27,10 +27,22 @@ func _process(delta: float) -> void:
 		
 	if (current_state=="patrol"):
 		if (vision_zone.current_body_name=="Player"):
-			change_state("attack")
+			if(Global.active_now_enemies<Global.active_max_enemies):
+				change_state("attack")
+			else:
+				change_state("waiting")	
 	elif (current_state=="attack"):
 		if (vision_zone.current_body_name=="Player"):
 			lose_target_timer.stop() 
+		else:
+			if not enemy.moving: 
+				if lose_target_timer.is_stopped():
+					lose_target_timer.start()
+	elif (current_state=="waiting"):
+		if (vision_zone.current_body_name=="Player"):
+			lose_target_timer.stop() 
+			if(Global.active_now_enemies<Global.active_max_enemies):
+				change_state("attack")
 		else:
 			if not enemy.moving: 
 				if lose_target_timer.is_stopped():

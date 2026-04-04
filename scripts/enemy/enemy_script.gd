@@ -10,7 +10,7 @@ var current_speed
 
 @export_group("Stats")
 @export var health: float = 100.0
-@export var damage: float = 10.0
+@export var damage: float = 1.0
 @export var attack_cooldown: float = 1.0
 @export var attack_range: float = 200.0
 

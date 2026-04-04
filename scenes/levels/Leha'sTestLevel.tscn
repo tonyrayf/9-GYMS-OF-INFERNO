@@ -10,6 +10,12 @@ _data = {
 }
 point_count = 6
 
+[sub_resource type="Curve2D" id="Curve2D_5hrp4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -552, -19, 0, 0, 0, 0, -624, 238, 0, 0, 0, 0, -411, 376, 0, 0, 0, 0, -97, 116, 0, 0, 0, 0, -351, -252, 0, 0, 0, 0, -919, -242, 0, 0, 0, 0, -875, 194, 0, 0, 0, 0, -715, 69, 0, 0, 0, 0, -552, -19)
+}
+point_count = 9
+
 [node name="Level1" type="Node2D" unique_id=106251467]
 
 [node name="Player" parent="." unique_id=1281337577 instance=ExtResource("3_vcst1")]
@@ -23,10 +29,13 @@ position = Vector2(38, 28)
 curve = SubResource("Curve2D_vcst1")
 
 [node name="Enemy" parent="." unique_id=1657433947 instance=ExtResource("1_mbhkc")]
-position = Vector2(367, 869)
+position = Vector2(147, 951)
 
 [node name="Enemy2" parent="." unique_id=1413445107 instance=ExtResource("1_mbhkc")]
-position = Vector2(1598, 897)
+position = Vector2(1758, 953)
+
+[node name="patrol_node" parent="Enemy2/state_node" parent_id_path=PackedInt32Array(1413445107, 1597899314) index="0" unique_id=830549236 node_paths=PackedStringArray("path_to_follow")]
+path_to_follow = NodePath("../../../Enemy2Path")
 
 [node name="Enemy3" parent="." unique_id=250762242 instance=ExtResource("1_mbhkc")]
 position = Vector2(970, 194)
@@ -34,4 +43,8 @@ position = Vector2(970, 194)
 [node name="patrol_node" parent="Enemy3/state_node" parent_id_path=PackedInt32Array(250762242, 1597899314) index="0" unique_id=830549236 node_paths=PackedStringArray("path_to_follow")]
 path_to_follow = NodePath("../../../Enemy3Path")
 
+[node name="Enemy2Path" type="Path2D" parent="." unique_id=1536675265]
+curve = SubResource("Curve2D_5hrp4")
+
+[editable path="Enemy2"]
 [editable path="Enemy3"]

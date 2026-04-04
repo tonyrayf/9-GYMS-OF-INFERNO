@@ -7,11 +7,14 @@ var attack_cooldown_timer
 var attack_cooldown_flag: bool = false
 
 func enter() -> void:
+	Global.active_now_enemies += 1
+	print("active now: "+str(Global.active_now_enemies))
 	enemy.current_speed = enemy.attack_speed
 	set_physics_process(true)
 	
-	
 func exit() -> void:
+	Global.active_now_enemies -= 1
+	print("active now: "+str(Global.active_now_enemies))
 	set_physics_process(false)
 
 func _ready() -> void:
