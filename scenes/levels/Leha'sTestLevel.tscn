@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="3_5hrp4"]
 [ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="3_vcst1"]
 [ext_resource type="PackedScene" uid="uid://bt0yq0qflwfu" path="res://scenes/enemy/ranged_enemy.tscn" id="4_5hrp4"]
+[ext_resource type="PackedScene" uid="uid://3ip5n2tjry85" path="res://scenes/enemy/runner_enemy.tscn" id="5_ff8rk"]
 
 [sub_resource type="Curve2D" id="Curve2D_vcst1"]
 _data = {
@@ -24,15 +25,18 @@ position = Vector2(38, 28)
 curve = SubResource("Curve2D_vcst1")
 
 [node name="Enemy1" parent="." unique_id=1657433947 instance=ExtResource("1_mbhkc")]
-position = Vector2(147, 951)
+position = Vector2(7, -163)
 
 [node name="Enemy3" parent="." unique_id=250762242 instance=ExtResource("1_mbhkc")]
-position = Vector2(970, 194)
+position = Vector2(1018, 84)
 
 [node name="patrol_node" parent="Enemy3/StateMachine" parent_id_path=PackedInt32Array(250762242, 1597899314) index="0" unique_id=830549236 node_paths=PackedStringArray("path_to_follow")]
 path_to_follow = NodePath("../../../Enemy3Path")
 
 [node name="EnemyRanged" parent="." unique_id=2055528447 instance=ExtResource("4_5hrp4")]
-position = Vector2(1836, 997)
+position = Vector2(2119, -34)
+
+[node name="RunnerEnemy" parent="." unique_id=897800292 instance=ExtResource("5_ff8rk")]
+position = Vector2(550, 976)
 
 [editable path="Enemy3"]
