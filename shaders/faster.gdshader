@@ -17,8 +17,7 @@ void fragment() {
     float b = texture(SCREEN_TEXTURE, uv - (uv - center) * strength * aberration * 0.01).b;
     
     vec3 effect_color = vec3(r, g, b);
-    //effect_color *= 1.0 - (dist * strength * 0.3);
-    effect_color.b += strength * 0.02;
+   	//effect_color *= 1.0 - (dist * strength * 0.3);
     
     vec3 final_color = mix(screen_color.rgb, effect_color, strength);
     

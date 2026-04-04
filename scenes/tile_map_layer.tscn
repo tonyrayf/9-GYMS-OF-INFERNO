@@ -1,19 +1,23 @@
 [gd_scene format=3 uid="uid://dwab0ac5ejsdu"]
 
-[ext_resource type="Texture2D" uid="uid://b0vpvfo17tbku" path="res://assets/sprites/bonfire.png" id="1_okeva"]
-[ext_resource type="Texture2D" uid="uid://vwp8gamed516" path="res://assets/sprites/floorbrick.png" id="2_o3fi6"]
+[ext_resource type="Texture2D" uid="uid://v1r27i8ldr1y" path="res://assets/sprites/пол.png" id="1_wipo8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_svatc"]
-texture = ExtResource("1_okeva")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_okeva"]
+texture = ExtResource("1_wipo8")
+texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ecr63"]
-texture = ExtResource("2_o3fi6")
-0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_n34uq"]
-sources/0 = SubResource("TileSetAtlasSource_svatc")
-sources/1 = SubResource("TileSetAtlasSource_ecr63")
+tile_size = Vector2i(48, 48)
+sources/2 = SubResource("TileSetAtlasSource_okeva")
 
 [node name="TileMapLayer" type="TileMapLayer" unique_id=430121727]
 tile_set = SubResource("TileSet_n34uq")

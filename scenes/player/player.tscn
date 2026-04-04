@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://djm7oui3ss80" path="res://assets/sprites/shadow.png" id="2_p47bc"]
 [ext_resource type="Material" uid="uid://brw0ci8n76jlh" path="res://shaders/faster_mat.tres" id="3_lvxji"]
 [ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="4_lvxji"]
+[ext_resource type="Material" uid="uid://cn1hggvk3yf8u" path="res://shaders/vignette.tres" id="5_75vfm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 45.01111
@@ -33,6 +34,15 @@ texture = ExtResource("2_lvxji")
 shape = SubResource("CircleShape2D_g2els")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=106143462]
+
+[node name="ColorRect_Vignette" type="ColorRect" parent="CanvasLayer" unique_id=62873421]
+material = ExtResource("5_75vfm")
+offset_right = 1937.0
+offset_bottom = 1097.0
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="CanvasLayer" unique_id=2009732532]
+position = Vector2(950.5, 523)
+scale = Vector2(10.505, 6.23)
 
 [node name="ColorRect_Faster" type="ColorRect" parent="CanvasLayer" unique_id=433167855]
 visible = false

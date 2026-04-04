@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cn1hggvk3yf8u"]
+
+[ext_resource type="Shader" uid="uid://bju33djinhcud" path="res://shaders/vignette.gdshader" id="1_gbuoh"]
+
+[resource]
+shader = ExtResource("1_gbuoh")
+shader_parameter/strength = 0.262000012445

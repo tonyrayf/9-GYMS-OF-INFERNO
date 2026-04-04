@@ -5,4 +5,4 @@
 [resource]
 shader = ExtResource("1_oca2m")
 shader_parameter/strength = 1.0
-shader_parameter/aberration = 2.000000095
+shader_parameter/aberration = 1.200000057

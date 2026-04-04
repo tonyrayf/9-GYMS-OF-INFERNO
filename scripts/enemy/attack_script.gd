@@ -27,7 +27,6 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	
 	if(vision_area.current_body_location!=Vector2.INF):
 		last_player_pos = vision_area.current_body_location
 	
