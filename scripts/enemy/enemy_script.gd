@@ -24,6 +24,9 @@ var target_pos
 var moving
 
 func move_to(target: Vector2) -> void:
+	if moving and target_pos.is_equal_approx(target):
+		return
+	
 	target_pos = target
 	moving = true
 	

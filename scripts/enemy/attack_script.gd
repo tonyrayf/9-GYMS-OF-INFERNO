@@ -19,4 +19,10 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if(vision_area.current_body_location!=Vector2.INF):
 		last_player_pos = vision_area.current_body_location
-	enemy.move_to(last_player_pos)
+	
+	#enemy.move_to(last_player_pos)
+	if enemy.global_position.distance_to(last_player_pos) > 10.0:
+		enemy.move_to(last_player_pos)
+	else:
+		enemy.moving = false
+		enemy.velocity = Vector2.ZERO

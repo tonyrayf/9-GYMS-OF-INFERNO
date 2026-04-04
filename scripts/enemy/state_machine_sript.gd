@@ -25,8 +25,13 @@ func _process(delta: float) -> void:
 			change_state("attack")
 	elif (current_state=="attack"):
 		if (vision_zone.current_body_name=="Player"):
-			lose_target_timer.start() 
-			
+			lose_target_timer.stop() 
+		else:
+			if not enemy.moving: 
+				if lose_target_timer.is_stopped():
+					lose_target_timer.start()
+	
+	
 func _on_target_lost() -> void:
 	change_state("patrol")
 			
