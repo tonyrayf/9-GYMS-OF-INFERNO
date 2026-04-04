@@ -35,6 +35,7 @@ shape = SubResource("CircleShape2D_g2els")
 [node name="waiting_node" parent="StateMachine" unique_id=1415356871 instance=ExtResource("8_fa78f")]
 
 [node name="Vision" parent="." unique_id=340150669 instance=ExtResource("9_fa78f")]
+detection_radius = 250.0
 
 [node name="LoseTargetTimer" type="Timer" parent="." unique_id=1295276921]
 wait_time = 2.0

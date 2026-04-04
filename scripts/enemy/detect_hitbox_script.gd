@@ -1,5 +1,6 @@
 extends Area2D
 
+@export var detection_radius: float = 250.0
 var detected_entity_name = "Player"
 
 var current_body: Node2D
@@ -7,6 +8,10 @@ var current_body_name: String
 var current_body_location: Vector2
 
 func _ready() -> void:
+	var vision_shape = $CollisionShape2D
+	vision_shape.shape = vision_shape.shape.duplicate()
+	if vision_shape.shape is CircleShape2D:
+		vision_shape.shape.radius = detection_radius
 	set_physics_process(false)
 
 func _on_body_entered(body: Node2D) -> void:

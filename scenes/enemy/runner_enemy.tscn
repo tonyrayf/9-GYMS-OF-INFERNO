@@ -33,5 +33,6 @@ shape = SubResource("CircleShape2D_00d2t")
 script = ExtResource("7_qpb7b")
 
 [node name="Vision" parent="." unique_id=340150669 instance=ExtResource("7_7d574")]
+detection_radius = 350.0
 
 [editable path="RunnerStateMachine"]
