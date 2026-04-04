@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dfbaai843j3aq"]
 
-[ext_resource type="Script" uid="uid://dwmt0077pdpyo" path="res://scripts/enemy/attack_script.gd" id="1_h5vsk"]
+[ext_resource type="Script" uid="uid://dwmt0077pdpyo" path="res://scripts/enemy/attack_script.gd" id="1_sfk7x"]
 
-[node name="regular_attack_node" type="Node" unique_id=1210613329]
-script = ExtResource("1_h5vsk")
+[node name="attack_node" type="Node" unique_id=1210613329]
+script = ExtResource("1_sfk7x")

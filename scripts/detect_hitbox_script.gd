@@ -1,6 +1,6 @@
 extends Area2D
 
-var detected_entity_name = "Player"
+var detectid_entity_name = "Player"
 
 var current_body: Node2D
 var current_body_name: String
@@ -12,7 +12,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body==get_parent():
 		return
-	if detected_entity_name!=body.name:
+	if detectid_entity_name!=body.name:
 		return
 	current_body = body
 	current_body_name = body.name

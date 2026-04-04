@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://bny12kkfd15r0"]
-
-[ext_resource type="Script" uid="uid://dbssgmx34g23u" path="res://scripts/enemy/ranged_attack_script.gd" id="1_61rrk"]
-
-[node name="ranged_attack_node" type="Node" unique_id=1809071044]
-script = ExtResource("1_61rrk")

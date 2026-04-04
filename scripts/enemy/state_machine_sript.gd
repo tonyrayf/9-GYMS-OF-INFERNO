@@ -1,7 +1,7 @@
 extends Node
 
 #states
-#patrol attack death waiting
+#patrol attack death
 var current_state = "placeholder"
 @onready var enemy = get_parent()
 var vision_zone
