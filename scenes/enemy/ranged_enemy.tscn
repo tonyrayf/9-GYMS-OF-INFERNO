@@ -20,7 +20,7 @@ attack_cooldown = 3.0
 attack_range = 900.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=487829434]
-scale = Vector2(0.23910257, 0.23910257)
+scale = Vector2(7, 7)
 texture = ExtResource("2_olk6i")
 script = ExtResource("2_5l6pi")
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://3ip5n2tjry85"]
 
 [ext_resource type="Script" uid="uid://braj51qvjpv05" path="res://scripts/enemy/enemy_script.gd" id="1_q3o4c"]
-[ext_resource type="Texture2D" uid="uid://bhc6uuh3vtxg8" path="res://assets/sprites/enemy_runner.png" id="2_qpb7b"]
+[ext_resource type="Texture2D" uid="uid://xctnxp44d5t5" path="res://assets/sprites/fastenemy.png" id="2_3kxfm"]
 [ext_resource type="Script" uid="uid://ufyufsglq1sm" path="res://scripts/sprite_script.gd" id="3_qpb7b"]
 [ext_resource type="PackedScene" uid="uid://c0s7ucidtkxvh" path="res://nodes/runner_state_machine_node.tscn" id="4_3kxfm"]
 [ext_resource type="PackedScene" uid="uid://bhhd2awumwmfl" path="res://nodes/death_node.tscn" id="5_x3ob2"]
@@ -17,8 +17,9 @@ radius = 45.01111
 script = ExtResource("1_q3o4c")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2034984166]
-scale = Vector2(0.23910257, 0.23910257)
-texture = ExtResource("2_qpb7b")
+position = Vector2(0, -9)
+scale = Vector2(7, 11.11)
+texture = ExtResource("2_3kxfm")
 script = ExtResource("3_qpb7b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1651581231]
