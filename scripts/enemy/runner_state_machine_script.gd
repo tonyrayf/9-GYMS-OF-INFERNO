@@ -25,4 +25,5 @@ func _physics_process(delta: float) -> void:
 			constant_target = vision_zone.current_body
 			change_state("runner_attack")
 	elif (current_state=="runner_attack"):
-		pass
+		if(enemy.get_slide_collision_count()>0):
+			print("врезался")
