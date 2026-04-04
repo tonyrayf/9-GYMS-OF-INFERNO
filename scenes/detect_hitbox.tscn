@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dxnly5cq2feps"]
 
-[ext_resource type="Script" uid="uid://wu27mhbosqi8" path="res://scripts/detect_hitbox_script.gd" id="1_cu57t"]
+[ext_resource type="Script" uid="uid://wu27mhbosqi8" path="res://scripts/enemy/detect_hitbox_script.gd" id="1_cu57t"]
 [ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="2_1p2n8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7jxbo"]
-radius = 114.00439
+radius = 353.01276
 
 [node name="DetectHitbox" type="Area2D" unique_id=340150669]
 script = ExtResource("1_cu57t")
