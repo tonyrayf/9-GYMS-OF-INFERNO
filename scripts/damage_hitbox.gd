@@ -1,6 +1,5 @@
 extends Area2D
 
-
 @export var damage : float
 @export var collision_radius : float
 @export var sphere_collision : CircleShape2D

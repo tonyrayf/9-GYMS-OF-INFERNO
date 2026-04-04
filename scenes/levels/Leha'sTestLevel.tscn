@@ -1,27 +1,37 @@
 [gd_scene format=3 uid="uid://donakoc8kfgdr"]
 
 [ext_resource type="PackedScene" uid="uid://ixnf6jqlqi8n" path="res://scenes/enemy/enemy_regular.tscn" id="1_mbhkc"]
+[ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="3_5hrp4"]
 [ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="3_vcst1"]
 
-[sub_resource type="Curve2D" id="Curve2D_mbhkc"]
+[sub_resource type="Curve2D" id="Curve2D_vcst1"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -31.000046, 73.00003, 0, 0, 0, 0, 64.999954, 379.00003, 0, 0, 0, 0, 217.99995, 553, 0, 0, 0, 0, 1233, 589, 0, 0, 0, 0, 1533, 319.00003, 0, 0, 0, 0, 648.99994, -167.99997, 0, 0, 0, 0, 59.999954, -40.99997, 0, 0, 0, 0, 47.799984, 16.600006, 0, 0, 0, 0, -31.000046, 73.00003)
+"points": PackedVector2Array(0, 0, 0, 0, 135, 429, 0, 0, 0, 0, 1783, 458, 0, 0, 0, 0, 1795, 87, 0, 0, 0, 0, 295, 62, 0, 0, 0, 0, 217, 357, 0, 0, 0, 0, 135, 429)
 }
-point_count = 9
+point_count = 6
 
 [node name="Level1" type="Node2D" unique_id=106251467]
 
-[node name="test_path" type="Path2D" parent="." unique_id=1636877340]
-position = Vector2(191.00005, 391.99997)
-curve = SubResource("Curve2D_mbhkc")
-
-[node name="Enemy" parent="." unique_id=1614761449 instance=ExtResource("1_mbhkc")]
-position = Vector2(96, 57)
-
-[node name="patrol_node" parent="Enemy/state_node" parent_id_path=PackedInt32Array(1614761449, 1597899314) index="0" unique_id=830549236 node_paths=PackedStringArray("path_to_follow")]
-path_to_follow = NodePath("../../../test_path")
-
 [node name="Player" parent="." unique_id=1281337577 instance=ExtResource("3_vcst1")]
-position = Vector2(1731, 150)
+position = Vector2(1011, 998)
 
-[editable path="Enemy"]
+[node name="Camera" parent="." unique_id=197222917 instance=ExtResource("3_5hrp4")]
+position = Vector2(957, 537)
+
+[node name="Enemy3Path" type="Path2D" parent="." unique_id=547400003]
+position = Vector2(38, 28)
+curve = SubResource("Curve2D_vcst1")
+
+[node name="Enemy" parent="." unique_id=1657433947 instance=ExtResource("1_mbhkc")]
+position = Vector2(367, 869)
+
+[node name="Enemy2" parent="." unique_id=1413445107 instance=ExtResource("1_mbhkc")]
+position = Vector2(1598, 897)
+
+[node name="Enemy3" parent="." unique_id=250762242 instance=ExtResource("1_mbhkc")]
+position = Vector2(970, 194)
+
+[node name="patrol_node" parent="Enemy3/state_node" parent_id_path=PackedInt32Array(250762242, 1597899314) index="0" unique_id=830549236 node_paths=PackedStringArray("path_to_follow")]
+path_to_follow = NodePath("../../../Enemy3Path")
+
+[editable path="Enemy3"]

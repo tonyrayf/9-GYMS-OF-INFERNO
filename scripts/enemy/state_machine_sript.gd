@@ -3,15 +3,20 @@ extends Node
 #states
 #patrol attack death
 var current_state = "placeholder"
-var enemy
+@onready var enemy = get_parent()
 var vision_zone
 var lose_target_timer
 
 func _ready() -> void:
-	enemy = get_parent()
 	vision_zone = get_node("../Vision")
 	lose_target_timer = get_node("../LoseTargetTimer")
 	lose_target_timer.timeout.connect(_on_target_lost)
+	
+	for child in get_children():
+		if "enemy" in child:
+			child.enemy = enemy
+	
+	await get_tree().process_frame
 	
 	change_state("patrol",false)
 

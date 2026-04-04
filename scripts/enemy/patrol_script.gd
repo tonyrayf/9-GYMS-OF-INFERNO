@@ -4,6 +4,7 @@ extends Node
 var enemy
 var curve: Curve2D
 var progress = 0.0
+var no_path_pos: Vector2
 
 func enter() -> void:
 	enemy.current_speed = enemy.patrol_speed
@@ -12,7 +13,9 @@ func enter() -> void:
 		var local_pos = path_to_follow.to_local(enemy.global_position)
 		progress = curve.get_closest_offset(local_pos)
 		var target_pos = path_to_follow.to_global(curve.sample_baked(progress))
-		enemy.move_to(target_pos)
+		enemy.move_to(target_pos,0)
+	if enemy:
+		enemy.move_to(no_path_pos,10)
 	
 func exit() -> void:
 	set_physics_process(false)
@@ -22,10 +25,11 @@ func exit() -> void:
 
 func _ready() -> void:
 	set_physics_process(false)
+	enemy = get_parent().get_parent()
 	if not path_to_follow:
 		printerr("Не назначен путь")
+		no_path_pos = enemy.global_position
 		return
-	enemy = get_parent().get_parent()
 	curve = path_to_follow.curve
 	
 func _physics_process(delta: float) -> void:
@@ -37,4 +41,4 @@ func _physics_process(delta: float) -> void:
 		progress = 0.0
 		
 	var target_pos = path_to_follow.to_global(curve.sample_baked(progress))
-	enemy.move_to(target_pos)
+	enemy.move_to(target_pos,0)

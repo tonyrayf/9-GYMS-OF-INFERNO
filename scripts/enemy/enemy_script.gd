@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export_group("Movement")
 @export var patrol_speed: float = 150.0
 @export var attack_speed: float = 300.0
+@export var waiting_speed: float = 300.0
 
 var current_speed
 
@@ -15,7 +16,7 @@ var current_speed
 
 var look_vector
 var move_direction
-
+var personal_space
 
 func deal_damage(damage: float) -> void:
 	health -= damage
@@ -29,8 +30,9 @@ func _process(delta: float,personal_space: float=100) -> void:
 var target_pos
 var moving
 
-func move_to(target: Vector2,personal_space: float = 100) -> void:
+func move_to(target: Vector2,space: float = 100) -> void:
 	target_pos = target
+	personal_space = space
 	
 	if global_position.distance_to(target_pos) < personal_space:
 			moving = false
@@ -41,7 +43,7 @@ func move_to(target: Vector2,personal_space: float = 100) -> void:
 	
 func _physics_process(_delta: float) -> void:
 	if moving:
-		if global_position.distance_to(target_pos) < 105.0:
+		if global_position.distance_to(target_pos) < personal_space:
 			moving = false
 			velocity = Vector2.ZERO
 			return
