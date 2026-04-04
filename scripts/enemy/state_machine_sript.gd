@@ -5,11 +5,15 @@ extends Node
 var current_state = "placeholder"
 var enemy
 var vision_zone
+var lose_target_timer
 
 func _ready() -> void:
-	change_state("patrol",false)
 	enemy = get_parent()
 	vision_zone = get_node("../Vision")
+	lose_target_timer = get_node("../LoseTargetTimer")
+	lose_target_timer.timeout.connect(_on_target_lost)
+	
+	change_state("patrol",false)
 
 func _process(delta: float) -> void:
 	if (enemy.health<=0):
@@ -19,6 +23,12 @@ func _process(delta: float) -> void:
 	if (current_state=="patrol"):
 		if (vision_zone.current_body_name=="Player"):
 			change_state("attack")
+	elif (current_state=="attack"):
+		if (vision_zone.current_body_name=="Player"):
+			lose_target_timer.start() 
+			
+func _on_target_lost() -> void:
+	change_state("patrol")
 			
 func change_state(to_state: String,do_exit: bool = true) -> void:
 	if not (current_state==to_state):
@@ -26,3 +36,4 @@ func change_state(to_state: String,do_exit: bool = true) -> void:
 			get_node(current_state+"_node").exit()
 		current_state = to_state
 		get_node(to_state+"_node").enter()
+		print(enemy.name+" went to "+current_state)

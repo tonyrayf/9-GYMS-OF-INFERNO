@@ -1,18 +1,22 @@
 extends Node
 
 var enemy
+var vision_area
+var last_player_pos
 
 func enter() -> void:
 	set_physics_process(true)
 	
 func exit() -> void:
 	set_physics_process(false)
-	enemy.state_node.on_exit()
 
 func _ready() -> void:
 	enemy = get_parent().get_parent()
+	vision_area = enemy.get_node("Vision")
 	set_physics_process(false) 
 
 
 func _physics_process(_delta: float) -> void:
-	print(enemy.name+" ENTERED ATTACKING STATE!")
+	if(vision_area.current_body_location!=Vector2.INF):
+		last_player_pos = vision_area.current_body_location
+	enemy.move_to(last_player_pos)

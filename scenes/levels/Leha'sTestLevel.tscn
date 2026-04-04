@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ixnf6jqlqi8n" path="res://scenes/enemy/enemy_regular.tscn" id="1_mbhkc"]
 [ext_resource type="PackedScene" uid="uid://dxnly5cq2feps" path="res://scenes/detect_hitbox.tscn" id="2_olfml"]
+[ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="3_vcst1"]
 
 [sub_resource type="Curve2D" id="Curve2D_mbhkc"]
 _data = {
@@ -25,5 +26,8 @@ path_to_follow = NodePath("../../../test_path")
 
 [node name="DetectHitbox" parent="." unique_id=863679224 instance=ExtResource("2_olfml")]
 position = Vector2(227, 1092)
+
+[node name="Player" parent="." unique_id=1281337577 instance=ExtResource("3_vcst1")]
+position = Vector2(442, 329)
 
 [editable path="Enemy"]
