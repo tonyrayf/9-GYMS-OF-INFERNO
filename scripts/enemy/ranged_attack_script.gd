@@ -58,7 +58,7 @@ func _resume_motion() -> void:
 	enemy.set_physics_process(true)
 	
 func _attack_land() -> void:
-	Global.spawn_damage_hitbox(enemy.damage,saved_pos,Global.Attacker.ENEMY,enemy.attack_range)
+	Global.spawn_damage_hitbox(enemy.damage,saved_pos,Global.Attacker.ENEMY,100)
 	
 func _on_attack_cooldown() -> void:
 	attack_cooldown_flag = false

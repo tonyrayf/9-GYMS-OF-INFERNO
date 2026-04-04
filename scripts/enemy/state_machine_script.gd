@@ -15,16 +15,14 @@ func _ready() -> void:
 	for child in get_children():
 		if "enemy" in child:
 			child.enemy = enemy
-	
 	await get_tree().process_frame
-	
 	change_state("patrol",false)
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if (enemy.health<=0):
 		change_state("death")
 		return
-		
+	
 	if (current_state=="patrol"):
 		if (vision_zone.current_body_name=="Player"):
 			if(Global.active_now_enemies<Global.active_max_enemies):

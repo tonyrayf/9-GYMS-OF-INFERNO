@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c0s7ucidtkxvh"]
+
+[ext_resource type="Script" uid="uid://deuwvwtpifueo" path="res://scripts/enemy/runner_state_machine_script.gd" id="1_3ucl7"]
+
+[node name="RunnerStateMachine" type="Node" unique_id=324899220]
+script = ExtResource("1_3ucl7")
