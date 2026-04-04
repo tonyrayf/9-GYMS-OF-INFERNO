@@ -28,7 +28,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if speed and progress:
 		progress += speed * delta
-		
+	
 	if curve and progress and progress > curve.get_baked_length():
 		progress = 0.0
 		

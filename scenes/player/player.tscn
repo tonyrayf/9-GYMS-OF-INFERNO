@@ -1,24 +1,37 @@
 [gd_scene format=3 uid="uid://bdtpol41yul1o"]
 
 [ext_resource type="Script" uid="uid://px1lx8svw37x" path="res://scripts/player_script.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://480ifahfe6ln" path="res://assets/sprites/character.webp" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://dfibdbujutaw4" path="res://assets/sprites/IMG_20260404_170357_013.png" id="2_lvxji"]
+[ext_resource type="Material" uid="uid://brw0ci8n76jlh" path="res://shaders/faster_mat.tres" id="3_lvxji"]
 [ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="4_lvxji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 45.01111
 
-[node name="Player" type="CharacterBody2D" unique_id=1281337577 node_paths=PackedStringArray("health_bar") groups=["player"]]
+[sub_resource type="LabelSettings" id="LabelSettings_gmlin"]
+font_size = 58
+
+[node name="Player" type="CharacterBody2D" unique_id=1281337577 node_paths=PackedStringArray("health_bar", "style_label", "color_rect_faster", "sprite") groups=["player"]]
 script = ExtResource("1_g2els")
 health_bar = NodePath("CanvasLayer/TextureProgressBar")
+style_label = NodePath("CanvasLayer/Style")
+color_rect_faster = NodePath("CanvasLayer/ColorRect_Faster")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747581024]
-scale = Vector2(0.23910257, 0.23910257)
-texture = ExtResource("2_g2els")
+scale = Vector2(7.795, 7.795)
+texture = ExtResource("2_lvxji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251935809]
 shape = SubResource("CircleShape2D_g2els")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=106143462]
+
+[node name="ColorRect_Faster" type="ColorRect" parent="CanvasLayer" unique_id=433167855]
+visible = false
+material = ExtResource("3_lvxji")
+offset_right = 1937.0
+offset_bottom = 1097.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=728120266]
 offset_left = 133.0
@@ -33,3 +46,11 @@ texture_under = ExtResource("4_lvxji")
 texture_progress = ExtResource("4_lvxji")
 tint_under = Color(0.7756207, 0.29858285, 0.9748538, 1)
 tint_progress = Color(0.96862745, 0, 0, 1)
+
+[node name="Style" type="Label" parent="CanvasLayer" unique_id=977114152]
+offset_left = 157.0
+offset_top = 871.0
+offset_right = 461.0
+offset_bottom = 950.0
+text = "STRONGER"
+label_settings = SubResource("LabelSettings_gmlin")

@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://brw0ci8n76jlh"]
+
+[ext_resource type="Shader" uid="uid://djdldw0e3hl5o" path="res://shaders/faster.gdshader" id="1_oca2m"]
+
+[resource]
+shader = ExtResource("1_oca2m")
+shader_parameter/strength = 1.0
+shader_parameter/aberration = 2.000000095

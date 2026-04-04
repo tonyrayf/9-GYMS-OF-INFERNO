@@ -4,7 +4,7 @@ extends CharacterBody2D
 # Разделение переменных по массиву идет вот так - Stronger/Harder/Faster/Better
 @export_group("Movement")
 @export var speed : float = 480
-@export var speed_shfb : Array = [470, 420, 520, 520]
+@export var speed_shfb : Array = [470, 420, 780, 520]
 @export var S : float = 520
 @export var last_direction : Vector2 = Vector2(1, 1)
 @export var direction := last_direction
@@ -39,6 +39,9 @@ enum Mode { STRONGER, HARDER, FASTER, BETTER }
 
 @export_group("References")
 @export var health_bar : Node
+@export var style_label : Node
+@export var color_rect_faster : Node
+@export var sprite : Node
 
 @export_group("Visual params")
 @export var stronger_punch_shake_amplitude : float = 40
@@ -47,6 +50,7 @@ enum Mode { STRONGER, HARDER, FASTER, BETTER }
 
 
 @onready var damage_hitbox_scene := preload("res://scenes/damage_hitbox.tscn")
+@onready var sprite_scale_x : float = sprite.scale.x
 
 
 func change_mode(mode: int) -> void:
@@ -58,6 +62,22 @@ func change_mode(mode: int) -> void:
 	take_damage_multi = take_damage_multi_shfb[mode]
 	punch_time = punch_time_shfb[mode]
 	kick_time = kick_time_shfb[mode]
+	
+	Engine.time_scale = 1.0
+	
+	match mode:
+		Mode.STRONGER:
+			style_label.text = "STRONGER"
+			toggle_faster_shader(false)
+		
+		Mode.HARDER:
+			style_label.text = "HARDER"
+			toggle_faster_shader(false)
+		
+		Mode.FASTER:
+			style_label.text = "FASTER"
+			toggle_faster_shader(true)
+			Engine.time_scale = 0.7
 
 func mode_stronger_logic(delta: float, punched: bool) -> void:
 	if punched and Global.main_camera:
@@ -86,7 +106,22 @@ func deal_damage(damage: float) -> void:
 	health -= damage * take_damage_multi
 
 
+func toggle_faster_shader(active: bool):
+	var t = create_tween()
+	var property_tweener
+	if color_rect_faster.material:
+		property_tweener = t.tween_property(color_rect_faster.material, "shader_parameter/strength", 1.0 if active else 0.0, 0.2)
+	if property_tweener:
+		property_tweener.set_trans(Tween.TRANS_SINE)
+	
+	if active:
+		color_rect_faster.visible = active
+	else:
+		t.tween_callback(func(): color_rect_faster.visible = false)
+
+
 func _ready() -> void:
+	# init stronger mode
 	change_mode(Mode.STRONGER)
 	Global.player = self
 
@@ -103,6 +138,13 @@ func _process(delta: float) -> void:
 		queue_free()
 	
 	# == Attacks ==
+	
+	# Mode switch
+	if Input.is_action_just_pressed("mode_switch"):
+		current_mode += 1
+		if current_mode > 2:
+			current_mode = 0
+		change_mode(current_mode)
 	
 	# Punch
 	if punch_timer > 0:
@@ -130,10 +172,17 @@ func _process(delta: float) -> void:
 		Mode.HARDER: mode_harder_logic(delta)
 		Mode.FASTER: mode_faster_logic(delta)
 		Mode.BETTER: mode_better_logic(delta, punched)
+	
+	sprite.scale.x = lerp(sprite.scale.x, sprite_scale_x * last_direction.x, 0.2)
 
 
 func _physics_process(delta: float) -> void:
 	# == Movement ==
+	if direction.x != 0:
+		last_direction.x = direction.x
+	if direction.y != 0:
+		last_direction.y = direction.y
+	
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
 	
