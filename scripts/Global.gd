@@ -5,7 +5,7 @@ var player : CharacterBody2D
 var main_camera : Camera2D
 
 enum Attacker { PLAYER, ENEMY, ENV }
-var active_max_enemies: int = 2
+var active_max_enemies: int = 1
 var active_now_enemies: int = 0
 var wait_range: float = 750.0
 

@@ -16,7 +16,8 @@ radius = 45.01111
 script = ExtResource("1_olk6i")
 attack_speed = 240.0
 damage = 10.0
-attack_range = 2000.0
+attack_cooldown = 6.0
+attack_range = 1200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=487829434]
 scale = Vector2(0.23910257, 0.23910257)
@@ -35,19 +36,15 @@ shape = SubResource("CircleShape2D_ul2o7")
 [node name="ranged_attack_node" parent="RangedStateMachine" unique_id=1809071044 instance=ExtResource("7_ypdm1")]
 
 [node name="Vision" parent="." unique_id=340150669 instance=ExtResource("3_mvi7f")]
+scale = Vector2(2, 2)
 
 [node name="LoseTargetTimer" type="Timer" parent="." unique_id=940938665]
 wait_time = 4.0
-one_shot = true
 
 [node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1797642221]
-one_shot = true
 
 [node name="MotionStopTimer" type="Timer" parent="." unique_id=1637631266]
 wait_time = 1.5
-one_shot = true
 
 [node name="AttackLandTimer" type="Timer" parent="." unique_id=1042047592]
-one_shot = true
-
-[editable path="Vision"]
+wait_time = 2.0

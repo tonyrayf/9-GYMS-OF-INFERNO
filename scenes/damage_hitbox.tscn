@@ -14,6 +14,7 @@ sphere_collision = SubResource("CircleShape2D_7jxbo")
 shape = SubResource("CircleShape2D_7jxbo")
 
 [node name="Pixel" type="Sprite2D" parent="." unique_id=912840000]
+visible = false
 modulate = Color(1, 0.32156864, 0.26666668, 1)
 position = Vector2(-0.25, 1.4999981)
 scale = Vector2(106.5, 113)

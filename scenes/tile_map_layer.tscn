@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dwab0ac5ejsdu"]
+
+[ext_resource type="Texture2D" uid="uid://b0vpvfo17tbku" path="res://assets/sprites/bonfire.png" id="1_okeva"]
+[ext_resource type="Texture2D" uid="uid://vwp8gamed516" path="res://assets/sprites/floorbrick.png" id="2_o3fi6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_svatc"]
+texture = ExtResource("1_okeva")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ecr63"]
+texture = ExtResource("2_o3fi6")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_n34uq"]
+sources/0 = SubResource("TileSetAtlasSource_svatc")
+sources/1 = SubResource("TileSetAtlasSource_ecr63")
+
+[node name="TileMapLayer" type="TileMapLayer" unique_id=430121727]
+tile_set = SubResource("TileSet_n34uq")

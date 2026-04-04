@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://px1lx8svw37x" path="res://scripts/player_script.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dfibdbujutaw4" path="res://assets/sprites/IMG_20260404_170357_013.png" id="2_lvxji"]
+[ext_resource type="Texture2D" uid="uid://djm7oui3ss80" path="res://assets/sprites/shadow.png" id="2_p47bc"]
 [ext_resource type="Material" uid="uid://brw0ci8n76jlh" path="res://shaders/faster_mat.tres" id="3_lvxji"]
 [ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="4_lvxji"]
 
@@ -18,8 +19,14 @@ style_label = NodePath("CanvasLayer/Style")
 color_rect_faster = NodePath("CanvasLayer/ColorRect_Faster")
 sprite = NodePath("Sprite2D")
 
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1745650649]
+modulate = Color(1, 1, 1, 0.34509805)
+position = Vector2(0, 78)
+scale = Vector2(6.642857, 6.642857)
+texture = ExtResource("2_p47bc")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747581024]
-scale = Vector2(7.795, 7.795)
+scale = Vector2(6.775, 6.775)
 texture = ExtResource("2_lvxji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251935809]

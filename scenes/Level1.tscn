@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="1_6ovph"]
 [ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="1_bwv4p"]
 [ext_resource type="PackedScene" uid="uid://cs6vf01j0yvhu" path="res://scenes/damage_hitbox.tscn" id="3_dw26h"]
+[ext_resource type="PackedScene" uid="uid://dwab0ac5ejsdu" path="res://scenes/tile_map_layer.tscn" id="4_dw26h"]
 
 [node name="Level1" type="Node2D" unique_id=106251467]
 
@@ -14,6 +15,6 @@ position = Vector2(148, -6)
 damage = 20.0
 attacker = 1
 
-[node name="Camera" parent="." unique_id=197222917 node_paths=PackedStringArray("player") instance=ExtResource("1_bwv4p")]
-zoom = Vector2(1, 1)
-player = NodePath("../Player")
+[node name="Camera" parent="." unique_id=197222917 instance=ExtResource("1_bwv4p")]
+
+[node name="TileMapLayer" parent="." unique_id=430121727 instance=ExtResource("4_dw26h")]

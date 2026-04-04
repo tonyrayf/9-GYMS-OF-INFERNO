@@ -17,7 +17,7 @@ extends CharacterBody2D
 
 @export_group("Stats")
 var punch_damage : float
-@export var punch_damage_shfb : Array = [80, 50, 25, 60]
+@export var punch_damage_shfb : Array = [50, 34, 25, 60]
 
 var punch_radius : float = 60 # грубо говоря длина ручки
 @export var punch_radius_shfb : Array = [80, 70, 60, 75]
@@ -26,16 +26,27 @@ var punch_collision_radius : float
 @export var punch_collision_radius_shfb : Array = [70, 60, 50, 70]
 
 var take_damage_multi : float
-@export var take_damage_multi_shfb : Array = [1, 0.3, 2, 0.3]
+@export var take_damage_multi_shfb : Array = [0.75, 0.26, 1.5, 0.3]
 
 var punch_time : float; var punch_timer : float = 0 # время между ударами кулаками
-@export var punch_time_shfb : Array = [1, 2, 0.2, 1]
+@export var punch_time_shfb : Array = [1, 2, 0.1, 1]
+
+@export var stronger_charge_time : float = 2.2;
+var stronger_charge_timer : float = 0
 
 var kick_time : float; var kick_timer : float = 0 # время между пинком
 @export var kick_time_shfb : Array = [2.2, 3.5, 1, 2]
 
+var skill_e_time : float; var skill_e_timer : float = 0
+@export var skill_e_time_shfb : Array = [4.5, 4.5, 2, 4.5]
+
+@export var faster_dash_speed : float = 1000
+
 enum Mode { STRONGER, HARDER, FASTER, BETTER }
-@export var current_mode : int = Mode.STRONGER
+@export_enum("STRONGER", "HARDER", "FASTER", "BETTER") var current_mode : int = Mode.STRONGER
+
+@export var mode_switch_time : float = 0.5
+var mode_switch_timer : float = 0
 
 @export_group("References")
 @export var health_bar : Node
@@ -62,6 +73,7 @@ func change_mode(mode: int) -> void:
 	take_damage_multi = take_damage_multi_shfb[mode]
 	punch_time = punch_time_shfb[mode]
 	kick_time = kick_time_shfb[mode]
+	skill_e_time = skill_e_time_shfb[mode]
 	
 	Engine.time_scale = 1.0
 	
@@ -79,7 +91,38 @@ func change_mode(mode: int) -> void:
 			toggle_faster_shader(true)
 			Engine.time_scale = 0.7
 
-func mode_stronger_logic(delta: float, punched: bool) -> void:
+func mode_stronger_logic(delta: float) -> void:
+	if stronger_charge_timer > 0:
+		stronger_charge_timer = max(stronger_charge_timer - delta, 0)
+	
+	if Input.is_action_just_pressed("attack_punch") and punch_timer <= 0:
+		stronger_charge_timer = stronger_charge_time
+	
+	var punched : bool = false
+	if Input.is_action_just_released("attack_punch") and punch_timer <= 0:
+		punch_timer = punch_time
+		
+		var mouse_pos := get_global_mouse_position()
+		
+		var direction = (mouse_pos - global_position).normalized()
+		var spawn_pos = global_position + direction * punch_radius
+		var charged_damage = punch_damage
+		
+		# Смотрим прошли ли 1/3, 2/3 времени с заряда чтоб рассчитать урон
+		if abs(stronger_charge_time - stronger_charge_timer) > stronger_charge_time / 3:
+			charged_damage = punch_damage * 1.5
+		if abs(stronger_charge_time - stronger_charge_timer) > stronger_charge_time * 2 / 3:
+			charged_damage = punch_damage * 2
+		
+		print("Урон он заряда/Таймер: ", charged_damage, "/", stronger_charge_timer)
+			
+		punched = Global.spawn_damage_hitbox(
+				charged_damage,
+				spawn_pos,
+				Global.Attacker.PLAYER,
+				punch_collision_radius
+			)
+	
 	if punched and Global.main_camera:
 		Global.main_camera.shake(
 			stronger_punch_shake_amplitude,
@@ -88,12 +131,78 @@ func mode_stronger_logic(delta: float, punched: bool) -> void:
 		)
 
 func mode_harder_logic(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("attack_punch") and punch_timer <= 0:
+		punch_timer = punch_time
+		
+		var mouse_pos := get_global_mouse_position()
+		
+		var direction = (mouse_pos - global_position).normalized()
+		var spawn_pos = global_position + direction * punch_radius
+		
+		Global.spawn_damage_hitbox(
+			punch_damage,
+			spawn_pos,
+			Global.Attacker.PLAYER,
+			punch_collision_radius
+		)
 
 func mode_faster_logic(delta: float) -> void:
-	pass
+	if Input.is_action_pressed("attack_punch") and punch_timer <= 0:
+		punch_timer = punch_time
+		
+		var mouse_pos := get_global_mouse_position()
+		
+		var direction = (mouse_pos - global_position).normalized()
+		var spawn_pos = global_position + direction * punch_radius
+		
+		Global.spawn_damage_hitbox(
+			punch_damage,
+			spawn_pos,
+			Global.Attacker.PLAYER,
+			punch_collision_radius
+		)
 	
-func mode_better_logic(delta: float, punched: bool) -> void:
+	if Input.is_action_just_pressed("skill_e") and skill_e_timer <= 0:
+		skill_e_timer = skill_e_time
+		
+		var mouse_pos := get_global_mouse_position()
+		var direction = (mouse_pos - global_position).normalized()
+		
+		velocity = direction * faster_dash_speed
+	
+	
+func mode_better_logic(delta: float) -> void:
+	if stronger_charge_timer > 0:
+		stronger_charge_timer = max(stronger_charge_timer - delta, 0)
+	
+	if Input.is_action_just_pressed("attack_punch") and punch_timer <= 0:
+		stronger_charge_timer = stronger_charge_time
+	
+	var punched : bool = false
+	if Input.is_action_just_released("attack_punch") and punch_timer <= 0:
+		punch_timer = punch_time
+		
+		var mouse_pos := get_global_mouse_position()
+		
+		var direction = (mouse_pos - global_position).normalized()
+		var spawn_pos = global_position + direction * punch_radius
+		var charged_damage = punch_damage
+		
+		# Смотрим прошли ли 1/3, 2/3 времени с заряда чтоб рассчитать урон
+		if abs(stronger_charge_time - stronger_charge_timer) > stronger_charge_time / 3:
+			charged_damage = punch_damage * 1.5
+		if abs(stronger_charge_time - stronger_charge_timer) > stronger_charge_time * 2 / 3:
+			charged_damage = punch_damage * 2
+		
+		print("Урон он заряда/Таймер: ", charged_damage, "/", stronger_charge_timer)
+			
+		punched = Global.spawn_damage_hitbox(
+				charged_damage,
+				spawn_pos,
+				Global.Attacker.PLAYER,
+				punch_collision_radius
+			)
+	
 	if punched and Global.main_camera:
 		Global.main_camera.shake(
 			stronger_punch_shake_amplitude,
@@ -139,8 +248,14 @@ func _process(delta: float) -> void:
 	
 	# == Attacks ==
 	
+	# Mode switch timer
+	if mode_switch_timer > 0:
+		mode_switch_timer = max(mode_switch_timer - delta, 0)
+	
 	# Mode switch
-	if Input.is_action_just_pressed("mode_switch"):
+	if Input.is_action_just_pressed("mode_switch") and mode_switch_timer <= 0:
+		mode_switch_timer = mode_switch_time
+		
 		current_mode += 1
 		if current_mode > 2:
 			current_mode = 0
@@ -149,29 +264,17 @@ func _process(delta: float) -> void:
 	# Punch
 	if punch_timer > 0:
 		punch_timer = max(punch_timer - delta, 0)
-	
-	var punched : bool = false
-	if Input.is_action_just_pressed("attack_punch") and punch_timer <= 0:
-		punch_timer = punch_time
-		
-		var mouse_pos := get_global_mouse_position()
-		
-		var direction = (mouse_pos - global_position).normalized()
-		var spawn_pos = global_position + direction * punch_radius
-		
-		punched = Global.spawn_damage_hitbox(
-			punch_damage,
-			spawn_pos,
-			Global.Attacker.PLAYER,
-			punch_collision_radius
-		)
+
+	# Skill E timer
+	if skill_e_timer > 0:
+		skill_e_timer = max(skill_e_timer - delta, 0)
 	
 	# Выполняем логику SHFB
 	match current_mode:
-		Mode.STRONGER: mode_stronger_logic(delta, punched)
+		Mode.STRONGER: mode_stronger_logic(delta)
 		Mode.HARDER: mode_harder_logic(delta)
 		Mode.FASTER: mode_faster_logic(delta)
-		Mode.BETTER: mode_better_logic(delta, punched)
+		Mode.BETTER: mode_better_logic(delta)
 	
 	sprite.scale.x = lerp(sprite.scale.x, sprite_scale_x * last_direction.x, 0.2)
 
