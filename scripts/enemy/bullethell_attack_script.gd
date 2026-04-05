@@ -2,8 +2,8 @@ extends Node
 
 var enemy
 var attack_sprites_list
-var attack_end_flag: bool
-var repeat_times = 4
+var attack_end_flag: bool = false
+var repeat_times = 1
 
 func _ready() -> void:
 	enemy = get_parent().get_parent()
@@ -12,6 +12,7 @@ func _ready() -> void:
 
 	
 func enter() -> void:
+	set_physics_process(false) 
 	attack_end_flag = false
 	enemy.global_position = enemy.initial_position
 	for i in (repeat_times):
@@ -93,20 +94,22 @@ func mass_line_attack_horizontal():
 	var d = 300#distance between lines
 	var d2 = 80#inline distance
 	var damage = 20
-	line_attack(pos+Vector2(0,0.5*d),0,17,1,damage,d2)
-	line_attack(pos+Vector2(0,1.5*d),0,17,1,damage,d2,18)
-	line_attack(pos+Vector2(0,-0.5*d),0,17,1,damage,d2,36)
-	await line_attack(pos+Vector2(0,-1.5*d),0,17,1,damage,d2,54)
+	circle_attack(100,10,0.9,damage)
+	line_attack(pos+Vector2(0,0.5*d),0,17,1,damage,d2,11)
+	line_attack(pos+Vector2(0,1.5*d),0,17,1,damage,d2,29)
+	line_attack(pos+Vector2(0,-0.5*d),0,17,1,damage,d2,47)
+	await line_attack(pos+Vector2(0,-1.5*d),0,17,1,damage,d2,65)
 	
 func mass_line_attack_vertical():
 	var pos = enemy.global_position
 	var d = 300#distance between lines
 	var d2 = 80#inline distance
 	var damage = 20
-	line_attack(pos+Vector2(0.5*d,0),1,17,1,damage,d2)
-	line_attack(pos+Vector2(1.5*d,0),1,17,1,damage,d2,18)
-	line_attack(pos+Vector2(-0.5*d,0),1,17,1,damage,d2,36)
-	await line_attack(pos+Vector2(-1.5*d,0),1,17,1,damage,d2,54)
+	circle_attack(100,10,0.9,damage)
+	line_attack(pos+Vector2(0.5*d,0),1,17,1,damage,d2,11)
+	line_attack(pos+Vector2(1.5*d,0),1,17,1,damage,d2,29)
+	line_attack(pos+Vector2(-0.5*d,0),1,17,1,damage,d2,47)
+	await line_attack(pos+Vector2(-1.5*d,0),1,17,1,damage,d2,65)
 	
 
 func spawn_damage(damage,whereTo) -> void:

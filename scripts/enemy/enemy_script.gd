@@ -16,13 +16,14 @@ var initial_position
 @export var attack_cooldown: float = 1.0
 @export var attack_range: float = 200.0
 
-var max_health = health
+var max_health
 var look_vector
 var move_direction
 var personal_space
 
 func _ready() -> void:
 	initial_position = global_position
+	max_health = health
 
 func deal_damage(damage: float) -> void:
 	print(health," NOW")
