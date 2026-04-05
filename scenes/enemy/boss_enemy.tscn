@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bmtw4cxwwtgno" path="res://nodes/bullethell_node.tscn" id="7_wj37o"]
 [ext_resource type="Script" uid="uid://dmkwvujrfmwrx" path="res://scripts/enemy/bullethell_attack_script.gd" id="8_00jbt"]
 [ext_resource type="PackedScene" uid="uid://bra02lbd2yoq8" path="res://nodes/boss_attack_node.tscn" id="9_00jbt"]
-[ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="11_nvk41"]
+[ext_resource type="Texture2D" uid="uid://k4aish4qpjss" path="res://assets/sprites/Purple_pixel.png" id="11_nvk41"]
 [ext_resource type="Script" uid="uid://h0ys65h0ho85" path="res://scripts/cpu_particles_script.gd" id="12_vx8xy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8cpa"]

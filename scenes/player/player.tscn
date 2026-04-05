@@ -13,10 +13,15 @@
 [ext_resource type="Texture2D" uid="uid://s5dy8dfwx6uu" path="res://assets/sprites/styles/надписи H.png" id="9_je7p5"]
 [ext_resource type="Texture2D" uid="uid://c8lxxxudcvh48" path="res://assets/sprites/styles/надписи S.png" id="10_ugbui"]
 [ext_resource type="Texture2D" uid="uid://cccdvpqmiw3fu" path="res://assets/sprites/styles/надписи F.png" id="11_fcs02"]
+[ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="11_fm80t"]
+[ext_resource type="Script" uid="uid://h0ys65h0ho85" path="res://scripts/cpu_particles_script.gd" id="12_gx1jg"]
 [ext_resource type="Texture2D" uid="uid://bhueck8omllbt" path="res://assets/sprites/styles/надписи B.png" id="12_myrg7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 45.01111
+
+[sub_resource type="Gradient" id="Gradient_myrg7"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0.45882353)
 
 [node name="Player" type="CharacterBody2D" unique_id=1281337577 node_paths=PackedStringArray("health_bar", "color_rect_faster", "sprite", "aura_bar", "punch_sprite", "style_sprites", "vignette_rect") groups=["player"]]
 collision_mask = 5
@@ -123,7 +128,7 @@ texture_progress = ExtResource("8_h17s1")
 tint_under = Color(0.7756207, 0.29858285, 0.9748538, 1)
 tint_progress = Color(0.6370646, 0.784852, 0.96493226, 1)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1499476352]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1496892784]
 z_index = 100
 emitting = false
 amount = 100
@@ -131,12 +136,11 @@ texture = ExtResource("11_fm80t")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
-local_coords = true
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 50.0
 initial_velocity_max = 500.0
 scale_amount_min = 2.0
 scale_amount_max = 2.0
-color_ramp = SubResource("Gradient_fm80t")
+color_ramp = SubResource("Gradient_myrg7")
 script = ExtResource("12_gx1jg")
