@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://braj51qvjpv05" path="res://scripts/enemy/enemy_script.gd" id="1_jp577"]
 [ext_resource type="Texture2D" uid="uid://bynbh8ijqa23a" path="res://assets/sprites/enemy_ranged_placeholder.png" id="2_aj6wq"]
 [ext_resource type="Texture2D" uid="uid://csyxnap43epaj" path="res://assets/sprites/блин демонический.png" id="2_cnp62"]
+[ext_resource type="Texture2D" uid="uid://d1ilmry1rt1hl" path="res://assets/sprites/блин демонический (1).png" id="3_wj37o"]
 [ext_resource type="Script" uid="uid://bctvemhke1yi4" path="res://scripts/enemy/boss_sprite_script.gd" id="4_00jbt"]
 [ext_resource type="Script" uid="uid://da6757p61o87e" path="res://scripts/enemy/boss_state_machine_script.gd" id="4_uytak"]
 [ext_resource type="PackedScene" uid="uid://bhhd2awumwmfl" path="res://nodes/death_node.tscn" id="5_e8cpa"]
@@ -20,9 +21,13 @@ health = 99999999.0
 attack_cooldown = 0.1
 attack_range = 250.0
 
-[node name="RangedAttackSprite" type="Sprite2D" parent="." unique_id=1343990705]
+[node name="RangedAttackSprite1" type="Sprite2D" parent="." unique_id=1343990705]
 scale = Vector2(2, 2)
 texture = ExtResource("2_cnp62")
+
+[node name="RangedAttackSprite2" type="Sprite2D" parent="." unique_id=1472185499]
+scale = Vector2(2, 2)
+texture = ExtResource("3_wj37o")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1761608293]
 scale = Vector2(0.4, 0.4)

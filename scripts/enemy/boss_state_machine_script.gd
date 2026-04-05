@@ -1,6 +1,7 @@
 extends "res://scripts/enemy/state_machine_script.gd"
 
-var attack_sprites_list = []
+var attack_sprites_list1 = []
+var attack_sprites_list2 = []
 var bullethell
 var stage = 1
 
@@ -9,13 +10,19 @@ func _ready() -> void:
 		if "enemy" in child:
 			child.enemy = enemy
 	
-	var template = enemy.get_node("RangedAttackSprite")
+	var template1 = enemy.get_node("RangedAttackSprite1")
+	var template2 = enemy.get_node("RangedAttackSprite2")
 	bullethell = get_node("bullethell_node")
-	template.hide()
-	for i in range(500):
-		var new_sprite = template.duplicate()
+	template1.hide()
+	template2.hide()
+	for i in range(200):
+		var new_sprite = template1.duplicate()
 		add_child(new_sprite)
-		attack_sprites_list.append(new_sprite)
+		attack_sprites_list1.append(new_sprite)
+	for i in range(200):
+		var new_sprite = template2.duplicate()
+		add_child(new_sprite)
+		attack_sprites_list2.append(new_sprite)
 	
 var spawned_enemy1
 var spawned_enemy2
@@ -31,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	if (current_state=="placeholder"):
 		change_state("bullethell",false)
 		
-	print(enemy.health,"  ",enemy.max_health,"  ",stage," ",current_state)
+	#print(enemy.health,"  ",enemy.max_health,"  ",stage," ",current_state)
 		
 	if bullethell and (not bullethell.attack_end_flag):
 		pass
