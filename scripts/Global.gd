@@ -53,4 +53,5 @@ func spawn_enemy(type: int,position: Vector2) -> Node2D:
 	var enemy_instance = enemies_list[type].instantiate()
 	enemy_instance.position = position
 	add_child(enemy_instance)
+	print("QWE",enemy_instance.get_parent())
 	return enemy_instance

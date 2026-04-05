@@ -17,6 +17,7 @@ radius = 45.01111
 script = ExtResource("1_q3o4c")
 attack_speed = 150.0
 damage = 50.0
+attack_range = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2034984166]
 position = Vector2(0, -9)

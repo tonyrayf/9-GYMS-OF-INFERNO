@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="3_vcst1"]
 [ext_resource type="PackedScene" uid="uid://bt0yq0qflwfu" path="res://scenes/enemy/ranged_enemy.tscn" id="4_5hrp4"]
 [ext_resource type="PackedScene" uid="uid://3ip5n2tjry85" path="res://scenes/enemy/runner_enemy.tscn" id="5_ff8rk"]
+[ext_resource type="PackedScene" uid="uid://cmfo8l2hml54g" path="res://scenes/enemy/boss_enemy.tscn" id="7_jxen3"]
 
 [sub_resource type="Curve2D" id="Curve2D_vcst1"]
 _data = {
@@ -40,5 +41,8 @@ position = Vector2(2341, -773)
 
 [node name="RunnerEnemy" parent="." unique_id=897800292 instance=ExtResource("5_ff8rk")]
 position = Vector2(550, 976)
+
+[node name="BossEnemy" parent="." unique_id=1418778037 instance=ExtResource("7_jxen3")]
+position = Vector2(1847, 985)
 
 [editable path="Enemy3"]
