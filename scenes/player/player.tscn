@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bdtpol41yul1o"]
 
-[ext_resource type="Script" uid="uid://px1lx8svw37x" path="res://scripts/player_script.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://px1lx8svw37x" path="res://scripts/player/player_script.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://dfruakk4ebwew" path="res://nodes/point_light_2d.tscn" id="2_h17s1"]
 [ext_resource type="Texture2D" uid="uid://dfibdbujutaw4" path="res://assets/sprites/IMG_20260404_170357_013.png" id="2_lvxji"]
 [ext_resource type="Texture2D" uid="uid://djm7oui3ss80" path="res://assets/sprites/shadow.png" id="2_p47bc"]
 [ext_resource type="Material" uid="uid://brw0ci8n76jlh" path="res://shaders/faster_mat.tres" id="3_lvxji"]
@@ -21,19 +22,23 @@ script = ExtResource("1_g2els")
 health_bar = NodePath("CanvasLayer/HealthBar")
 style_label = NodePath("CanvasLayer/Style")
 color_rect_faster = NodePath("CanvasLayer/ColorRect_Faster")
-sprite = NodePath("Sprite2D")
+sprite = NodePath("Player")
 aura_bar = NodePath("CanvasLayer/AuraBar")
 punch_sprite = NodePath("Punch")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1745650649]
+[node name="PointLight2D" parent="." unique_id=330833123 instance=ExtResource("2_h17s1")]
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1745650649]
 modulate = Color(1, 1, 1, 0.34509805)
 position = Vector2(0, 78)
 scale = Vector2(6.642857, 6.642857)
 texture = ExtResource("2_p47bc")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747581024]
+[node name="Player" type="Sprite2D" parent="." unique_id=1747581024]
+light_mask = 2
 scale = Vector2(6.775, 6.775)
 texture = ExtResource("2_lvxji")
+region_rect = Rect2(0.13325119, -0.108854294, 34.044804, 30.634874)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251935809]
 shape = SubResource("CircleShape2D_g2els")

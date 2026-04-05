@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://byykjhe0l8oow"]
+
+[ext_resource type="Texture2D" uid="uid://2o6su1u7kw1j" path="res://assets/sprites/walls/я стена 1111.png" id="1_gh57o"]
+[ext_resource type="Texture2D" uid="uid://didtk1p6tupk6" path="res://assets/sprites/walls/я стена 1111ввв.png" id="2_gvb4q"]
+[ext_resource type="Texture2D" uid="uid://chgegpg0rapbd" path="res://assets/sprites/walls/я стена 1111вввыыыы.png" id="3_qdeg7"]
+[ext_resource type="Texture2D" uid="uid://mekyd78rh57d" path="res://assets/sprites/walls/я стена 1111вввыыыывв.png" id="4_fmbhb"]
+[ext_resource type="Texture2D" uid="uid://dk8jajql7xlpk" path="res://assets/sprites/walls/я стена 1111вввыыыыввввв.png" id="5_1qggg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_737fg"]
+texture = ExtResource("1_gh57o")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qidqx"]
+texture = ExtResource("2_gvb4q")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_83nlc"]
+texture = ExtResource("3_qdeg7")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38qql"]
+texture = ExtResource("4_fmbhb")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qdeg7"]
+diffuse_texture = ExtResource("5_1qggg")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d8wuh"]
+texture = SubResource("CanvasTexture_qdeg7")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_n34uq"]
+tile_size = Vector2i(48, 48)
+sources/0 = SubResource("TileSetAtlasSource_737fg")
+sources/1 = SubResource("TileSetAtlasSource_qidqx")
+sources/2 = SubResource("TileSetAtlasSource_83nlc")
+sources/3 = SubResource("TileSetAtlasSource_38qql")
+sources/4 = SubResource("TileSetAtlasSource_d8wuh")
+
+[node name="TileMapLayerWalls" type="TileMapLayer" unique_id=430121727]
+z_index = -4096
+tile_set = SubResource("TileSet_n34uq")

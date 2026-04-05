@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://braj51qvjpv05" path="res://scripts/enemy/enemy_script.gd" id="1_dwaox"]
 [ext_resource type="Texture2D" uid="uid://b3blf4mdppsdw" path="res://assets/sprites/tank.png" id="2_dwaox"]
 [ext_resource type="Script" uid="uid://ufyufsglq1sm" path="res://scripts/sprite_script.gd" id="3_230tf"]
-[ext_resource type="PackedScene" uid="uid://b7xogisgrj488" path="res://nodes/state_machine_node.tscn" id="4_0hxl5"]
+[ext_resource type="PackedScene" path="res://nodes/state_machine_node.tscn" id="4_0hxl5"]
 [ext_resource type="PackedScene" uid="uid://ddslmwbpca3pq" path="res://nodes/patrol_node.tscn" id="5_80p5t"]
 [ext_resource type="PackedScene" uid="uid://dfbaai843j3aq" path="res://nodes/attack_node.tscn" id="6_gyjrr"]
 [ext_resource type="PackedScene" uid="uid://bhhd2awumwmfl" path="res://nodes/death_node.tscn" id="7_xww5x"]
 [ext_resource type="PackedScene" uid="uid://cxa6yj2xyxwou" path="res://nodes/waiting_node.tscn" id="8_ypijk"]
 [ext_resource type="PackedScene" uid="uid://dxnly5cq2feps" path="res://scenes/detect_hitbox.tscn" id="9_6rkhk"]
+[ext_resource type="PackedScene" uid="uid://ble0xvjeh0ebu" path="res://nodes/enemy_healthbar.tscn" id="10_lkxga"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 58.00862
@@ -18,7 +19,6 @@ script = ExtResource("1_dwaox")
 patrol_speed = 120.0
 attack_speed = 200.0
 waiting_speed = 200.0
-health = 250.0
 damage = 20.0
 attack_cooldown = 3.0
 
@@ -47,3 +47,9 @@ detection_radius = 350.0
 wait_time = 3.0
 
 [node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1925307689]
+
+[node name="HealthBar" parent="." unique_id=813490030 instance=ExtResource("10_lkxga")]
+offset_left = -92.0
+offset_top = -148.0
+offset_right = 92.0
+offset_bottom = -135.0

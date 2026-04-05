@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwab0ac5ejsdu"]
 
-[ext_resource type="Texture2D" uid="uid://v1r27i8ldr1y" path="res://assets/sprites/пол.png" id="1_wipo8"]
+[ext_resource type="Texture2D" uid="uid://bimnwj2041dmn" path="res://assets/sprites/полстены.png" id="1_wipo8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_okeva"]
 texture = ExtResource("1_wipo8")
@@ -17,7 +17,8 @@ texture_region_size = Vector2i(48, 48)
 
 [sub_resource type="TileSet" id="TileSet_n34uq"]
 tile_size = Vector2i(48, 48)
-sources/2 = SubResource("TileSetAtlasSource_okeva")
+sources/0 = SubResource("TileSetAtlasSource_okeva")
 
-[node name="TileMapLayer" type="TileMapLayer" unique_id=430121727]
+[node name="TileMapLayerGround" type="TileMapLayer" unique_id=430121727]
+z_index = -4096
 tile_set = SubResource("TileSet_n34uq")

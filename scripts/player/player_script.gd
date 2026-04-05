@@ -147,8 +147,13 @@ func mode_stronger_logic(delta: float) -> void:
 		var direction = (mouse_pos - global_position).normalized()
 		var spawn_pos = global_position + direction * punch_radius
 		
-		#var success =
-			
+		Global.spawn_damage_hitbox(
+			punch_damage,
+			spawn_pos,
+			Global.Attacker.PLAYER,
+			punch_collision_radius
+		)
+
 
 func mode_harder_logic(delta: float) -> void:
 	if Input.is_action_just_pressed("attack_punch") and punch_timer <= 0:

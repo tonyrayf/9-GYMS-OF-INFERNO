@@ -112,6 +112,18 @@ tracks/8/keys = {
 "points": PackedFloat32Array(1542.6445, -0.15, 0, 0.15, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:dialog_active")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_owmcw"]
 resource_name = "end"
@@ -171,6 +183,18 @@ tracks/4/keys = {
 "points": PackedFloat32Array(1542.6445, -0.15, 0, 0.15, 0, 2351, -0.033327024, -134.72592, 0, 0),
 "times": PackedFloat32Array(0, 0.19996214)
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:dialog_active")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ygo2i"]
 _data = {
@@ -181,6 +205,7 @@ _data = {
 [node name="Dialog" type="Node2D" unique_id=912548657 node_paths=PackedStringArray("label", "main_char_spr", "opp_char_spr", "anim_player")]
 script = ExtResource("1_4wims")
 full_text = [[1, "О, привет, ты новенький? Добро пожаловать в адскую качалку."], [1, "Я уборщик здесь. Не подержишь мою швабру?"], [0, "..."], [1, "Нет? Ну, тогда тебе туда."]]
+typing_speed = 0.3
 label = NodePath("Label")
 main_char_spr = NodePath("Glavger")
 opp_char_spr = NodePath("Opponent")
@@ -192,7 +217,7 @@ scale = Vector2(4.752101, 4.752101)
 texture = ExtResource("1_auqi6")
 
 [node name="Opponent" type="Sprite2D" parent="." unique_id=633285656]
-position = Vector2(1542.6445, 600)
+position = Vector2(1542.6445, 571)
 scale = Vector2(5.25431, 5.25431)
 texture = ExtResource("2_4wims")
 

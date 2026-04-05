@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ble0xvjeh0ebu"]
+
+[ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="1_8rpss"]
+[ext_resource type="Script" uid="uid://bq56p7uh3njl" path="res://scripts/enemy/enemy_healthbar.gd" id="2_3gx5e"]
+
+[node name="HealthBar" type="TextureProgressBar" unique_id=813490030]
+offset_right = 148.77917
+offset_bottom = 13.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_8rpss")
+texture_progress = ExtResource("1_8rpss")
+tint_under = Color(0.08339619, 0.0017843844, 0.12291623, 1)
+tint_progress = Color(0.96862745, 0, 0, 1)
+script = ExtResource("2_3gx5e")

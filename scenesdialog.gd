@@ -57,5 +57,3 @@ func _process(delta: float) -> void:
 				dialog_active = false
 				label.text = ""
 				anim_player.play("end")
-	elif not anim_player.is_playing():
-		queue_free()

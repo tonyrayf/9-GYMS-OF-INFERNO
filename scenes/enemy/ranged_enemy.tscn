@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://ddslmwbpca3pq" path="res://nodes/patrol_node.tscn" id="4_ypdm1"]
 [ext_resource type="PackedScene" uid="uid://bhhd2awumwmfl" path="res://nodes/death_node.tscn" id="5_2jbxt"]
 [ext_resource type="PackedScene" uid="uid://bny12kkfd15r0" path="res://nodes/ranged_attack_node.tscn" id="7_ypdm1"]
+[ext_resource type="PackedScene" uid="uid://ble0xvjeh0ebu" path="res://nodes/enemy_healthbar.tscn" id="10_2m57y"]
+[ext_resource type="PackedScene" uid="uid://dfruakk4ebwew" path="res://nodes/point_light_2d.tscn" id="11_kstvd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ul2o7"]
 radius = 45.01111
@@ -49,3 +51,12 @@ one_shot = true
 
 [node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1797642221]
 one_shot = true
+
+[node name="HealthBar" parent="." unique_id=813490030 instance=ExtResource("10_2m57y")]
+offset_left = -74.0
+offset_top = -131.0
+offset_right = 74.779175
+offset_bottom = -118.0
+
+[node name="PointLight2D" parent="." unique_id=330833123 instance=ExtResource("11_kstvd")]
+scale = Vector2(8.92, 8.92)

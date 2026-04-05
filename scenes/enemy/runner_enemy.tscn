@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c5inhhx8md38c" path="res://nodes/runner_attack_node.tscn" id="7_3kxfm"]
 [ext_resource type="PackedScene" uid="uid://dxnly5cq2feps" path="res://scenes/detect_hitbox.tscn" id="7_7d574"]
 [ext_resource type="PackedScene" uid="uid://dyeduadwf4mtl" path="res://nodes/stunned_node.tscn" id="8_3kxfm"]
+[ext_resource type="PackedScene" uid="uid://ble0xvjeh0ebu" path="res://nodes/enemy_healthbar.tscn" id="10_x3ob2"]
+[ext_resource type="PackedScene" uid="uid://dfruakk4ebwew" path="res://nodes/point_light_2d.tscn" id="11_kuw3e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_00d2t"]
 radius = 45.01111
@@ -39,5 +41,14 @@ shape = SubResource("CircleShape2D_00d2t")
 
 [node name="Vision" parent="." unique_id=340150669 instance=ExtResource("7_7d574")]
 detection_radius = 350.0
+
+[node name="HealthBar" parent="." unique_id=813490030 instance=ExtResource("10_x3ob2")]
+offset_left = -60.0
+offset_top = -132.0
+offset_right = 61.0
+offset_bottom = -119.0
+
+[node name="PointLight2D" parent="." unique_id=330833123 instance=ExtResource("11_kuw3e")]
+scale = Vector2(9.175, 9.175)
 
 [editable path="RunnerStateMachine"]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dfruakk4ebwew"]
+
+[sub_resource type="Gradient" id="Gradient_5gtgg"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.5359712, 0.67266184)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h17s1"]
+gradient = SubResource("Gradient_5gtgg")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="PointLight2D" type="PointLight2D" unique_id=330833123]
+scale = Vector2(11.045, 11.045)
+energy = 0.15
+range_z_min = -4096
+texture = SubResource("GradientTexture2D_h17s1")
