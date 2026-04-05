@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var acceleration:float = 5.0
 
 var current_speed
+var initial_position
 
 @export_group("Stats")
 @export var health: float = 100.0
@@ -15,12 +16,16 @@ var current_speed
 @export var attack_cooldown: float = 1.0
 @export var attack_range: float = 200.0
 
+var max_health = health
 var look_vector
 var move_direction
 var personal_space
 
+func _ready() -> void:
+	initial_position = global_position
+
 func deal_damage(damage: float) -> void:
-	print("WAS DAMAGED")
+	print(health," NOW")
 	health -= damage
 
 
@@ -69,7 +74,7 @@ func _physics_process(_delta: float) -> void:
 			move_and_slide()
 			
 func spawn_ranged_attack(attack_sprite: Sprite2D,damage: float,position: Vector2,attack_fly_duration: float,on_done: Callable=Callable()) -> void:
-	attack_sprite.position = self.global_position
+	attack_sprite.global_position = self.global_position 
 	var tween = create_tween().bind_node(attack_sprite)
 			
 	tween.tween_callback(attack_sprite.show)
