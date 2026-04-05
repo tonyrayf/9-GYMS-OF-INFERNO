@@ -16,6 +16,8 @@
 radius = 45.01111
 
 [node name="EnemyRunner" type="CharacterBody2D" unique_id=897800292 groups=["enemy"]]
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_q3o4c")
 attack_speed = 150.0
 damage = 50.0

@@ -4,4 +4,5 @@
 
 [resource]
 shader = ExtResource("1_gbuoh")
-shader_parameter/strength = 0.262000012445
+shader_parameter/strength = 0.1190000056525
+shader_parameter/color = Vector3(0, 0, 0)

@@ -8,6 +8,7 @@ func _ready() -> void:
 	original_scale_x = abs(scale.x)
 
 func _process(delta: float) -> void:
-	var target_dir = sign(itself.look_vector[0])
-	if target_dir != 0:
-		scale.x = lerp(scale.x, original_scale_x * target_dir, 0.2)
+	if itself.look_vector:
+		var target_dir = sign(itself.look_vector.x)
+		if target_dir != 0:
+			scale.x = lerp(scale.x, original_scale_x * target_dir, 0.2)

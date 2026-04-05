@@ -23,7 +23,7 @@ position = Vector2(-17, 31)
 
 [node name="Camera" parent="." unique_id=197222917 instance=ExtResource("3_ph5t1")]
 position = Vector2(-14, -24)
-zoom = Vector2(0.815, 0.815)
+zoom = Vector2(0.695, 0.695)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1133109123]
 position = Vector2(161, 465)

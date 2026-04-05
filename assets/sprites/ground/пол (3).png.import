@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bimnwj2041dmn"
-path="res://.godot/imported/полстены.png-ba07463d06cc7dde16e66908e345a080.ctex"
+uid="uid://cbehl10vvotex"
+path="res://.godot/imported/пол (3).png-8463e08882f12a25a73fb0bbe330b3a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/полстены.png"
-dest_files=["res://.godot/imported/полстены.png-ba07463d06cc7dde16e66908e345a080.ctex"]
+source_file="res://assets/sprites/ground/пол (3).png"
+dest_files=["res://.godot/imported/пол (3).png-8463e08882f12a25a73fb0bbe330b3a4.ctex"]
 
 [params]
 

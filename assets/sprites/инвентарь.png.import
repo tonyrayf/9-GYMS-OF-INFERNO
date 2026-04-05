@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v1r27i8ldr1y"
-path="res://.godot/imported/пол.png-4cb244ab963a437a2ffa016646acb4f1.ctex"
+uid="uid://c6fcndj86wypi"
+path="res://.godot/imported/инвентарь.png-3763f1db07ad63f6ad42ee005e2be728.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/пол.png"
-dest_files=["res://.godot/imported/пол.png-4cb244ab963a437a2ffa016646acb4f1.ctex"]
+source_file="res://assets/sprites/инвентарь.png"
+dest_files=["res://.godot/imported/инвентарь.png-3763f1db07ad63f6ad42ee005e2be728.ctex"]
 
 [params]
 

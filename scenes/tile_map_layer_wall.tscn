@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://chgegpg0rapbd" path="res://assets/sprites/walls/я стена 1111вввыыыы.png" id="3_qdeg7"]
 [ext_resource type="Texture2D" uid="uid://mekyd78rh57d" path="res://assets/sprites/walls/я стена 1111вввыыыывв.png" id="4_fmbhb"]
 [ext_resource type="Texture2D" uid="uid://dk8jajql7xlpk" path="res://assets/sprites/walls/я стена 1111вввыыыыввввв.png" id="5_1qggg"]
+[ext_resource type="Texture2D" uid="uid://cajgkdafejc6v" path="res://assets/sprites/walls/стены.png" id="6_gvb4q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_737fg"]
 texture = ExtResource("1_gh57o")
@@ -34,6 +35,19 @@ texture = SubResource("CanvasTexture_qdeg7")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdeg7"]
+texture = ExtResource("6_gvb4q")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+1:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_n34uq"]
 tile_size = Vector2i(48, 48)
 sources/0 = SubResource("TileSetAtlasSource_737fg")
@@ -41,6 +55,7 @@ sources/1 = SubResource("TileSetAtlasSource_qidqx")
 sources/2 = SubResource("TileSetAtlasSource_83nlc")
 sources/3 = SubResource("TileSetAtlasSource_38qql")
 sources/4 = SubResource("TileSetAtlasSource_d8wuh")
+sources/5 = SubResource("TileSetAtlasSource_qdeg7")
 
 [node name="TileMapLayerWalls" type="TileMapLayer" unique_id=430121727]
 z_index = -4096

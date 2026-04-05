@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://dwab0ac5ejsdu"]
 
-[ext_resource type="Texture2D" uid="uid://bimnwj2041dmn" path="res://assets/sprites/полстены.png" id="1_wipo8"]
+[ext_resource type="Texture2D" uid="uid://bimnwj2041dmn" path="res://assets/sprites/ground/полстены.png" id="1_wipo8"]
+[ext_resource type="Texture2D" uid="uid://b3msr7m4b5q03" path="res://assets/sprites/ground/второй левл.png" id="2_d0re2"]
+[ext_resource type="Texture2D" uid="uid://bdc2kbgmbxbe0" path="res://assets/sprites/ground/пол (1).png" id="3_iwvcx"]
+[ext_resource type="Texture2D" uid="uid://buvsrqwp1ulxw" path="res://assets/sprites/ground/пол (2).png" id="4_1o5u7"]
+[ext_resource type="Texture2D" uid="uid://cbehl10vvotex" path="res://assets/sprites/ground/пол (3).png" id="5_38sg4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_okeva"]
 texture = ExtResource("1_wipo8")
@@ -15,9 +19,33 @@ texture_region_size = Vector2i(48, 48)
 1:2/0 = 0
 2:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hul7a"]
+texture = ExtResource("2_d0re2")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qaxsj"]
+texture = ExtResource("3_iwvcx")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h6rsw"]
+texture = ExtResource("4_1o5u7")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_46cd8"]
+texture = ExtResource("5_38sg4")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_n34uq"]
 tile_size = Vector2i(48, 48)
 sources/0 = SubResource("TileSetAtlasSource_okeva")
+sources/1 = SubResource("TileSetAtlasSource_hul7a")
+sources/2 = SubResource("TileSetAtlasSource_qaxsj")
+sources/3 = SubResource("TileSetAtlasSource_h6rsw")
+sources/4 = SubResource("TileSetAtlasSource_46cd8")
 
 [node name="TileMapLayerGround" type="TileMapLayer" unique_id=430121727]
 z_index = -4096

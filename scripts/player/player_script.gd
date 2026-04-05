@@ -50,11 +50,12 @@ var mode_switch_timer : float = 0
 
 @export_group("References")
 @export var health_bar : Node
-@export var style_label : Node
 @export var color_rect_faster : Node
 @export var sprite : Node
 @export var aura_bar : Node
 @export var punch_sprite : Node
+@export var style_sprites : Array[Node]
+@export var vignette_rect : Node
 
 @export_group("Visual params")
 @export var stronger_punch_shake_amplitude : float = 40
@@ -64,6 +65,7 @@ var mode_switch_timer : float = 0
 
 @onready var damage_hitbox_scene := preload("res://scenes/damage_hitbox.tscn")
 @onready var sprite_scale_x : float = sprite.scale.x
+@onready var vignette_color : Vector3 = vignette_rect.material.get_shader_parameter("color")
 
 
 func change_mode(mode: int) -> void:
@@ -79,20 +81,21 @@ func change_mode(mode: int) -> void:
 	
 	Engine.time_scale = 1.0
 	
+	for spr in style_sprites:
+		spr.visible = false
+	
+	style_sprites[mode].visible = true
+	
 	match mode:
 		Mode.STRONGER:
-			style_label.text = "STRONGER"
-			style_label.label_settings.font_color = Color.RED
 			toggle_faster_shader(false)
+			vignette_color = Vector3(0.939, 0.226, 0.246)
 		
 		Mode.HARDER:
-			style_label.text = "HARDER"
-			style_label.label_settings.font_color = Color.YELLOW
 			toggle_faster_shader(false)
+			vignette_color = Vector3(0.8, 0.598, 0.013)
 		
 		Mode.FASTER:
-			style_label.text = "FASTER"
-			style_label.label_settings.font_color = Color.SKY_BLUE
 			toggle_faster_shader(true)
 			Engine.time_scale = 0.7
 
@@ -153,7 +156,6 @@ func mode_stronger_logic(delta: float) -> void:
 			Global.Attacker.PLAYER,
 			punch_collision_radius
 		)
-
 
 func mode_harder_logic(delta: float) -> void:
 	if Input.is_action_just_pressed("attack_punch") and punch_timer <= 0:
@@ -315,6 +317,13 @@ func _process(delta: float) -> void:
 		Mode.BETTER: mode_better_logic(delta)
 	
 	sprite.scale.x = lerp(sprite.scale.x, sprite_scale_x * sign(get_global_mouse_position().x - global_position.x), 0.2)
+	
+	# Lerp до колора виньетки
+	vignette_rect.material.set_shader_parameter(
+		"color",
+		vignette_rect.material.get_shader_parameter("color").lerp(vignette_color, 0.07)
+	)
+
 
 
 func _physics_process(delta: float) -> void:

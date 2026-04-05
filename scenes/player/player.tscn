@@ -10,21 +10,24 @@
 [ext_resource type="Texture2D" uid="uid://dqpu0n6fhktqv" path="res://assets/sprites/шкала здоровья.png" id="6_qek5x"]
 [ext_resource type="Texture2D" uid="uid://didd2l1qiijh7" path="res://assets/sprites/шкала здоровья линия.png" id="7_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://irf5hpnuv5ni" path="res://assets/sprites/шкала манылиния.png" id="8_h17s1"]
+[ext_resource type="Texture2D" uid="uid://s5dy8dfwx6uu" path="res://assets/sprites/styles/надписи H.png" id="9_je7p5"]
+[ext_resource type="Texture2D" uid="uid://c8lxxxudcvh48" path="res://assets/sprites/styles/надписи S.png" id="10_ugbui"]
+[ext_resource type="Texture2D" uid="uid://cccdvpqmiw3fu" path="res://assets/sprites/styles/надписи F.png" id="11_fcs02"]
+[ext_resource type="Texture2D" uid="uid://bhueck8omllbt" path="res://assets/sprites/styles/надписи B.png" id="12_myrg7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 45.01111
 
-[sub_resource type="LabelSettings" id="LabelSettings_gmlin"]
-font_size = 58
-
-[node name="Player" type="CharacterBody2D" unique_id=1281337577 node_paths=PackedStringArray("health_bar", "style_label", "color_rect_faster", "sprite", "aura_bar", "punch_sprite") groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1281337577 node_paths=PackedStringArray("health_bar", "color_rect_faster", "sprite", "aura_bar", "punch_sprite", "style_sprites", "vignette_rect") groups=["player"]]
+collision_mask = 5
 script = ExtResource("1_g2els")
 health_bar = NodePath("CanvasLayer/HealthBar")
-style_label = NodePath("CanvasLayer/Style")
 color_rect_faster = NodePath("CanvasLayer/ColorRect_Faster")
 sprite = NodePath("Player")
 aura_bar = NodePath("CanvasLayer/AuraBar")
 punch_sprite = NodePath("Punch")
+style_sprites = [NodePath("CanvasLayer/НадписиS"), NodePath("CanvasLayer/НадписиH"), NodePath("CanvasLayer/НадписиF"), NodePath("CanvasLayer/НадписиB")]
+vignette_rect = NodePath("CanvasLayer/ColorRect_Vignette")
 
 [node name="PointLight2D" parent="." unique_id=330833123 instance=ExtResource("2_h17s1")]
 
@@ -64,14 +67,6 @@ offset_bottom = 1097.0
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1387557800]
 
-[node name="Style" type="Label" parent="CanvasLayer" unique_id=977114152]
-offset_left = 157.0
-offset_top = 871.0
-offset_right = 461.0
-offset_bottom = 950.0
-text = "STRONGER"
-label_settings = SubResource("LabelSettings_gmlin")
-
 [node name="ШкалаЗдоровья" type="Sprite2D" parent="CanvasLayer" unique_id=1137647940]
 position = Vector2(310, 129.495)
 scale = Vector2(3.4374986, 3.4374986)
@@ -81,6 +76,26 @@ texture = ExtResource("6_qek5x")
 position = Vector2(310, 192.595)
 scale = Vector2(3.4374986, 3.4374986)
 texture = ExtResource("6_qek5x")
+
+[node name="НадписиH" type="Sprite2D" parent="CanvasLayer" unique_id=112620608]
+position = Vector2(313.4737, 921.5)
+scale = Vector2(3.2894738, 3.2894738)
+texture = ExtResource("9_je7p5")
+
+[node name="НадписиS" type="Sprite2D" parent="CanvasLayer" unique_id=984361940]
+position = Vector2(310.99994, 920.99994)
+scale = Vector2(3.289, 3.289)
+texture = ExtResource("10_ugbui")
+
+[node name="НадписиF" type="Sprite2D" parent="CanvasLayer" unique_id=1598084321]
+position = Vector2(319.99997, 922)
+scale = Vector2(3.289, 3.289)
+texture = ExtResource("11_fcs02")
+
+[node name="НадписиB" type="Sprite2D" parent="CanvasLayer" unique_id=65967326]
+position = Vector2(321, 915.9999)
+scale = Vector2(3.289, 3.289)
+texture = ExtResource("12_myrg7")
 
 [node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=728120266]
 offset_left = 155.0

@@ -1,6 +1,8 @@
 extends Camera2D
 
 
+@export var follow_player : bool = true
+
 var shake_time : float = 0 # длительность шейка
 var shake_timer : float = 0
 var shake_amplitude : float = 0
@@ -20,7 +22,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Global.player:
+	if Global.player and follow_player:
 		global_position = Global.player.global_position
 	
 	# Shake

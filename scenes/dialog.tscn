@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dljwvib22p0p7"]
 
-[ext_resource type="Script" uid="uid://cbhw0nrfmqldj" path="res://scenesdialog.gd" id="1_4wims"]
+[ext_resource type="Script" uid="uid://cbhw0nrfmqldj" path="res://scripts/scenesdialog.gd" id="1_4wims"]
 [ext_resource type="Texture2D" uid="uid://us4mnjq02e1r" path="res://assets/sprites/glavger.png" id="1_auqi6"]
 [ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="1_pkx4w"]
 [ext_resource type="Texture2D" uid="uid://bihumh6gfrd8c" path="res://assets/sprites/anatoly.png" id="2_4wims"]
@@ -124,8 +124,103 @@ tracks/9/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:kill_dialog")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_owmcw"]
+resource_name = "end"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Border2:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(985, -0.25, 0, 0.1, -6.8068237, 1279, -0.09999999, -23.799194, 0, 0),
+"times": PackedFloat32Array(0, 0.19999999)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Border:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(55.99999, -0.1, 0, 0.1, 0, -198, -0.033333335, 42.333332, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Textbox:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(604, -0.0105266785, 0, 0, 0, 1050, -0.039473325, -74.333336, 0, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Glavger:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(399.00003, -0.15, 0, 0.15, 0, -455.9999, -0.033327024, 142.5, 0, 0),
+"times": PackedFloat32Array(0, 0.19996214)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Opponent:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1542.6445, -0.15, 0, 0.15, 0, 2351, -0.033327024, -134.72592, 0, 0),
+"times": PackedFloat32Array(0, 0.19996214)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:dialog_active")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:kill_dialog")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ygo2i"]
 resource_name = "end"
 length = 0.3
 tracks/0/type = "bezier"
@@ -199,10 +294,12 @@ tracks/5/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ygo2i"]
 _data = {
 &"RESET": SubResource("Animation_b1kyf"),
-&"end": SubResource("Animation_owmcw")
+&"end": SubResource("Animation_owmcw"),
+&"start": SubResource("Animation_ygo2i")
 }
 
-[node name="Dialog" type="Node2D" unique_id=912548657 node_paths=PackedStringArray("label", "main_char_spr", "opp_char_spr", "anim_player")]
+[node name="Dialog" type="CanvasLayer" unique_id=963855277 node_paths=PackedStringArray("label", "main_char_spr", "opp_char_spr", "anim_player")]
+visible = false
 script = ExtResource("1_4wims")
 full_text = [[1, "О, привет, ты новенький? Добро пожаловать в адскую качалку."], [1, "Я уборщик здесь. Не подержишь мою швабру?"], [0, "..."], [1, "Нет? Ну, тогда тебе туда."]]
 typing_speed = 0.3
@@ -247,3 +344,4 @@ label_settings = SubResource("LabelSettings_owmcw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1805627162]
 libraries/ = SubResource("AnimationLibrary_ygo2i")
+autoplay = &"start"
