@@ -12,8 +12,10 @@ func _ready() -> void:
 
 	
 func enter() -> void:
+	enemy.set_physics_process(false)
 	set_physics_process(false) 
 	attack_end_flag = false
+	enemy.velocity = Vector2.ZERO 
 	enemy.global_position = enemy.initial_position
 	for i in (repeat_times):
 		var random_value = randi_range(1, 3)
@@ -27,14 +29,14 @@ func enter() -> void:
 	attack_end_flag = true
 	
 func exit() -> void:
-	pass
+	enemy.set_physics_process(true)
 
 func test_mass_attack(a,time,damage) -> void:
 	var pos = enemy.global_position
-	enemy.spawn_ranged_attack(attack_sprites_list[0],damage,pos+Vector2(a,a),time,spawn_damage.bind(pos+Vector2(a,a)))
-	enemy.spawn_ranged_attack(attack_sprites_list[1],damage,pos+Vector2(a,-a),time,spawn_damage.bind(pos+Vector2(a,-a)))
-	enemy.spawn_ranged_attack(attack_sprites_list[2],damage,pos+Vector2(-a,a),time,spawn_damage.bind(pos+Vector2(-a,a)))
-	await enemy.spawn_ranged_attack(attack_sprites_list[3],damage,pos+Vector2(-a,-a),time,spawn_damage.bind(pos+Vector2(-a,-a)))
+	enemy.spawn_ranged_attack(attack_sprites_list[0],damage,pos+Vector2(a,a),time,spawn_damage.bind(damage,pos+Vector2(a,a)))
+	enemy.spawn_ranged_attack(attack_sprites_list[1],damage,pos+Vector2(a,-a),time,spawn_damage.bind(damage,pos+Vector2(a,-a)))
+	enemy.spawn_ranged_attack(attack_sprites_list[2],damage,pos+Vector2(-a,a),time,spawn_damage.bind(damage,pos+Vector2(-a,a)))
+	await enemy.spawn_ranged_attack(attack_sprites_list[3],damage,pos+Vector2(-a,-a),time,spawn_damage.bind(damage,pos+Vector2(-a,-a)))
 	
 func circle_attack(radius,amount,time,damage,sprite_index=0) -> void:
 	var pos = enemy.global_position
@@ -47,7 +49,7 @@ func circle_attack(radius,amount,time,damage,sprite_index=0) -> void:
 		angle+=rotAngle
 	var x = pos.x + radius * cos(angle)
 	var y = pos.y + radius * sin(angle)
-	await enemy.spawn_ranged_attack(attack_sprites_list[sprite_index+amount-1],damage,Vector2(x,y),time,spawn_damage.bind(Vector2(x,y)))
+	await enemy.spawn_ranged_attack(attack_sprites_list[sprite_index+amount-1],damage,Vector2(x,y),time,spawn_damage.bind(damage,Vector2(x,y)))
 		
 func mass_circle_attack():
 	var damage = 20

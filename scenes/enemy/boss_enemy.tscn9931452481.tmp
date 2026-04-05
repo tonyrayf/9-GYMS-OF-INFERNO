@@ -15,9 +15,8 @@ radius = 75.0
 
 [node name="BossEnemy" type="CharacterBody2D" unique_id=1418778037]
 script = ExtResource("1_jp577")
-attack_speed = 100.0
+attack_speed = 200.0
 health = 99999999.0
-attack_cooldown = 0.1
 attack_range = 250.0
 
 [node name="RangedAttackSprite" type="Sprite2D" parent="." unique_id=1343990705]
