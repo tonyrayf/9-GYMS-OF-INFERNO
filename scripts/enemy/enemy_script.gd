@@ -17,7 +17,6 @@ var initial_position
 @export var attack_cooldown: float = 1.0
 @export var attack_range: float = 200.0
 
-var max_health
 var look_vector
 var move_direction
 var personal_space

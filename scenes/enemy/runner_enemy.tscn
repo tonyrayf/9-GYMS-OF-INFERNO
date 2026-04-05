@@ -18,7 +18,7 @@ radius = 45.01111
 [node name="EnemyRunner" type="CharacterBody2D" unique_id=897800292 groups=["enemy"]]
 script = ExtResource("1_q3o4c")
 attack_speed = 150.0
-damage = 50.0
+damage = 25.0
 attack_range = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2034984166]

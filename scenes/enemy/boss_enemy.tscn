@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bmtw4cxwwtgno" path="res://nodes/bullethell_node.tscn" id="7_wj37o"]
 [ext_resource type="Script" uid="uid://dmkwvujrfmwrx" path="res://scripts/enemy/bullethell_attack_script.gd" id="8_00jbt"]
 [ext_resource type="PackedScene" uid="uid://bra02lbd2yoq8" path="res://nodes/boss_attack_node.tscn" id="9_00jbt"]
+[ext_resource type="PackedScene" uid="uid://ble0xvjeh0ebu" path="res://nodes/enemy_healthbar.tscn" id="11_nvk41"]
+[ext_resource type="PackedScene" uid="uid://dfruakk4ebwew" path="res://nodes/point_light_2d.tscn" id="12_vx8xy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8cpa"]
 radius = 75.0
@@ -17,7 +19,6 @@ radius = 75.0
 [node name="BossEnemy" type="CharacterBody2D" unique_id=1418778037]
 script = ExtResource("1_jp577")
 attack_speed = 100.0
-health = 99999999.0
 attack_cooldown = 0.1
 attack_range = 250.0
 
@@ -48,3 +49,12 @@ script = ExtResource("8_00jbt")
 [node name="boss_attack_node" parent="BossStateMachine" unique_id=947175183 instance=ExtResource("9_00jbt")]
 
 [node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1632778650]
+
+[node name="HealthBar" parent="." unique_id=813490030 instance=ExtResource("11_nvk41")]
+offset_left = -60.0
+offset_top = -132.0
+offset_right = 61.0
+offset_bottom = -119.0
+
+[node name="PointLight2D" parent="." unique_id=330833123 instance=ExtResource("12_vx8xy")]
+scale = Vector2(9.175, 9.175)
