@@ -8,7 +8,6 @@ func _ready() -> void:
 	for child in get_children():
 		if "enemy" in child:
 			child.enemy = enemy
-	#await get_tree().process_frame
 	
 	var template = enemy.get_node("RangedAttackSprite")
 	bullethell = get_node("bullethell_node")
@@ -17,7 +16,6 @@ func _ready() -> void:
 		var new_sprite = template.duplicate()
 		add_child(new_sprite)
 		attack_sprites_list.append(new_sprite)
-	
 	
 var spawned_enemy1
 var spawned_enemy2
