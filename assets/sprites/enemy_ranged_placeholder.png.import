@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bynbh8ijqa23a"
-path="res://.godot/imported/enemy_ranged.png-c7cb03cb210e3b8c6e6210e1eecea75e.ctex"
+path="res://.godot/imported/enemy_ranged_placeholder.png-1e1a2156a484fa695cb029c8c396b1d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/enemy_ranged.png"
-dest_files=["res://.godot/imported/enemy_ranged.png-c7cb03cb210e3b8c6e6210e1eecea75e.ctex"]
+source_file="res://assets/sprites/enemy_ranged_placeholder.png"
+dest_files=["res://.godot/imported/enemy_ranged_placeholder.png-1e1a2156a484fa695cb029c8c396b1d2.ctex"]
 
 [params]
 

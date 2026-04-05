@@ -44,8 +44,9 @@ var enemy_preload = preload("res://scenes/enemy/enemy.tscn")
 var tank_enemy_preload = preload("res://scenes/enemy/tank_enemy.tscn")
 var ranged_enemy_preload = preload("res://scenes/enemy/ranged_enemy.tscn")
 var runner_enemy_preload = preload("res://scenes/enemy/runner_enemy.tscn")
+var boss_enemy_preload = preload("res://scenes/enemy/boss_enemy.tscn")
 
-enum Enemies { ENEMY, TANK_ENEMY, RANGED_ENEMY,RUNNER_ENEMY }
+enum Enemies { ENEMY, TANK_ENEMY, RANGED_ENEMY,RUNNER_ENEMY, BOSS_ENEMY}
 var enemies_list = [enemy_preload,tank_enemy_preload,ranged_enemy_preload,runner_enemy_preload]
 	
 func spawn_enemy(type: int,position: Vector2) -> Node2D:
