@@ -55,3 +55,18 @@ func spawn_enemy(type: int,position: Vector2) -> Node2D:
 	add_child(enemy_instance)
 	#print("QWE",enemy_instance.get_parent())
 	return enemy_instance
+
+
+func set_node_active_recursive(node: Node, active: bool) -> void:
+	# 1. Выключаем/включаем обработку кадров и физики
+	node.set_process(active)
+	node.set_physics_process(active)
+	node.set_process_input(active) # На всякий случай гасим и ввод
+	
+	# 2. Управляем видимостью (проверяем, есть ли такое свойство у ноды)
+	if "visible" in node:
+		node.visible = active
+	
+	# 3. Рекурсия: прогоняем функцию для всех детей
+	for child in node.get_children():
+		set_node_active_recursive(child, active)

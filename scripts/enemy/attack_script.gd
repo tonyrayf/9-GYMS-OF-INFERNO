@@ -2,7 +2,7 @@ extends Node
 
 var enemy
 var vision_area
-var last_player_pos
+var last_player_pos : Vector2
 var attack_cooldown_timer
 var attack_cooldown_flag: bool = false
 
@@ -18,6 +18,8 @@ func exit() -> void:
 	set_physics_process(false)
 
 func _ready() -> void:
+	last_player_pos = Global.player.global_position if Global.player else Vector2.ZERO
+	
 	enemy = get_parent().get_parent()
 	vision_area = enemy.get_node("Vision")
 	attack_cooldown_timer = enemy.get_node("AttackCooldownTimer")
@@ -38,6 +40,6 @@ func _physics_process(_delta: float) -> void:
 				attack_cooldown_timer.start()
 	
 	enemy.move_to(last_player_pos)
-		
+	
 func _on_attack_cooldown() -> void:
 	attack_cooldown_flag = false

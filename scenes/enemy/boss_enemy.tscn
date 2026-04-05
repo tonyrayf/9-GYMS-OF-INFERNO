@@ -43,10 +43,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8cpa"]
 radius = 75.0
 
+<<<<<<< HEAD
 [sub_resource type="Gradient" id="Gradient_lt611"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0.45882353)
 
 [node name="BossEnemy" type="CharacterBody2D" unique_id=1418778037]
+=======
+[node name="BossEnemy" type="CharacterBody2D" unique_id=1418778037 groups=["enemy"]]
+>>>>>>> origin/main
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_jp577")

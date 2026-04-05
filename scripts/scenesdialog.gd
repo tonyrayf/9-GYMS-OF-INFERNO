@@ -62,6 +62,7 @@ func _process(delta: float) -> void:
 			current_char += typing_speed
 		
 		label.text = text_arr[1].substr(0, int(current_char + 0.99))
+		label.text = text_arr[1].replace("\\n", "\n")
 		
 		if Input.is_action_just_pressed("attack_punch") or Input.is_action_just_pressed("attack_kick"):
 			if current_page < page_number - 1:
