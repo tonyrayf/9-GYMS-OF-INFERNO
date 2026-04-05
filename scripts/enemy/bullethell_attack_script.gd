@@ -57,7 +57,9 @@ func mass_circle_attack():
 	var damage = 20
 	circle_attack(100,10,0.9,damage)
 	circle_attack(300,25,1,damage,10)
-	await circle_attack(600,50,1.2,damage,35)
+	circle_attack(600,65,1.2,damage,35)
+	await circle_attack(900,100,1.3,damage,100)
+	#circle_attack(1200,110,1.3,damage,200)
 
 func line_attack(line_pos,line_dir,amount,time,damage,distance,sprite_index=0):
 	enemy.spawn_ranged_attack(attack_sprites_list2[sprite_index],damage,line_pos,time,spawn_damage.bind(damage,line_pos))
@@ -99,10 +101,12 @@ func mass_line_attack_horizontal():
 	var d2 = 80#inline distance
 	var damage = 20
 	circle_attack(100,10,0.9,damage)
-	line_attack(pos+Vector2(0,0.5*d),0,17,1,damage,d2,11)
-	line_attack(pos+Vector2(0,1.5*d),0,17,1,damage,d2,29)
-	line_attack(pos+Vector2(0,-0.5*d),0,17,1,damage,d2,47)
-	await line_attack(pos+Vector2(0,-1.5*d),0,17,1,damage,d2,65)
+	line_attack(pos+Vector2(0,0.5*d),0,21,1,damage,d2,10)
+	line_attack(pos+Vector2(0,1.5*d),0,21,1,damage,d2,31)
+	line_attack(pos+Vector2(0,2.5*d),0,21,1,damage,d2,52)
+	line_attack(pos+Vector2(0,-0.5*d),0,21,1,damage,d2,73)
+	line_attack(pos+Vector2(0,-1.5*d),0,21,1,damage,d2,94)
+	await line_attack(pos+Vector2(0,-2.5*d),0,21,1,damage,d2,115)
 	
 func mass_line_attack_vertical():
 	var pos = enemy.global_position

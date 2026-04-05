@@ -15,11 +15,11 @@ func _ready() -> void:
 	bullethell = get_node("bullethell_node")
 	template1.hide()
 	template2.hide()
-	for i in range(200):
+	for i in range(500):
 		var new_sprite = template1.duplicate()
 		add_child(new_sprite)
 		attack_sprites_list1.append(new_sprite)
-	for i in range(200):
+	for i in range(500):
 		var new_sprite = template2.duplicate()
 		add_child(new_sprite)
 		attack_sprites_list2.append(new_sprite)

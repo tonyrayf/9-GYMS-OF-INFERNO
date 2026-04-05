@@ -22,11 +22,11 @@ attack_cooldown = 0.1
 attack_range = 250.0
 
 [node name="RangedAttackSprite1" type="Sprite2D" parent="." unique_id=1343990705]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 texture = ExtResource("2_cnp62")
 
 [node name="RangedAttackSprite2" type="Sprite2D" parent="." unique_id=1472185499]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 texture = ExtResource("3_wj37o")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1761608293]
