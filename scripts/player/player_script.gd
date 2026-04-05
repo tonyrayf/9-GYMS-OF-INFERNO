@@ -69,6 +69,7 @@ var mode_switch_timer : float = 0
 
 
 func change_mode(mode: int) -> void:
+	$CPUParticles2D.burst_multiple_times(1,velocity)
 	current_mode = mode
 	
 	speed = speed_shfb[mode]

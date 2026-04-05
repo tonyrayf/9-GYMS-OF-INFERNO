@@ -18,7 +18,10 @@ func enter() -> void:
 	set_physics_process(false) 
 	attack_end_flag = false
 	enemy.velocity = Vector2.ZERO 
+	enemy.get_node("CPUParticles2D").burst_multiple_times(2,Vector2(0,0))
+	await get_tree().create_timer(1).timeout
 	enemy.global_position = enemy.initial_position
+	enemy.get_node("CPUParticles2D").burst_multiple_times(2,Vector2(0,0))
 	for i in (repeat_times):
 		var random_value = randi_range(1, 3)
 		if random_value==1:

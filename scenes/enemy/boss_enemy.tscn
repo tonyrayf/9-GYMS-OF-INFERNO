@@ -10,9 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://bmtw4cxwwtgno" path="res://nodes/bullethell_node.tscn" id="7_wj37o"]
 [ext_resource type="Script" uid="uid://dmkwvujrfmwrx" path="res://scripts/enemy/bullethell_attack_script.gd" id="8_00jbt"]
 [ext_resource type="PackedScene" uid="uid://bra02lbd2yoq8" path="res://nodes/boss_attack_node.tscn" id="9_00jbt"]
+[ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="11_nvk41"]
+[ext_resource type="Script" uid="uid://h0ys65h0ho85" path="res://scripts/cpu_particles_script.gd" id="12_vx8xy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8cpa"]
 radius = 75.0
+
+[sub_resource type="Gradient" id="Gradient_lt611"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0.45882353)
 
 [node name="BossEnemy" type="CharacterBody2D" unique_id=1418778037]
 collision_layer = 2
@@ -49,3 +54,20 @@ script = ExtResource("8_00jbt")
 [node name="boss_attack_node" parent="BossStateMachine" unique_id=947175183 instance=ExtResource("9_00jbt")]
 
 [node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1632778650]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1341566444]
+z_index = 100
+emitting = false
+amount = 100
+texture = ExtResource("11_nvk41")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 600.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_lt611")
+script = ExtResource("12_vx8xy")
