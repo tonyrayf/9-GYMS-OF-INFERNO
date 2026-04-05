@@ -18,10 +18,9 @@ script = ExtResource("1_dwaox")
 patrol_speed = 120.0
 attack_speed = 200.0
 waiting_speed = 200.0
-health = 400.0
+health = 250.0
 damage = 20.0
 attack_cooldown = 3.0
-attack_range = 300.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747581024]
 scale = Vector2(7, 7)

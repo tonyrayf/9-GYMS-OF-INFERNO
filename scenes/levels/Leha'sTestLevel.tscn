@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://donakoc8kfgdr"]
 
+[ext_resource type="Script" uid="uid://drltsc3xmop5d" path="res://scripts/level_test_script.gd" id="1_5rsg5"]
 [ext_resource type="PackedScene" uid="uid://ixnf6jqlqi8n" path="res://scenes/enemy/enemy.tscn" id="1_mbhkc"]
 [ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="3_5hrp4"]
 [ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="3_vcst1"]
@@ -13,6 +14,7 @@ _data = {
 point_count = 6
 
 [node name="Level1" type="Node2D" unique_id=106251467]
+script = ExtResource("1_5rsg5")
 
 [node name="Player" parent="." unique_id=1281337577 instance=ExtResource("3_vcst1")]
 position = Vector2(1011, 998)

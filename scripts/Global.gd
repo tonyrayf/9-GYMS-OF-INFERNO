@@ -39,3 +39,17 @@ func spawn_damage_hitbox(damage: float, position: Vector2, attacker: int, radius
 			punched = true
 	
 	return punched
+	
+var enemy_preload = preload("res://scenes/enemy/enemy.tscn")
+var tank_enemy_preload = preload("res://scenes/enemy/tank_enemy.tscn")
+var ranged_enemy_preload = preload("res://scenes/enemy/ranged_enemy.tscn")
+var runner_enemy_preload = preload("res://scenes/enemy/runner_enemy.tscn")
+
+enum Enemies { ENEMY, TANK_ENEMY, RANGED_ENEMY,RUNNER_ENEMY }
+var enemies_list = [enemy_preload,tank_enemy_preload,ranged_enemy_preload,runner_enemy_preload]
+	
+func spawn_enemy(type: int,position: Vector2) -> Node2D:
+	var enemy_instance = enemies_list[type].instantiate()
+	enemy_instance.position = position
+	add_child(enemy_instance)
+	return enemy_instance
