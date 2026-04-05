@@ -1,0 +1,224 @@
+[gd_scene format=3 uid="uid://dljwvib22p0p7"]
+
+[ext_resource type="Script" uid="uid://cbhw0nrfmqldj" path="res://scenesdialog.gd" id="1_4wims"]
+[ext_resource type="Texture2D" uid="uid://us4mnjq02e1r" path="res://assets/sprites/glavger.png" id="1_auqi6"]
+[ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="1_pkx4w"]
+[ext_resource type="Texture2D" uid="uid://bihumh6gfrd8c" path="res://assets/sprites/anatoly.png" id="2_4wims"]
+[ext_resource type="Texture2D" uid="uid://rskywfini3t0" path="res://assets/sprites/IMG_20260404_182241_617.png" id="4_b1kyf"]
+[ext_resource type="FontFile" uid="uid://cq64l4qxre023" path="res://resources/EpilepsySans.ttf" id="6_b1kyf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_owmcw"]
+font = ExtResource("6_b1kyf")
+font_size = 40
+
+[sub_resource type="Animation" id="Animation_b1kyf"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Border2:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(970, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Border2:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(985, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Border:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(980, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Border:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(55.99999, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Textbox:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(969, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Textbox:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(604, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Glavger:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(399.00003, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Glavger:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(588, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Opponent:position:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1542.6445, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_owmcw"]
+resource_name = "end"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Border2:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(985, -0.25, 0, 0.1, -6.8068237, 1279, -0.09999999, -23.799194, 0, 0),
+"times": PackedFloat32Array(0, 0.19999999)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Border:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(55.99999, -0.1, 0, 0.1, 0, -198, -0.033333335, 42.333332, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Textbox:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(604, -0.0105266785, 0, 0, 0, 1050, -0.039473325, -74.333336, 0, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Glavger:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(399.00003, -0.15, 0, 0.15, 0, -455.9999, -0.033327024, 142.5, 0, 0),
+"times": PackedFloat32Array(0, 0.19996214)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Opponent:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1542.6445, -0.15, 0, 0.15, 0, 2351, -0.033327024, -134.72592, 0, 0),
+"times": PackedFloat32Array(0, 0.19996214)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ygo2i"]
+_data = {
+&"RESET": SubResource("Animation_b1kyf"),
+&"end": SubResource("Animation_owmcw")
+}
+
+[node name="Dialog" type="Node2D" unique_id=912548657 node_paths=PackedStringArray("label", "main_char_spr", "opp_char_spr", "anim_player")]
+script = ExtResource("1_4wims")
+full_text = [[1, "О, привет, ты новенький? Добро пожаловать в адскую качалку."], [1, "Я уборщик здесь. Не подержишь мою швабру?"], [0, "..."], [1, "Нет? Ну, тогда тебе туда."]]
+label = NodePath("Label")
+main_char_spr = NodePath("Glavger")
+opp_char_spr = NodePath("Opponent")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="Glavger" type="Sprite2D" parent="." unique_id=496388940]
+position = Vector2(399.00003, 588)
+scale = Vector2(4.752101, 4.752101)
+texture = ExtResource("1_auqi6")
+
+[node name="Opponent" type="Sprite2D" parent="." unique_id=633285656]
+position = Vector2(1542.6445, 600)
+scale = Vector2(5.25431, 5.25431)
+texture = ExtResource("2_4wims")
+
+[node name="Border" type="Sprite2D" parent="." unique_id=424548457]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(980, 55.99999)
+scale = Vector2(2054.4998, 186)
+texture = ExtResource("1_pkx4w")
+
+[node name="Border2" type="Sprite2D" parent="." unique_id=391586848]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(970, 985)
+scale = Vector2(2054.4998, 233.99994)
+texture = ExtResource("1_pkx4w")
+
+[node name="Textbox" type="Sprite2D" parent="." unique_id=660844387]
+position = Vector2(969, 604)
+scale = Vector2(5.147222, 5.147222)
+texture = ExtResource("4_b1kyf")
+
+[node name="Label" type="Label" parent="." unique_id=219745666]
+offset_left = 299.0
+offset_top = 837.0
+offset_right = 1644.0
+offset_bottom = 985.0
+label_settings = SubResource("LabelSettings_owmcw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1805627162]
+libraries/ = SubResource("AnimationLibrary_ygo2i")

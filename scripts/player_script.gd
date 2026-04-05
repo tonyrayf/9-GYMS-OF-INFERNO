@@ -138,6 +138,17 @@ func mode_stronger_logic(delta: float) -> void:
 			stronger_punch_shake_duration,
 			stronger_punch_shake_magnitude
 		)
+	
+	# Добивание
+	if Input.is_action_just_pressed("skill_e") and skill_e_timer <= 0:
+		skill_e_timer = skill_e_time
+		
+		var mouse_pos := get_global_mouse_position()
+		var direction = (mouse_pos - global_position).normalized()
+		var spawn_pos = global_position + direction * punch_radius
+		
+		#var success =
+			
 
 func mode_harder_logic(delta: float) -> void:
 	if Input.is_action_just_pressed("attack_punch") and punch_timer <= 0:
@@ -171,6 +182,7 @@ func mode_faster_logic(delta: float) -> void:
 			punch_collision_radius
 		)
 	
+	# Dash
 	if Input.is_action_just_pressed("skill_e") and skill_e_timer <= 0:
 		skill_e_timer = skill_e_time
 		
@@ -230,6 +242,10 @@ func do_punch() -> void:
 	
 	punch_sprite.position = direction * 120
 	punch_sprite.rotation = angle
+	if (angle < -PI/2 or angle > PI/2):
+		punch_sprite.scale.y = -abs(punch_sprite.scale.y)
+	elif (angle > -PI/2 or angle < PI/2):
+		punch_sprite.scale.y = abs(punch_sprite.scale.y)
 
 
 func toggle_faster_shader(active: bool):
