@@ -260,9 +260,8 @@ color_ramp = SubResource("Gradient_myrg7")
 script = ExtResource("12_gx1jg")
 
 [node name="Attack" type="AnimatedSprite2D" parent="." unique_id=70412696]
-position = Vector2(-1.5258789e-05, 0)
-scale = Vector2(3.5000005, 3.5)
+scale = Vector2(5.714287, 5.714286)
 sprite_frames = SubResource("SpriteFrames_fcs02")
 frame = 9
 frame_progress = 1.0
-offset = Vector2(32.85714, 0)
+offset = Vector2(20.106247, -0.7000002)

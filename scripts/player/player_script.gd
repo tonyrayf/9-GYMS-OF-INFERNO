@@ -18,13 +18,13 @@ extends CharacterBody2D
 
 @export_group("Stats")
 var punch_damage : float
-@export var punch_damage_shfb : Array = [50, 34, 25, 60]
+@export var punch_damage_shfb : Array = [50, 34, 4.2, 100]
 
 var punch_radius : float = 60 # грубо говоря длина ручки
-@export var punch_radius_shfb : Array = [80, 70, 60, 75]
+@export var punch_radius_shfb : Array = [120, 120, 120, 120]
 
 var punch_collision_radius : float
-@export var punch_collision_radius_shfb : Array = [60, 50, 40, 70]
+@export var punch_collision_radius_shfb : Array = [90, 90, 90, 90]
 
 var take_damage_multi : float
 @export var take_damage_multi_shfb : Array = [0.75, 0.26, 1.5, 0.3]
@@ -36,7 +36,7 @@ var punch_time : float; var punch_timer : float = 0 # время между уд
 var stronger_charge_timer : float = 0
 
 var kick_time : float; var kick_timer : float = 0 # время между пинком
-@export var kick_time_shfb : Array = [2.2, 3.5, 1, 2]
+@export var kick_time_shfb : Array = [2, 2.5, 1, 2]
 
 var skill_e_time : float; var skill_e_timer : float = 0
 @export var skill_e_time_shfb : Array = [4.5, 4.5, 2, 4.5]
@@ -49,8 +49,8 @@ enum Mode { STRONGER, HARDER, FASTER, BETTER }
 @export var mode_switch_time : float = 0.5
 var mode_switch_timer : float = 0
 
-@export var super_punch_damage : float = 90
-@export var super_punch_collision_radius : float = 70
+@export var super_punch_damage : float = 100
+@export var super_punch_collision_radius : float = 100
 
 @export_group("References")
 @export var health_bar : Node
@@ -187,6 +187,8 @@ func mode_harder_logic(delta: float) -> void:
 			Global.Attacker.PLAYER,
 			punch_collision_radius
 		)
+	
+	health += 0.025
 	
 	# Push
 	if Input.is_action_just_pressed("skill_e") and skill_e_timer <= 0:
@@ -364,8 +366,10 @@ func _process(delta: float) -> void:
 		
 		if Input.is_action_just_pressed("skill_q"):
 			change_mode(Mode.BETTER)
-	else:
+	elif q_hint_label.visible:
 		q_hint_label.visible = false
+		
+		change_mode(Mode.STRONGER)
 	
 	# Aura уходит
 	if current_mode == Mode.BETTER:

@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://r44838babesn" path="res://assets/sprites/boss5.png" id="8_hyj5c"]
 [ext_resource type="PackedScene" uid="uid://bra02lbd2yoq8" path="res://nodes/boss_attack_node.tscn" id="9_00jbt"]
 [ext_resource type="Texture2D" uid="uid://k4aish4qpjss" path="res://assets/sprites/Purple_pixel.png" id="11_nvk41"]
-[ext_resource type="Script" uid="uid://h0ys65h0ho85" path="res://scripts/cpu_particles_script.gd" id="12_vx8xy"]
+[ext_resource type="Script" path="res://scripts/cpu_particles_script.gd" id="12_vx8xy"]
 [ext_resource type="PackedScene" uid="uid://ble0xvjeh0ebu" path="res://nodes/enemy_healthbar.tscn" id="17_ubilk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dtcxm"]
@@ -55,7 +55,7 @@ script = ExtResource("1_jp577")
 attack_speed = 100.0
 max_health = 1000.0
 attack_cooldown = 0.1
-attack_range = 250.0
+attack_range = 150.0
 
 [node name="RangedAttackSprite1" type="Sprite2D" parent="." unique_id=1343990705]
 scale = Vector2(10, 10)

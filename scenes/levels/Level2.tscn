@@ -1090,31 +1090,31 @@ visible = false
 [node name="Enemy" parent="Wave2" unique_id=1604973710 instance=ExtResource("12_rjd1d")]
 position = Vector2(-1129, -2143)
 
-[node name="Vision" parent="Wave2/Enemy" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave2/Enemy" index="4" unique_id=340150669]
 detection_radius = 9999.0
 
 [node name="Enemy2" parent="Wave2" unique_id=1657433947 instance=ExtResource("12_rjd1d")]
 position = Vector2(-838, -2227)
 
-[node name="Vision" parent="Wave2/Enemy2" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave2/Enemy2" index="4" unique_id=340150669]
 detection_radius = 9999.0
 
 [node name="Enemy3" parent="Wave2" unique_id=1965972227 instance=ExtResource("12_rjd1d")]
 position = Vector2(-503, -2219)
 
-[node name="Vision" parent="Wave2/Enemy3" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave2/Enemy3" index="4" unique_id=340150669]
 detection_radius = 9999.0
 
 [node name="Enemy4" parent="Wave2" unique_id=1793302652 instance=ExtResource("12_rjd1d")]
 position = Vector2(-146, -2163)
 
-[node name="Vision" parent="Wave2/Enemy4" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave2/Enemy4" index="4" unique_id=340150669]
 detection_radius = 9999.0
 
 [node name="Enemy5" parent="Wave2" unique_id=2118808199 instance=ExtResource("12_rjd1d")]
 position = Vector2(157, -2163)
 
-[node name="Vision" parent="Wave2/Enemy5" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave2/Enemy5" index="4" unique_id=340150669]
 detection_radius = 9999.0
 
 [node name="EnemyRanged" parent="Wave2" unique_id=268978774 instance=ExtResource("16_eim73")]
@@ -1132,19 +1132,19 @@ visible = false
 [node name="EnemyTank" parent="Wave3" unique_id=114116421 instance=ExtResource("26_eim73")]
 position = Vector2(-1040, -2934)
 
-[node name="Vision" parent="Wave3/EnemyTank" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave3/EnemyTank" index="4" unique_id=340150669]
 detection_radius = 9999.0
 
 [node name="EnemyTank2" parent="Wave3" unique_id=575602847 instance=ExtResource("26_eim73")]
 position = Vector2(-574, -3016)
 
-[node name="Vision" parent="Wave3/EnemyTank2" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave3/EnemyTank2" index="4" unique_id=340150669]
 detection_radius = 9999.0
 
 [node name="EnemyTank3" parent="Wave3" unique_id=224648868 instance=ExtResource("26_eim73")]
 position = Vector2(-84, -2868)
 
-[node name="Vision" parent="Wave3/EnemyTank3" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave3/EnemyTank3" index="4" unique_id=340150669]
 detection_radius = 9999.0
 
 [node name="ArenaStarter" parent="." unique_id=232513328 node_paths=PackedStringArray("anim_player", "audio_music") instance=ExtResource("13_8n7ay")]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://braj51qvjpv05" path="res://scripts/enemy/enemy_script.gd" id="1_dwaox"]
 [ext_resource type="Texture2D" uid="uid://b3blf4mdppsdw" path="res://assets/sprites/tank.png" id="2_dwaox"]
 [ext_resource type="Script" uid="uid://ufyufsglq1sm" path="res://scripts/sprite_script.gd" id="3_230tf"]
-[ext_resource type="PackedScene" uid="uid://b7xogisgrj488" path="res://nodes/state_machine_node.tscn" id="4_0hxl5"]
+[ext_resource type="PackedScene" path="res://nodes/state_machine_node.tscn" id="4_0hxl5"]
 [ext_resource type="Texture2D" uid="uid://djm7oui3ss80" path="res://assets/sprites/shadow.png" id="4_230tf"]
 [ext_resource type="PackedScene" uid="uid://ddslmwbpca3pq" path="res://nodes/patrol_node.tscn" id="5_80p5t"]
 [ext_resource type="PackedScene" uid="uid://dfbaai843j3aq" path="res://nodes/attack_node.tscn" id="6_gyjrr"]
@@ -22,8 +22,10 @@ script = ExtResource("1_dwaox")
 patrol_speed = 120.0
 attack_speed = 200.0
 waiting_speed = 200.0
-damage = 10.0
+max_health = 200.0
+damage = 13.0
 attack_cooldown = 3.0
+attack_range = 150.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747581024]
 scale = Vector2(7, 7)
