@@ -13,7 +13,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and attacker != Global.Attacker.PLAYER:
 		body.deal_damage(damage)
 	# Урон врагам
-	elif body.is_in_group("enemy") and attacker != Global.Attacker.ENEMY:
+	if body.is_in_group("enemy") and attacker != Global.Attacker.ENEMY:
 		body.deal_damage(damage)
 
 

@@ -1,23 +1,22 @@
-[gd_scene format=4 uid="uid://diqiuvdjsxxnw"]
+[gd_scene format=4 uid="uid://ct2i8qwmwotrl"]
 
-[ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="1_fh0io"]
-[ext_resource type="PackedScene" uid="uid://dwab0ac5ejsdu" path="res://scenes/tile_map_layer.tscn" id="1_x4si1"]
-[ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="2_fh0io"]
-[ext_resource type="PackedScene" uid="uid://byykjhe0l8oow" path="res://scenes/tile_map_layer_wall.tscn" id="4_68ib6"]
-[ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="4_fh0io"]
-[ext_resource type="Script" uid="uid://doduv56xsal7g" path="res://scripts/z_index_fix.gd" id="5_7d7pp"]
-[ext_resource type="Texture2D" uid="uid://dbm7p7phkihs4" path="res://assets/sprites/characters/janitor.png" id="6_76cw8"]
-[ext_resource type="PackedScene" uid="uid://dljwvib22p0p7" path="res://scenes/dialog.tscn" id="6_lha2r"]
-[ext_resource type="PackedScene" uid="uid://dcuamekmye12k" path="res://nodes/dialog_trigger.tscn" id="7_m00rq"]
-[ext_resource type="Script" uid="uid://c8r1itl8bg0i3" path="res://scripts/onetime/lvl1_dialog_trigger.gd" id="8_brv20"]
-[ext_resource type="PackedScene" uid="uid://ixnf6jqlqi8n" path="res://scenes/enemy/enemy.tscn" id="10_e5nfq"]
-[ext_resource type="PackedScene" uid="uid://chxh8qy6dj2vf" path="res://nodes/arena_starter.tscn" id="12_6owa4"]
-[ext_resource type="Texture2D" uid="uid://c6fcndj86wypi" path="res://assets/sprites/инвентарь.png" id="13_n5pya"]
-[ext_resource type="PackedScene" uid="uid://dxcjxwo3nfxxk" path="res://nodes/arena.tscn" id="14_j7nyf"]
-[ext_resource type="Texture2D" uid="uid://s5dy8dfwx6uu" path="res://assets/sprites/styles/надписи H.png" id="14_njy47"]
-[ext_resource type="Texture2D" uid="uid://bhueck8omllbt" path="res://assets/sprites/styles/надписи B.png" id="15_j7nyf"]
-[ext_resource type="Texture2D" uid="uid://cccdvpqmiw3fu" path="res://assets/sprites/styles/надписи F.png" id="16_xbvxr"]
-[ext_resource type="Texture2D" uid="uid://c8lxxxudcvh48" path="res://assets/sprites/styles/надписи S.png" id="17_bspq0"]
+[ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="1_mctl7"]
+[ext_resource type="PackedScene" uid="uid://dwab0ac5ejsdu" path="res://scenes/tile_map_layer.tscn" id="2_fpd7d"]
+[ext_resource type="PackedScene" uid="uid://byykjhe0l8oow" path="res://scenes/tile_map_layer_wall.tscn" id="3_nkm7c"]
+[ext_resource type="Texture2D" uid="uid://dbm7p7phkihs4" path="res://assets/sprites/characters/janitor.png" id="4_uh3oe"]
+[ext_resource type="Script" uid="uid://doduv56xsal7g" path="res://scripts/z_index_fix.gd" id="5_4p5gg"]
+[ext_resource type="PackedScene" uid="uid://dcuamekmye12k" path="res://nodes/dialog_trigger.tscn" id="6_hmwnr"]
+[ext_resource type="Script" uid="uid://c8r1itl8bg0i3" path="res://scripts/onetime/lvl1_dialog_trigger.gd" id="7_4ao78"]
+[ext_resource type="PackedScene" uid="uid://dljwvib22p0p7" path="res://scenes/dialog.tscn" id="8_pi6sb"]
+[ext_resource type="Texture2D" uid="uid://c6fcndj86wypi" path="res://assets/sprites/инвентарь.png" id="9_8tmga"]
+[ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="10_eim73"]
+[ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="11_d2rr3"]
+[ext_resource type="PackedScene" uid="uid://ixnf6jqlqi8n" path="res://scenes/enemy/enemy.tscn" id="12_rjd1d"]
+[ext_resource type="PackedScene" uid="uid://chxh8qy6dj2vf" path="res://nodes/arena_starter.tscn" id="13_8n7ay"]
+[ext_resource type="Texture2D" uid="uid://s5dy8dfwx6uu" path="res://assets/sprites/styles/надписи H.png" id="14_o163v"]
+[ext_resource type="Texture2D" uid="uid://bhueck8omllbt" path="res://assets/sprites/styles/надписи B.png" id="15_uie84"]
+[ext_resource type="Texture2D" uid="uid://cccdvpqmiw3fu" path="res://assets/sprites/styles/надписи F.png" id="16_0j73a"]
+[ext_resource type="Texture2D" uid="uid://c8lxxxudcvh48" path="res://assets/sprites/styles/надписи S.png" id="17_cco8p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m00rq"]
 size = Vector2(550, 205)
@@ -345,18 +344,6 @@ tracks/18/keys = {
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/19/type = "value"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("../Arena:arena_active")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_n5pya"]
 resource_name = "arena_start"
@@ -575,18 +562,6 @@ tracks/18/keys = {
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.061076026, 0, 0, 0),
 "times": PackedFloat32Array(1.5680175, 1.9344736)
 }
-tracks/19/type = "value"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("../Arena:arena_active")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
-"times": PackedFloat32Array(0, 0.7015582),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kypp1"]
 _data = {
@@ -614,17 +589,17 @@ light_mask = 0
 z_index = -4096
 position = Vector2(141.5001, -900.0001)
 scale = Vector2(5537, 5478)
-texture = ExtResource("1_fh0io")
+texture = ExtResource("1_mctl7")
 
-[node name="TileMapLayerGround" parent="." unique_id=430121727 instance=ExtResource("1_x4si1")]
+[node name="TileMapLayerGround" parent="." unique_id=430121727 instance=ExtResource("2_fpd7d")]
 scale = Vector2(3.785, 3.785)
 tile_map_data = PackedByteArray("AAD7//f/AAAAAAEAAAD7//j/AAAAAAEAAAD7//n/AAAAAAEAAAD7//r/AAAAAAEAAAD7//v/AAAAAAEAAAD7//z/AAAAAAEAAAD7//3/AAAAAAEAAAD8//f/AAABAAEAAAD8//j/AAABAAEAAAD8//n/AAABAAEAAAD8//r/AAABAAEAAAD8//v/AAABAAEAAAD8//z/AAABAAEAAAD8//3/AAABAAEAAAD8//7/AAABAAIAAAD9//f/AAACAAEAAAD9//j/AAACAAEAAAD9//n/AAACAAEAAAD9//r/AAABAAEAAAD9//v/AAABAAEAAAD9//z/AAABAAEAAAD9//3/AAABAAEAAAD9//7/AAABAAIAAAD+//v/AAABAAEAAAD+//z/AAABAAEAAAD+//3/AAABAAEAAAD+//7/AAABAAIAAAD///v/AAABAAEAAAD///z/AAABAAEAAAD///3/AAABAAEAAAD///7/AAABAAIAAAAAAPv/AAABAAEAAAAAAPz/AAABAAEAAAAAAP3/AAABAAEAAAAAAP7/AAABAAIAAAABAPv/AAABAAEAAAABAPz/AAABAAEAAAABAP3/AAABAAEAAAABAP7/AAABAAIAAAACAPr/AAABAAEAAAACAPv/AAABAAEAAAACAPz/AAABAAEAAAACAP3/AAABAAEAAAACAP7/AAABAAIAAAADAPr/AAABAAEAAAADAPv/AAABAAEAAAADAPz/AAABAAEAAAADAP3/AAABAAEAAAADAP7/AAABAAIAAAAEAPr/AAACAAEAAAAEAPv/AAACAAEAAAAEAPz/AAACAAEAAAAEAP3/AAACAAEAAAAEAP7/AAACAAIAAAD+//r/AAABAAEAAAD///r/AAABAAEAAAAAAPr/AAABAAEAAAABAPr/AAABAAEAAAD4//X/AwAAAAAAAAD4//P/AgAAAAAAAAD4//T/AgAAAAAAAAD5//T/AgAAAAAAAAD5//X/AgAAAAAAAAD6//X/AgAAAAAAAAD7//X/AgAAAAAAAAD8//X/AgAAAAAAAAD9//X/AgAAAAAAAAD+//X/AgAAAAAAAAD///X/AgAAAAAAAAAAAPX/AgAAAAAAAAABAPX/AwAAAAAAABD4/+7/AwAAAAAAAAD4/+//AgAAAAAAAAD4//D/AgAAAAAAAAD4//H/AgAAAAAAAAD4//L/AgAAAAAAAAD5/+7/AgAAAAAAAAD5/+//AgAAAAAAAAD5//D/AgAAAAAAAAD5//H/AgAAAAAAAAD5//L/AgAAAAAAAAD5//P/AgAAAAAAAAD6/+7/AgAAAAAAAAD6/+//AgAAAAAAAAD6//D/AgAAAAAAAAD6//H/AgAAAAAAAAD6//L/AgAAAAAAAAD6//P/AgAAAAAAAAD6//T/AgAAAAAAAAD7/+7/AgAAAAAAAAD7/+//AgAAAAAAAAD7//D/AgAAAAAAAAD7//H/AgAAAAAAAAD7//L/AgAAAAAAAAD7//P/AgAAAAAAAAD7//T/AgAAAAAAAAD8/+7/AgAAAAAAAAD8/+//AgAAAAAAAAD8//D/AgAAAAAAAAD8//H/AgAAAAAAAAD8//L/AgAAAAAAAAD8//P/AgAAAAAAAAD8//T/AgAAAAAAAAD9/+7/AgAAAAAAAAD9/+//AgAAAAAAAAD9//D/AgAAAAAAAAD9//H/AgAAAAAAAAD9//L/AgAAAAAAAAD9//P/AgAAAAAAAAD9//T/AgAAAAAAAAD+/+7/AgAAAAAAAAD+/+//AgAAAAAAAAD+//D/AgAAAAAAAAD+//H/AgAAAAAAAAD+//L/AgAAAAAAAAD+//P/AgAAAAAAAAD+//T/AgAAAAAAAAD//+7/AgAAAAAAAAD//+//AgAAAAAAAAD///D/AgAAAAAAAAD///H/AgAAAAAAAAD///L/AgAAAAAAAAD///P/AgAAAAAAAAD///T/AgAAAAAAAAAAAO7/AgAAAAAAAAAAAO//AgAAAAAAAAAAAPD/AgAAAAAAAAAAAPH/AgAAAAAAAAAAAPL/AgAAAAAAAAAAAPP/AgAAAAAAAAAAAPT/AgAAAAAAAAABAO7/AwAAAAAAABABAO//AgAAAAAAAAABAPD/AgAAAAAAAAABAPH/AgAAAAAAAAABAPL/AgAAAAAAAAABAPP/AgAAAAAAAAABAPT/AgAAAAAAAAD7//b/AAAAAAEAAAD9//b/AAACAAEAAAD8//b/AAABAAEAAAD7//7/AAAAAAIAAAD7/+3/AAABAAEAAAD8/+3/AAABAAEAAAD9/+3/AAABAAEAAAD+/+3/AAABAAEAAAD//+3/AAACAAEAAAD//+z/AAACAAEAAAD+/+z/AAABAAEAAAD9/+z/AAABAAEAAAD8/+z/AAABAAEAAAD7/+z/AAABAAEAAAD7/+v/AAABAAEAAAD8/+v/AAABAAEAAAD+/+v/AAABAAEAAAD//+v/AAACAAEAAAD//+r/AAACAAEAAAD9/+r/AAABAAEAAAD8/+r/AAABAAEAAAD7/+r/AAABAAEAAAD6/+r/AAAAAAEAAAD6/+3/AAAAAAEAAAD6/+z/AAAAAAEAAAD6/+v/AAAAAAEAAAD9/+v/AAABAAEAAAD+/+r/AAABAAEAAAA=")
 
-[node name="TileMapLayerWalls" parent="." unique_id=1378299018 instance=ExtResource("4_68ib6")]
+[node name="TileMapLayerWalls" parent="." unique_id=1378299018 instance=ExtResource("3_nkm7c")]
 scale = Vector2(3.785, 3.785)
 tile_map_data = PackedByteArray("AAD+//n/BAAAAAAAAAD///n/AgAAAAAAAAABAPn/BAAAAAAAAAACAPn/AwAAAAAAAAADAPn/BAAAAAAAAAD4//X/BQAAAAIAAAD5//X/BQABAAIAAAD6//X/BQABAAIAAAD+//X/BQABAAIAAAD///X/BQABAAIAAAAAAPX/BQABAAIAAAABAPX/BQACAAIAAAD9//X/BQABAAEAAAD7//X/BQABAAEAABD4//T/BQAAAAEAAAD4//P/BQAAAAEAAAD4//L/BQAAAAEAAAD4//H/BQAAAAEAAAD4//D/BQAAAAEAAAD4/+//BQAAAAEAAAABAPT/BQACAAEAAAABAPP/BQACAAEAAAABAPL/BQACAAEAAAABAPH/BQACAAEAAAABAPD/BQACAAEAAAABAO//BQACAAEAAAABAO7/BQACAAEAAAD4/+7/BQAAAAEAAAD5/+3/BAAAAAAAAAD6/+3/BAAAAAAAAAD7/+3/AAAAAAAAAAD+/+3/AAAAAAAAAAD//+3/BAAAAAAAAAAAAO3/BAAAAAAAAAABAO3/BAAAAAAAAAAEAPn/BAAAAAAAAAAAAPn/BAAAAAAAAAD6/+n/BAAAAAAAAAD7/+n/BAAAAAAAAAD8/+n/BAAAAAAAAAD9/+n/BAAAAAAAAAD+/+n/BAAAAAAAAAD//+n/AQAAAAAAAAD4/+3/BAAAAAAAAAA=")
 
-[node name="TileMapLayerWallsTransparent" parent="." unique_id=647515462 instance=ExtResource("4_68ib6")]
+[node name="TileMapLayerWallsTransparent" parent="." unique_id=647515462 instance=ExtResource("3_nkm7c")]
 modulate = Color(1, 1, 1, 0.5176471)
 z_index = 4096
 scale = Vector2(3.785, 3.785)
@@ -633,52 +608,53 @@ tile_map_data = PackedByteArray("AAD7//7/BAAAAAAAAAD8//7/BAAAAAAAAAD9//7/BAAAAAA
 [node name="Janitor1" type="Sprite2D" parent="." unique_id=552163773]
 position = Vector2(-638.00006, -1297.0001)
 scale = Vector2(8.427084, 8.802084)
-texture = ExtResource("6_76cw8")
-script = ExtResource("5_7d7pp")
+texture = ExtResource("4_uh3oe")
+script = ExtResource("5_4p5gg")
 
-[node name="DialogTrigger" parent="." unique_id=970759494 node_paths=PackedStringArray("dialog_node") instance=ExtResource("7_m00rq")]
+[node name="DialogTrigger" parent="." unique_id=970759494 node_paths=PackedStringArray("dialog_node") instance=ExtResource("6_hmwnr")]
 position = Vector2(248, -734)
-script = ExtResource("8_brv20")
+script = ExtResource("7_4ao78")
 dialog_node = NodePath("../Dialog")
 
 [node name="CollisionShape2D" parent="DialogTrigger" index="0" unique_id=1230721863]
 position = Vector2(-889, -510)
 shape = SubResource("RectangleShape2D_m00rq")
 
-[node name="Dialog" parent="." unique_id=963855277 instance=ExtResource("6_lha2r")]
+[node name="Dialog" parent="." unique_id=963855277 instance=ExtResource("8_pi6sb")]
 
 [node name="Janitor2" type="Sprite2D" parent="." unique_id=1572734754]
 position = Vector2(-519, -3639)
 rotation = 3.1415927
 scale = Vector2(8.427, -8.802)
-texture = ExtResource("6_76cw8")
-script = ExtResource("5_7d7pp")
+texture = ExtResource("4_uh3oe")
+script = ExtResource("5_4p5gg")
 
-[node name="DialogTrigger2" parent="." unique_id=689692982 node_paths=PackedStringArray("dialog_node") instance=ExtResource("7_m00rq")]
+[node name="DialogTrigger2" parent="." unique_id=689692982 node_paths=PackedStringArray("dialog_node") instance=ExtResource("6_hmwnr")]
 position = Vector2(320, -3010)
-script = ExtResource("8_brv20")
+script = ExtResource("7_4ao78")
 dialog_node = NodePath("../Dialog2")
 
 [node name="CollisionShape2D" parent="DialogTrigger2" index="0" unique_id=1230721863]
 position = Vector2(-889, -510)
 shape = SubResource("RectangleShape2D_m00rq")
 
-[node name="Dialog2" parent="." unique_id=1540387580 instance=ExtResource("6_lha2r")]
+[node name="Dialog2" parent="." unique_id=1540387580 instance=ExtResource("8_pi6sb")]
 full_text = [[1, "О, новенький! А ты чего такой злой?"], [0, "Вы убили моего брата и ограбили нашу семейную качалку."], [1, "Что? Убили? Я видел, что его душу разделили на части и поместили\\nв магические блины."], [1, "От них и питается наша качалка. "], [0, "Тогда я должен вернуть блины, чтобы его душа упокоилась с миром."], [1, "Хорошо, я тебя остановить не смогу. Блины вон там."]]
 
 [node name="Инвентарь" type="Sprite2D" parent="." unique_id=2014755842]
 position = Vector2(-569.00006, -3975.0002)
 scale = Vector2(3.3157895, 3.3157895)
-texture = ExtResource("13_n5pya")
-script = ExtResource("5_7d7pp")
+texture = ExtResource("9_8tmga")
+script = ExtResource("5_4p5gg")
 
-[node name="Player" parent="." unique_id=1281337577 instance=ExtResource("2_fh0io")]
-position = Vector2(-9, -409)
+[node name="Player" parent="." unique_id=1281337577 instance=ExtResource("10_eim73")]
+position = Vector2(-519, -510)
 
-[node name="Camera" parent="." unique_id=197222917 instance=ExtResource("4_fh0io")]
+[node name="Camera" parent="." unique_id=197222917 instance=ExtResource("11_d2rr3")]
 position = Vector2(-637, -1933)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1613356244]
+visible = false
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2039730105]
@@ -744,129 +720,49 @@ shape = SubResource("CapsuleShape2D_brv20")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=551732132]
 libraries/ = SubResource("AnimationLibrary_7d7pp")
 
-[node name="Wave1" type="Node2D" parent="." unique_id=124333201]
-
-[node name="Enemy" parent="Wave1" unique_id=1657433947 instance=ExtResource("10_e5nfq")]
+[node name="Enemy" parent="." unique_id=1657433947 instance=ExtResource("12_rjd1d")]
 position = Vector2(-1109, -2308)
 
-[node name="Vision" parent="Wave1/Enemy" index="3" unique_id=340150669]
+[node name="Vision" parent="Enemy" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy2" parent="Wave1" unique_id=1975403956 instance=ExtResource("10_e5nfq")]
+[node name="Enemy2" parent="." unique_id=1975403956 instance=ExtResource("12_rjd1d")]
 position = Vector2(75, -2675)
 
-[node name="Vision" parent="Wave1/Enemy2" index="3" unique_id=340150669]
+[node name="Vision" parent="Enemy2" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy3" parent="Wave1" unique_id=1472716620 instance=ExtResource("10_e5nfq")]
+[node name="Enemy3" parent="." unique_id=1472716620 instance=ExtResource("12_rjd1d")]
 position = Vector2(-1025, -2966)
 
-[node name="Vision" parent="Wave1/Enemy3" index="3" unique_id=340150669]
+[node name="Vision" parent="Enemy3" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy4" parent="Wave1" unique_id=1723269947 instance=ExtResource("10_e5nfq")]
+[node name="Enemy4" parent="." unique_id=1723269947 instance=ExtResource("12_rjd1d")]
 position = Vector2(-378, -2966)
 
-[node name="Vision" parent="Wave1/Enemy4" index="3" unique_id=340150669]
+[node name="Vision" parent="Enemy4" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy5" parent="Wave1" unique_id=1848318916 instance=ExtResource("10_e5nfq")]
+[node name="Enemy5" parent="." unique_id=1848318916 instance=ExtResource("12_rjd1d")]
 position = Vector2(-60, -2224)
 
-[node name="Vision" parent="Wave1/Enemy5" index="3" unique_id=340150669]
+[node name="Vision" parent="Enemy5" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy6" parent="Wave1" unique_id=926241810 instance=ExtResource("10_e5nfq")]
+[node name="Enemy6" parent="." unique_id=926241810 instance=ExtResource("12_rjd1d")]
 position = Vector2(-569, -2469)
 
-[node name="Vision" parent="Wave1/Enemy6" index="3" unique_id=340150669]
+[node name="Vision" parent="Enemy6" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Wave2" type="Node2D" parent="." unique_id=2020529966]
-
-[node name="Enemy" parent="Wave2" unique_id=1604973710 instance=ExtResource("10_e5nfq")]
-position = Vector2(-1129, -3048)
-
-[node name="Vision" parent="Wave2/Enemy" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy2" parent="Wave2" unique_id=1302350722 instance=ExtResource("10_e5nfq")]
-position = Vector2(-818, -3132)
-
-[node name="Vision" parent="Wave2/Enemy2" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy3" parent="Wave2" unique_id=426129963 instance=ExtResource("10_e5nfq")]
-position = Vector2(-494, -3132)
-
-[node name="Vision" parent="Wave2/Enemy3" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy4" parent="Wave2" unique_id=2131296344 instance=ExtResource("10_e5nfq")]
-position = Vector2(-144, -3091)
-
-[node name="Vision" parent="Wave2/Enemy4" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy5" parent="Wave2" unique_id=937771979 instance=ExtResource("10_e5nfq")]
-position = Vector2(124, -2882)
-
-[node name="Vision" parent="Wave2/Enemy5" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy6" parent="Wave2" unique_id=589827596 instance=ExtResource("10_e5nfq")]
-position = Vector2(124, -2553)
-
-[node name="Vision" parent="Wave2/Enemy6" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy7" parent="Wave2" unique_id=1975085846 instance=ExtResource("10_e5nfq")]
-position = Vector2(-69, -2262)
-
-[node name="Vision" parent="Wave2/Enemy7" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy8" parent="Wave2" unique_id=2052576213 instance=ExtResource("10_e5nfq")]
-position = Vector2(-435, -2178)
-
-[node name="Vision" parent="Wave2/Enemy8" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy9" parent="Wave2" unique_id=1952702342 instance=ExtResource("10_e5nfq")]
-position = Vector2(-838, -2140)
-
-[node name="Vision" parent="Wave2/Enemy9" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy10" parent="Wave2" unique_id=1266361935 instance=ExtResource("10_e5nfq")]
-position = Vector2(-1129, -2265)
-
-[node name="Vision" parent="Wave2/Enemy10" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy11" parent="Wave2" unique_id=2069015907 instance=ExtResource("10_e5nfq")]
-position = Vector2(-1285, -2556)
-
-[node name="Vision" parent="Wave2/Enemy11" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy12" parent="Wave2" unique_id=1462848407 instance=ExtResource("10_e5nfq")]
-position = Vector2(-1285, -2841)
-
-[node name="Vision" parent="Wave2/Enemy12" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="ArenaStarter" parent="." unique_id=232513328 node_paths=PackedStringArray("anim_player", "enemies") instance=ExtResource("12_6owa4")]
+[node name="ArenaStarter" parent="." unique_id=232513328 node_paths=PackedStringArray("anim_player", "enemies") instance=ExtResource("13_8n7ay")]
 position = Vector2(-692, -1880)
 anim_player = NodePath("../AnimationPlayer2")
-enemies = [NodePath("../Wave1/Enemy2"), NodePath("../Wave1/Enemy3"), NodePath("../Wave1/Enemy4"), NodePath("../Wave1/Enemy5"), NodePath("../Wave1/Enemy6"), NodePath("../Wave1/Enemy")]
+enemies = [NodePath("../Enemy2"), NodePath("../Enemy3"), NodePath("../Enemy4"), NodePath("../Enemy5"), NodePath("../Enemy6"), NodePath("../Enemy")]
 
 [node name="CollisionShape2D" parent="ArenaStarter" index="0" unique_id=2141170505]
 position = Vector2(55, -106.5)
-
-[node name="Arena" parent="." unique_id=364084964 node_paths=PackedStringArray("anim_player", "waves") instance=ExtResource("14_j7nyf")]
-anim_player = NodePath("../AnimationPlayer2")
-waves = [NodePath("../Wave1"), NodePath("../Wave2")]
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=706700020]
 root_node = NodePath("../AnimationPlayer")
@@ -878,25 +774,25 @@ libraries/ = SubResource("AnimationLibrary_kypp1")
 visible = false
 position = Vector2(977, 540)
 scale = Vector2(8.81579, 8.815789)
-texture = ExtResource("14_njy47")
+texture = ExtResource("14_o163v")
 
 [node name="НадписиB" type="Sprite2D" parent="CanvasLayer" unique_id=301700235]
 visible = false
 position = Vector2(1027.0001, 531)
 scale = Vector2(9.552631, 9.552631)
-texture = ExtResource("15_j7nyf")
+texture = ExtResource("15_uie84")
 
 [node name="НадписиF" type="Sprite2D" parent="CanvasLayer" unique_id=466208330]
 visible = false
 position = Vector2(1003, 530.00006)
 scale = Vector2(8.157895, 8.157895)
-texture = ExtResource("16_xbvxr")
+texture = ExtResource("16_0j73a")
 
 [node name="НадписиS" type="Sprite2D" parent="CanvasLayer" unique_id=1977908355]
 visible = false
 position = Vector2(1003, 527)
 scale = Vector2(9, 9)
-texture = ExtResource("17_bspq0")
+texture = ExtResource("17_cco8p")
 
 [node name="Pixel" type="Sprite2D" parent="." unique_id=1810330355]
 visible = false
@@ -909,28 +805,16 @@ texture = SubResource("GradientTexture2D_6owa4")
 [editable path="DialogTrigger"]
 [editable path="DialogTrigger2"]
 [editable path="Dialog2"]
-[editable path="Wave1/Enemy"]
-[editable path="Wave1/Enemy/Vision"]
-[editable path="Wave1/Enemy2"]
-[editable path="Wave1/Enemy2/Vision"]
-[editable path="Wave1/Enemy3"]
-[editable path="Wave1/Enemy3/Vision"]
-[editable path="Wave1/Enemy4"]
-[editable path="Wave1/Enemy4/Vision"]
-[editable path="Wave1/Enemy5"]
-[editable path="Wave1/Enemy5/Vision"]
-[editable path="Wave1/Enemy6"]
-[editable path="Wave1/Enemy6/Vision"]
-[editable path="Wave2/Enemy"]
-[editable path="Wave2/Enemy2"]
-[editable path="Wave2/Enemy3"]
-[editable path="Wave2/Enemy4"]
-[editable path="Wave2/Enemy5"]
-[editable path="Wave2/Enemy6"]
-[editable path="Wave2/Enemy7"]
-[editable path="Wave2/Enemy8"]
-[editable path="Wave2/Enemy9"]
-[editable path="Wave2/Enemy10"]
-[editable path="Wave2/Enemy11"]
-[editable path="Wave2/Enemy12"]
+[editable path="Enemy"]
+[editable path="Enemy/Vision"]
+[editable path="Enemy2"]
+[editable path="Enemy2/Vision"]
+[editable path="Enemy3"]
+[editable path="Enemy3/Vision"]
+[editable path="Enemy4"]
+[editable path="Enemy4/Vision"]
+[editable path="Enemy5"]
+[editable path="Enemy5/Vision"]
+[editable path="Enemy6"]
+[editable path="Enemy6/Vision"]
 [editable path="ArenaStarter"]

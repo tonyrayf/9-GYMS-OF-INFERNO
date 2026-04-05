@@ -23,4 +23,5 @@ func _physics_process(_delta: float) -> void:
 	if(vision_area.current_body_location!=Vector2.INF):
 		last_player_pos = vision_area.current_body_location
 	
-	enemy.move_to(last_player_pos,Global.wait_range-400)
+	if last_player_pos:
+		enemy.move_to(last_player_pos,Global.wait_range-400)
