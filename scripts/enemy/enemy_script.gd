@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @export_group("Movement")
 @export var patrol_speed: float = 150.0
 @export var attack_speed: float = 300.0
@@ -32,10 +31,12 @@ func _process(delta: float) -> void:
 
 var target_pos
 var moving
+var inertia
 
-func move_to(target: Vector2,space: float = 100) -> void:
+func move_to(target: Vector2,space: float = 100,inert: bool = false) -> void:
 	target_pos = target
 	personal_space = space
+	inertia = inert
 	
 	if global_position.distance_to(target_pos) < personal_space:
 			moving = false
@@ -45,11 +46,24 @@ func move_to(target: Vector2,space: float = 100) -> void:
 	moving = true
 	
 func _physics_process(_delta: float) -> void:
-	if moving:
-		if global_position.distance_to(target_pos) < personal_space:
-			moving = false
-			velocity = Vector2.ZERO
-			return
-		move_direction = (target_pos - global_position).normalized()
-		velocity = move_direction * current_speed
-		move_and_slide()
+	if not inertia:
+		if moving:
+			if global_position.distance_to(target_pos) < personal_space:
+				moving = false
+				velocity = Vector2.ZERO
+				return
+			move_direction = (target_pos - global_position).normalized()
+			velocity = move_direction * current_speed
+			move_and_slide()
+	else:
+		var target_velocity = Vector2.ZERO
+		
+		if moving:
+			if global_position.distance_to(target_pos) < personal_space:
+				moving = false
+			else:
+				move_direction = (target_pos - global_position).normalized()
+				target_velocity = move_direction * current_speed
+		velocity = velocity.move_toward(target_velocity, 500 * _delta)
+		if velocity.length() > 0.1:
+			move_and_slide()

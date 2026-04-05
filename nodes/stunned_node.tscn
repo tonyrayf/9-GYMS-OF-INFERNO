@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dyeduadwf4mtl"]
+
+[ext_resource type="Script" uid="uid://ch0ymjhwwv318" path="res://scripts/enemy/stunned_script.gd" id="1_y5lep"]
+
+[node name="stunned_node" type="Node" unique_id=114704000]
+script = ExtResource("1_y5lep")

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://braj51qvjpv05" path="res://scripts/enemy/enemy_script.gd" id="1_olk6i"]
 [ext_resource type="Script" uid="uid://ufyufsglq1sm" path="res://scripts/sprite_script.gd" id="2_5l6pi"]
 [ext_resource type="Texture2D" uid="uid://de7713o572odn" path="res://assets/sprites/ranger.png" id="2_olk6i"]
+[ext_resource type="Texture2D" uid="uid://baiv2hdcfcbtb" path="res://assets/sprites/какашка.png" id="2_ypobh"]
 [ext_resource type="PackedScene" uid="uid://dxnly5cq2feps" path="res://scenes/detect_hitbox.tscn" id="3_mvi7f"]
 [ext_resource type="PackedScene" uid="uid://c2kdsn64jbkp2" path="res://nodes/ranged_state_machine_node.tscn" id="3_npp3m"]
 [ext_resource type="PackedScene" uid="uid://ddslmwbpca3pq" path="res://nodes/patrol_node.tscn" id="4_ypdm1"]
@@ -18,6 +19,10 @@ attack_speed = 240.0
 damage = 10.0
 attack_cooldown = 3.0
 attack_range = 1350.0
+
+[node name="AttackSprite" type="Sprite2D" parent="." unique_id=491223841]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_ypobh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=487829434]
 scale = Vector2(7, 7)

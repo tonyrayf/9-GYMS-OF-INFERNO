@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://480ifahfe6ln"
-path="res://.godot/imported/character.webp-17fe722d0d792617500ff5c2a2e8dbda.ctex"
+uid="uid://bhc6uuh3vtxg8"
+path="res://.godot/imported/enemy_runner_placeholder.png-dace4e269b043fdebb42153a50a08f72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/character.webp"
-dest_files=["res://.godot/imported/character.webp-17fe722d0d792617500ff5c2a2e8dbda.ctex"]
+source_file="res://assets/sprites/enemy_runner_placeholder.png"
+dest_files=["res://.godot/imported/enemy_runner_placeholder.png-dace4e269b043fdebb42153a50a08f72.ctex"]
 
 [params]
 
