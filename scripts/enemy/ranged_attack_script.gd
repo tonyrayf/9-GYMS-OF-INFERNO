@@ -41,26 +41,15 @@ func _physics_process(_delta: float) -> void:
 		if not attack_cooldown_flag:	
 			attack_cooldown_flag = true
 			attack_cooldown_timer.start()
-			
-			attack_sprite.position = Vector2.ZERO
-			var tween = create_tween().bind_node(attack_sprite)
-			
-			tween.tween_callback(attack_sprite.show)
-			tween.tween_property(attack_sprite, "global_position", b,attack_fly_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-			tween.parallel().tween_property(attack_sprite, "rotation_degrees", 360.0, attack_fly_duration).as_relative()
-			tween.parallel().tween_property(attack_sprite, "scale", Vector2(2.0, 2.0), attack_fly_duration/2).set_trans(Tween.TRANS_LINEAR)
-			tween.tween_property(attack_sprite, "scale", Vector2(1.0, 1.0), attack_fly_duration/2).set_trans(Tween.TRANS_LINEAR)
-			tween.tween_callback(attack_sprite.hide)
-			tween.tween_property(attack_sprite, "position", Vector2.ZERO, 0.0)
-			
-			tween.finished.connect(_on_done.bind(b))
+
+			enemy.spawn_ranged_attack(attack_sprite,enemy.damage,b,attack_fly_duration,spawn_damage.bind(b))
 	
 	if(range_to_go>=enemy.attack_range):
 		enemy.move_to(b,enemy.attack_range)	
 	elif(range_to_go<enemy.attack_range):	
 		enemy.move_to(b+dir_to_go*(enemy.attack_range-range_to_go)*0.8,10)
 
-func _on_done(whereTo) -> void:
+func spawn_damage(whereTo) -> void:
 	Global.spawn_damage_hitbox(enemy.damage,whereTo,Global.Attacker.ENEMY,100)
 
 func _resume_motion() -> void:

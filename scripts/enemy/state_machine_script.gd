@@ -56,4 +56,4 @@ func change_state(to_state: String,do_exit: bool = true) -> void:
 			get_node(current_state+"_node").exit()
 		current_state = to_state
 		get_node(to_state+"_node").enter()
-		print(enemy.name+" went to "+current_state)
+		#print(enemy.name+" went to "+current_state)
