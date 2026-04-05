@@ -1,12 +1,7 @@
 extends "res://scripts/enemy/attack_script.gd"
 
-var spawned_enemy_list
-
 func enter() -> void:
-	Global.active_now_enemies += 1
-	#print("active now: "+str(Global.active_now_enemies))
 	enemy.current_speed = enemy.attack_speed
-	#тут спавним
 	set_physics_process(true)
 
 func _ready() -> void:

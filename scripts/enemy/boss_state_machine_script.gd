@@ -28,13 +28,18 @@ func _physics_process(delta: float) -> void:
 	if (current_state=="placeholder"):
 		change_state("bullethell",false)
 		
-	print(enemy.health,"  ",enemy.max_health,"  ",stage," ",current_state)
+	#print(enemy.health,"  ",enemy.max_health,"  ",stage," ",current_state)
 		
 	if bullethell and (not bullethell.attack_end_flag):
 		pass
 	elif stage==1:
 		if(current_state!="boss_attack"):
-			#сюда спавнить
+			var spawned_enemy1 = Global.spawn_enemy(Global.Enemies.ENEMY,enemy.global_position+Vector2(0,400))
+			spawned_enemy1.get_node("Vision").detection_radius = 1000.0 
+			spawned_enemy1.get_node("Vision").get_node("CollisionShape2D").shape.radius = 1000.0
+			var spawned_enemy2 = Global.spawn_enemy(Global.Enemies.ENEMY,enemy.global_position+Vector2(0,-400))
+			spawned_enemy2.get_node("Vision").detection_radius = 1000.0 
+			spawned_enemy2.get_node("Vision").get_node("CollisionShape2D").shape.radius = 1000.0
 			change_state("boss_attack")
 		else:
 			if(enemy.health<=enemy.max_health*0.75):
@@ -43,7 +48,15 @@ func _physics_process(delta: float) -> void:
 				change_state("bullethell")
 	elif stage==2:
 		if(current_state!="boss_attack"):
-			#сюда спавнить
+			var spawned_enemy1 = Global.spawn_enemy(Global.Enemies.TANK_ENEMY,enemy.global_position+Vector2(-200,0))
+			spawned_enemy1.get_node("Vision").detection_radius = 1000.0 
+			spawned_enemy1.get_node("Vision").get_node("CollisionShape2D").shape.radius = 1000.0
+			var spawned_enemy2 = Global.spawn_enemy(Global.Enemies.RANGED_ENEMY,enemy.global_position+Vector2(300,300))
+			spawned_enemy2.get_node("Vision").detection_radius = 1500.0 
+			spawned_enemy2.get_node("Vision").get_node("CollisionShape2D").shape.radius = 1500.0
+			var spawned_enemy3 = Global.spawn_enemy(Global.Enemies.RANGED_ENEMY,enemy.global_position+Vector2(300,-300))
+			spawned_enemy3.get_node("Vision").detection_radius = 1500.0 
+			spawned_enemy3.get_node("Vision").get_node("CollisionShape2D").shape.radius = 1500.0
 			change_state("boss_attack")
 		else:
 			if(enemy.health<=enemy.max_health*0.50):
@@ -52,7 +65,15 @@ func _physics_process(delta: float) -> void:
 				change_state("bullethell")
 	elif stage==3:
 		if(current_state!="boss_attack"):
-			#сюда спавнить
+			var spawned_enemy1 = Global.spawn_enemy(Global.Enemies.RUNNER_ENEMY,enemy.global_position+Vector2(0-200,400))
+			spawned_enemy1.get_node("Vision").detection_radius = 2000.0 
+			spawned_enemy1.get_node("Vision").get_node("CollisionShape2D").shape.radius = 2000.0
+			var spawned_enemy2 = Global.spawn_enemy(Global.Enemies.RUNNER_ENEMY,enemy.global_position+Vector2(-200,-400))
+			spawned_enemy2.get_node("Vision").detection_radius = 2000.0 
+			spawned_enemy2.get_node("Vision").get_node("CollisionShape2D").shape.radius = 2000.0
+			var spawned_enemy3 = Global.spawn_enemy(Global.Enemies.TANK_ENEMY,enemy.global_position+Vector2(-200,0))
+			spawned_enemy3.get_node("Vision").detection_radius = 2000.0 
+			spawned_enemy3.get_node("Vision").get_node("CollisionShape2D").shape.radius = 2000.0
 			change_state("boss_attack")
 		else:
 			if(enemy.health<=enemy.max_health*0.25):
