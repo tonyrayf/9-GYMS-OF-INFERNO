@@ -38,6 +38,8 @@ func _process(delta: float) -> void:
 var target_pos
 var moving
 var inertia
+var knockback_velocity := Vector2.ZERO
+var knockback_friction := 10.0
 
 func move_to(target: Vector2,space: float = 100,inert: bool = false) -> void:
 	target_pos = target
@@ -51,16 +53,16 @@ func move_to(target: Vector2,space: float = 100,inert: bool = false) -> void:
 	
 	moving = true
 	
+func push_to(direction: Vector2,strength: float):
+	knockback_velocity = direction.normalized() * strength
+	
 func _physics_process(_delta: float) -> void:
 	if not inertia:
 		if moving:
 			if global_position.distance_to(target_pos) < personal_space:
 				moving = false
-				velocity = Vector2.ZERO
-				return
 			move_direction = (target_pos - global_position).normalized()
 			velocity = move_direction * current_speed
-			move_and_slide()
 	else:
 		var target_velocity = Vector2.ZERO
 		
@@ -71,8 +73,15 @@ func _physics_process(_delta: float) -> void:
 				move_direction = (target_pos - global_position).normalized()
 				target_velocity = move_direction * current_speed
 		velocity = velocity.move_toward(target_velocity, 500 * _delta)
-		if velocity.length() > 0.1:
-			move_and_slide()
+		
+	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_friction * 100 * _delta)
+	var final_velocity = velocity + knockback_velocity
+	if final_velocity.length() > 0.1:
+		var temp_velocity = velocity 
+		velocity = final_velocity
+		move_and_slide()
+		velocity = temp_velocity
+	
 			
 func spawn_ranged_attack(attack_sprite: Sprite2D,damage: float,position: Vector2,attack_fly_duration: float,on_done: Callable=Callable()) -> void:
 	attack_sprite.global_position = self.global_position 
