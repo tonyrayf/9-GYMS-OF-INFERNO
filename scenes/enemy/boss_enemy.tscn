@@ -1,20 +1,52 @@
 [gd_scene format=3 uid="uid://cmfo8l2hml54g"]
 
 [ext_resource type="Script" uid="uid://braj51qvjpv05" path="res://scripts/enemy/enemy_script.gd" id="1_jp577"]
-[ext_resource type="Texture2D" uid="uid://bynbh8ijqa23a" path="res://assets/sprites/enemy_ranged_placeholder.png" id="2_aj6wq"]
 [ext_resource type="Texture2D" uid="uid://csyxnap43epaj" path="res://assets/sprites/блин демонический.png" id="2_cnp62"]
 [ext_resource type="Texture2D" uid="uid://d1ilmry1rt1hl" path="res://assets/sprites/блин демонический (1).png" id="3_wj37o"]
 [ext_resource type="Script" uid="uid://bctvemhke1yi4" path="res://scripts/enemy/boss_sprite_script.gd" id="4_00jbt"]
+[ext_resource type="Texture2D" uid="uid://cum4705qxftmx" path="res://assets/sprites/boss1.png" id="4_gex0v"]
 [ext_resource type="Script" uid="uid://da6757p61o87e" path="res://scripts/enemy/boss_state_machine_script.gd" id="4_uytak"]
 [ext_resource type="PackedScene" uid="uid://bhhd2awumwmfl" path="res://nodes/death_node.tscn" id="5_e8cpa"]
+[ext_resource type="Texture2D" uid="uid://cn2rockfpm1rl" path="res://assets/sprites/boss2.png" id="5_ubilk"]
+[ext_resource type="Texture2D" uid="uid://cc4bkcbhmado4" path="res://assets/sprites/boss3.png" id="6_udjfg"]
+[ext_resource type="Texture2D" uid="uid://rgag3c1ffxw1" path="res://assets/sprites/boss4.png" id="7_lncrt"]
 [ext_resource type="PackedScene" uid="uid://bmtw4cxwwtgno" path="res://nodes/bullethell_node.tscn" id="7_wj37o"]
 [ext_resource type="Script" uid="uid://dmkwvujrfmwrx" path="res://scripts/enemy/bullethell_attack_script.gd" id="8_00jbt"]
+[ext_resource type="Texture2D" uid="uid://r44838babesn" path="res://assets/sprites/boss5.png" id="8_hyj5c"]
 [ext_resource type="PackedScene" uid="uid://bra02lbd2yoq8" path="res://nodes/boss_attack_node.tscn" id="9_00jbt"]
+[ext_resource type="Texture2D" uid="uid://k4aish4qpjss" path="res://assets/sprites/Purple_pixel.png" id="11_nvk41"]
+[ext_resource type="Script" uid="uid://h0ys65h0ho85" path="res://scripts/cpu_particles_script.gd" id="12_vx8xy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dtcxm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gex0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ubilk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_udjfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lncrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hyj5c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8cpa"]
 radius = 75.0
 
-[node name="BossEnemy" type="CharacterBody2D" unique_id=1418778037 groups=["enemy"]]
+[sub_resource type="Gradient" id="Gradient_lt611"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0.45882353)
+
+[node name="BossEnemy" type="CharacterBody2D" unique_id=1418778037]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_jp577")
@@ -30,9 +62,10 @@ texture = ExtResource("2_cnp62")
 scale = Vector2(3, 3)
 texture = ExtResource("3_wj37o")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1761608293]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_aj6wq")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1723807405]
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_dtcxm")
+autoplay = "default"
 script = ExtResource("4_00jbt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=464730303]
@@ -49,3 +82,20 @@ script = ExtResource("8_00jbt")
 [node name="boss_attack_node" parent="BossStateMachine" unique_id=947175183 instance=ExtResource("9_00jbt")]
 
 [node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1632778650]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1341566444]
+z_index = 100
+emitting = false
+amount = 100
+texture = ExtResource("11_nvk41")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 600.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_lt611")
+script = ExtResource("12_vx8xy")

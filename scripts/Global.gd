@@ -5,8 +5,6 @@ var player : CharacterBody2D
 var main_camera : Camera2D
 
 enum Attacker { PLAYER, ENEMY, ENV }
-var active_max_enemies: int = 3
-var active_now_enemies: int = 0
 var wait_range: float = 750.0
 
 func spawn_damage_hitbox(damage: float, position: Vector2, attacker: int, radius: float = 50.0, time_to_live: float = 0.08) -> bool:

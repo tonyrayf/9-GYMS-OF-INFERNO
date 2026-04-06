@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://drltsc3xmop5d" path="res://scripts/level_test_script.gd" id="1_5hrp4"]
 [ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="3_5hrp4"]
 [ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="3_vcst1"]
-[ext_resource type="PackedScene" uid="uid://ixnf6jqlqi8n" path="res://scenes/enemy/enemy.tscn" id="4_ff8rk"]
+[ext_resource type="PackedScene" uid="uid://cmfo8l2hml54g" path="res://scenes/enemy/boss_enemy.tscn" id="4_5hrp4"]
 
 [node name="Level1" type="Node2D" unique_id=106251467]
 script = ExtResource("1_5hrp4")
@@ -14,5 +14,5 @@ position = Vector2(1011, 998)
 [node name="Camera" parent="." unique_id=197222917 instance=ExtResource("3_5hrp4")]
 position = Vector2(957, 537)
 
-[node name="Enemy" parent="." unique_id=1657433947 instance=ExtResource("4_ff8rk")]
-position = Vector2(1295, 597)
+[node name="BossEnemy" parent="." unique_id=1418778037 instance=ExtResource("4_5hrp4")]
+position = Vector2(1434, 625)
