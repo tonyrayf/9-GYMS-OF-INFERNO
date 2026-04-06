@@ -88,7 +88,7 @@ func _physics_process(_delta: float) -> void:
 			
 @onready var target_marker = get_node("SpriteHitMarker")
 			
-func spawn_ranged_attack(attack_sprite: Sprite2D,damage: float,position: Vector2,attack_fly_duration: float,on_done: Callable=Callable()) -> void:
+func spawn_ranged_attack(attack_sprite: Sprite2D,damage: float,position: Vector2,attack_fly_duration: float,size: float=6.0,on_done: Callable=Callable()) -> void:
 	attack_sprite.global_position = self.global_position 
 	var marker_instance = target_marker.duplicate()
 	get_parent().add_child(marker_instance)
@@ -99,8 +99,8 @@ func spawn_ranged_attack(attack_sprite: Sprite2D,damage: float,position: Vector2
 	tween.tween_callback(attack_sprite.show)
 	tween.tween_property(attack_sprite, "global_position", position,attack_fly_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(attack_sprite, "rotation_degrees", 360.0, attack_fly_duration).as_relative()
-	tween.parallel().tween_property(attack_sprite, "scale", Vector2(6.0, 6.0), attack_fly_duration/2).set_trans(Tween.TRANS_LINEAR)
-	tween.tween_property(attack_sprite, "scale", Vector2(8.0, 8.0), attack_fly_duration/2).set_trans(Tween.TRANS_LINEAR)
+	tween.parallel().tween_property(attack_sprite, "scale", Vector2(size, size), attack_fly_duration/2).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(attack_sprite, "scale", Vector2(size, size), attack_fly_duration/2).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_callback(attack_sprite.hide)
 	tween.tween_callback(marker_instance.queue_free)
 	tween.tween_property(attack_sprite, "position", Vector2.ZERO, 0.0)

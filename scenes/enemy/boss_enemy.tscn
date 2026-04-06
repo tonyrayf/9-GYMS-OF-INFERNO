@@ -52,13 +52,8 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0.45882353)
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_jp577")
-patrol_speed = null
 attack_speed = 100.0
-waiting_speed = null
-max_speed = null
-acceleration = null
 max_health = 1000.0
-damage = null
 attack_cooldown = 0.1
 attack_range = 250.0
 
@@ -76,7 +71,7 @@ modulate = Color(1, 1, 1, 0.3137255)
 scale = Vector2(8, 8)
 texture = ExtResource("4_udjfg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1723807405]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1723807405]
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_dtcxm")
 autoplay = "default"

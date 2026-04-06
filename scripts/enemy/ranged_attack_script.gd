@@ -42,7 +42,7 @@ func _physics_process(_delta: float) -> void:
 			attack_cooldown_flag = true
 			attack_cooldown_timer.start()
 
-			enemy.spawn_ranged_attack(attack_sprite,enemy.damage,b,attack_fly_duration,spawn_damage.bind(b))
+			enemy.spawn_ranged_attack(attack_sprite,enemy.damage,b,attack_fly_duration,2,spawn_damage.bind(b))
 	
 	if(range_to_go>=enemy.attack_range):
 		enemy.move_to(b,enemy.attack_range)	
