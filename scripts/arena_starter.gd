@@ -18,9 +18,4 @@ func _on_body_entered(body: Node2D) -> void:
 		if anim_player:
 			anim_player.play("arena_start")
 		
-		if enemies:
-			for enemy in enemies:
-				enemy.set_process(true)
-				enemy.set_physics_process(true)
-		
 		queue_free()

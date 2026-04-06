@@ -21,6 +21,11 @@ func _process(delta: float) -> void:
 		if not waves[current_wave].visible:
 			Global.set_node_active_recursive(waves[current_wave], true)
 		
-		# Волна окончена
-		if current_wave < wave_number - 1 and len(waves[current_wave].get_children()) == 0:
-			current_wave += 1
+		if len(waves[current_wave].get_children()) == 0:
+			# Волна окончена
+			if current_wave < wave_number - 1:
+				current_wave += 1
+			# Арена - ВСЁ
+			else:
+				anim_player.play("arena_end")
+				queue_free()

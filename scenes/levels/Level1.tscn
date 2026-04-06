@@ -9,10 +9,10 @@
 [ext_resource type="Script" uid="uid://doduv56xsal7g" path="res://scripts/z_index_fix.gd" id="5_7d7pp"]
 [ext_resource type="Texture2D" uid="uid://dbm7p7phkihs4" path="res://assets/sprites/characters/janitor.png" id="6_76cw8"]
 [ext_resource type="PackedScene" uid="uid://dljwvib22p0p7" path="res://scenes/dialog.tscn" id="6_lha2r"]
-[ext_resource type="PackedScene" path="res://nodes/dialog_trigger.tscn" id="7_m00rq"]
+[ext_resource type="PackedScene" uid="uid://dcuamekmye12k" path="res://nodes/dialog_trigger.tscn" id="7_m00rq"]
 [ext_resource type="Script" uid="uid://c8r1itl8bg0i3" path="res://scripts/onetime/lvl1_dialog_trigger.gd" id="8_brv20"]
 [ext_resource type="PackedScene" uid="uid://ixnf6jqlqi8n" path="res://scenes/enemy/enemy.tscn" id="10_e5nfq"]
-[ext_resource type="PackedScene" path="res://nodes/arena_starter.tscn" id="12_6owa4"]
+[ext_resource type="PackedScene" uid="uid://chxh8qy6dj2vf" path="res://nodes/arena_starter.tscn" id="12_6owa4"]
 [ext_resource type="Texture2D" uid="uid://c6fcndj86wypi" path="res://assets/sprites/инвентарь.png" id="13_n5pya"]
 [ext_resource type="PackedScene" uid="uid://dxcjxwo3nfxxk" path="res://nodes/arena.tscn" id="14_j7nyf"]
 [ext_resource type="Texture2D" uid="uid://s5dy8dfwx6uu" path="res://assets/sprites/styles/надписи H.png" id="14_njy47"]
@@ -359,6 +359,43 @@ tracks/19/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_j7nyf"]
+resource_name = "arena_end"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Camera:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.695, -0.25, 0, 0.25, 0, 1, -0.10269185, -0.050833337, 0, 0),
+"times": PackedFloat32Array(0, 0.56666666)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Camera:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.695, -0.25, 0, 0.25, 0, 1, -0.10269185, -0.050833337, 0, 0),
+"times": PackedFloat32Array(0, 0.56666666)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Camera:follow_player")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5642968),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="Animation" id="Animation_n5pya"]
 resource_name = "arena_start"
 length = 5.0
@@ -414,9 +451,9 @@ tracks/4/path = NodePath("../Camera:zoom:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 2),
+"handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.695, -0.09452236, 0.050833337, 0, 0),
-"times": PackedFloat32Array(0, 0.56713414)
+"times": PackedFloat32Array(0, 0.5671)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
@@ -592,6 +629,7 @@ tracks/19/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kypp1"]
 _data = {
 &"RESET": SubResource("Animation_6owa4"),
+&"arena_end": SubResource("Animation_j7nyf"),
 &"arena_start": SubResource("Animation_n5pya")
 }
 
@@ -858,10 +896,9 @@ position = Vector2(-1285, -2841)
 [node name="Vision" parent="Wave2/Enemy12" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="ArenaStarter" parent="." unique_id=232513328 node_paths=PackedStringArray("anim_player", "enemies") instance=ExtResource("12_6owa4")]
+[node name="ArenaStarter" parent="." unique_id=232513328 node_paths=PackedStringArray("anim_player") instance=ExtResource("12_6owa4")]
 position = Vector2(-692, -1880)
 anim_player = NodePath("../AnimationPlayer2")
-enemies = [NodePath("../Wave1/Enemy2"), NodePath("../Wave1/Enemy3"), NodePath("../Wave1/Enemy4"), NodePath("../Wave1/Enemy5"), NodePath("../Wave1/Enemy6"), NodePath("../Wave1/Enemy")]
 
 [node name="CollisionShape2D" parent="ArenaStarter" index="0" unique_id=2141170505]
 position = Vector2(55, -106.5)
@@ -901,7 +938,6 @@ scale = Vector2(9, 9)
 texture = ExtResource("17_bspq0")
 
 [node name="Pixel" type="Sprite2D" parent="." unique_id=1810330355]
-visible = false
 light_mask = 0
 z_index = 4096
 position = Vector2(-297.99988, -2608.5)
