@@ -15,6 +15,8 @@ extends CanvasLayer
 
 var start : bool = true
 
+@export var autostart : bool = false
+
 var current_page : int = 0
 var current_text : String = ""
 var current_char : float = 0 # какой щас по счету буква
@@ -28,7 +30,8 @@ var character_talking : int = 1 # 0 - говорит глав гер, 1 - гов
 
 
 func _ready() -> void:
-	set_process(false)
+	if not autostart:
+		set_process(false)
 
 
 func _process(delta: float) -> void:
@@ -39,8 +42,9 @@ func _process(delta: float) -> void:
 		visible = true
 	
 	if kill_dialog:
-		Global.player.set_process(true)
-		Global.player.set_physics_process(true)
+		if Global.player:
+			Global.player.set_process(true)
+			Global.player.set_physics_process(true)
 		
 		queue_free()
 	

@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://chxh8qy6dj2vf" path="res://nodes/arena_starter.tscn" id="6_rrgde"]
 [ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="6_vnuxi"]
 [ext_resource type="PackedScene" uid="uid://dxcjxwo3nfxxk" path="res://nodes/arena.tscn" id="7_reskh"]
+[ext_resource type="PackedScene" uid="uid://dljwvib22p0p7" path="res://scenes/dialog.tscn" id="8_g8eim"]
+[ext_resource type="Texture2D" uid="uid://bgeyt6ol347ur" path="res://assets/sprites/boss.png" id="9_2xj4m"]
+[ext_resource type="PackedScene" uid="uid://dcuamekmye12k" path="res://nodes/dialog_trigger.tscn" id="11_2xj4m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrgde"]
 size = Vector2(163, 1554)
@@ -107,6 +110,14 @@ shape = SubResource("RectangleShape2D_ml44n")
 
 [node name="Arena" parent="." unique_id=364084964 instance=ExtResource("7_reskh")]
 
+[node name="Dialog" parent="." unique_id=963855277 instance=ExtResource("8_g8eim")]
+full_text = [[0, "Я пришел за братом! И теперь я сильнее, чем когда-либо."], [1, "Ты не разрушишь мою качалку!"]]
+
+[node name="Opponent" parent="Dialog" index="1" unique_id=633285656]
+position = Vector2(1542.6445, 593.00214)
+scale = Vector2(4.8813925, 4.8813925)
+texture = ExtResource("9_2xj4m")
+
 [node name="Wave1" type="Node2D" parent="." unique_id=193991006]
 
 [node name="BossEnemy" parent="Wave1" unique_id=1418778037 instance=ExtResource("5_h66bl")]
@@ -114,8 +125,14 @@ position = Vector2(187, -838)
 
 [node name="Pixel2" type="Sprite2D" parent="." unique_id=114316105]
 modulate = Color(0, 0, 0, 0)
-position = Vector2(332, -1716.4998)
+position = Vector2(299.00003, -1716.0001)
 scale = Vector2(13766, 8969)
 texture = ExtResource("1_6qpip")
 
+[node name="DialogTrigger" parent="." unique_id=970759494 node_paths=PackedStringArray("dialog_node") instance=ExtResource("11_2xj4m")]
+position = Vector2(-2170, -925)
+dialog_node = NodePath("../Dialog")
+
 [editable path="ArenaStarter"]
+[editable path="Dialog"]
+[editable path="DialogTrigger"]

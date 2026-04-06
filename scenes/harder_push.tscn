@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b8apbr7ttpj0o"]
+
+[ext_resource type="Script" uid="uid://chnhml1j4fpho" path="res://scenes/harder_push.gd" id="1_n16vb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ff2x6"]
+radius = 371.0054
+
+[node name="HarderPush" type="Area2D" unique_id=1566446603]
+script = ExtResource("1_n16vb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=788051592]
+shape = SubResource("CircleShape2D_ff2x6")

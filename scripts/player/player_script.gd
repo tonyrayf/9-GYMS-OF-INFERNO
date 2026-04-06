@@ -186,10 +186,7 @@ func mode_harder_logic(delta: float) -> void:
 	if Input.is_action_just_pressed("skill_e") and skill_e_timer <= 0:
 		skill_e_timer = skill_e_time
 		
-		var mouse_pos := get_global_mouse_position()
-		var direction = (mouse_pos - global_position).normalized()
 		
-		global_position += direction * faster_dash_distance
 
 func mode_faster_logic(delta: float) -> void:
 	if Input.is_action_pressed("attack_punch") and punch_timer <= 0:
@@ -296,6 +293,7 @@ func _process(delta: float) -> void:
 	
 	# Death
 	if health <= 0:
+		get_tree().reload_current_scene()
 		queue_free()
 	
 	# == Attacks ==
