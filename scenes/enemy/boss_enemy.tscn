@@ -71,7 +71,7 @@ modulate = Color(1, 1, 1, 0.3137255)
 scale = Vector2(8, 8)
 texture = ExtResource("4_udjfg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1723807405]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1723807405]
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_dtcxm")
 autoplay = "default"
