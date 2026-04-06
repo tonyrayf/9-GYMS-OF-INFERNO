@@ -85,7 +85,7 @@ func _physics_process(_delta: float) -> void:
 			
 @onready var target_marker = get_node("SpriteHitMarker")
 			
-func spawn_ranged_attack(attack_sprite: Sprite2D,damage: float,position: Vector2,attack_fly_duration: float,on_done: Callable=Callable()) -> void:
+func spawn_ranged_attack(attack_sprite: Sprite2D,damage: float,position: Vector2,attack_fly_duration: float,size: float = 6.0, on_done: Callable=Callable()) -> void:
 	attack_sprite.global_position = self.global_position 
 	var marker_instance = target_marker.duplicate()
 	get_parent().add_child(marker_instance)
