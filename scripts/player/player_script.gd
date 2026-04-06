@@ -127,6 +127,7 @@ func mode_stronger_logic(delta: float) -> void:
 		
 		print("Урон он заряда/Таймер: ", charged_damage, "/", stronger_charge_timer)
 		
+		Global.main_camera.shake(40,stronger_charge_time*0.1,3)
 		do_punch()
 		
 		punched = Global.spawn_damage_hitbox(
@@ -135,6 +136,14 @@ func mode_stronger_logic(delta: float) -> void:
 				Global.Attacker.PLAYER,
 				punch_collision_radius
 			)
+			
+	if Input.is_action_just_pressed("skill_e") and skill_e_timer <= 0:
+		skill_e_timer = skill_e_time
+		
+		var mouse_pos := get_global_mouse_position()
+		var direction = (mouse_pos - global_position).normalized()
+		
+		global_position += direction * faster_dash_distance
 	
 	if punched and Global.main_camera:
 		Global.main_camera.shake(
@@ -167,12 +176,21 @@ func mode_harder_logic(delta: float) -> void:
 		var direction = (mouse_pos - global_position).normalized()
 		var spawn_pos = global_position + direction * punch_radius
 		
+		
 		Global.spawn_damage_hitbox(
 			punch_damage,
 			spawn_pos,
 			Global.Attacker.PLAYER,
 			punch_collision_radius
 		)
+		
+	if Input.is_action_just_pressed("skill_e") and skill_e_timer <= 0:
+		skill_e_timer = skill_e_time
+		
+		var mouse_pos := get_global_mouse_position()
+		var direction = (mouse_pos - global_position).normalized()
+		
+		global_position += direction * faster_dash_distance
 
 func mode_faster_logic(delta: float) -> void:
 	if Input.is_action_pressed("attack_punch") and punch_timer <= 0:
