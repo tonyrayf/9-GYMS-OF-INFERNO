@@ -4,7 +4,7 @@ var enemy
 var attack_sprites_list1
 var attack_sprites_list2
 var attack_end_flag: bool = false
-var repeat_times = 10
+var repeat_times = 1
 
 func _ready() -> void:
 	enemy = get_parent().get_parent()

@@ -97,7 +97,6 @@ position = Vector2(-4755, -979)
 
 [node name="Camera" parent="." unique_id=197222917 instance=ExtResource("6_vnuxi")]
 position = Vector2(139, -769)
-zoom = Vector2(0.15, 0.15)
 
 [node name="ArenaStarter" parent="." unique_id=232513328 instance=ExtResource("6_rrgde")]
 position = Vector2(-3390, -3000)
