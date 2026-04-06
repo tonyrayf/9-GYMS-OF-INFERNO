@@ -6,6 +6,7 @@ extends Area2D
 
 
 func _ready() -> void:
+	return
 	if enemies:
 		for enemy in enemies:
 			enemy.set_process(false)
