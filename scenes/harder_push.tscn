@@ -5,8 +5,26 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ff2x6"]
 radius = 371.0054
 
+[sub_resource type="Gradient" id="Gradient_n16vb"]
+offsets = PackedFloat32Array(0.5935252, 1)
+colors = PackedColorArray(1, 0.84313726, 0.50980395, 0.50980395, 1, 0.84313726, 0.50980395, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ff2x6"]
+gradient = SubResource("Gradient_n16vb")
+width = 800
+height = 800
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.53)
+
 [node name="HarderPush" type="Area2D" unique_id=1566446603]
+collision_mask = 2
 script = ExtResource("1_n16vb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=788051592]
 shape = SubResource("CircleShape2D_ff2x6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=178011186]
+texture = SubResource("GradientTexture2D_ff2x6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

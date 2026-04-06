@@ -23,7 +23,7 @@ var punch_radius : float = 60 # грубо говоря длина ручки
 @export var punch_radius_shfb : Array = [80, 70, 60, 75]
 
 var punch_collision_radius : float
-@export var punch_collision_radius_shfb : Array = [70, 60, 50, 70]
+@export var punch_collision_radius_shfb : Array = [60, 50, 40, 70]
 
 var take_damage_multi : float
 @export var take_damage_multi_shfb : Array = [0.75, 0.26, 1.5, 0.3]
@@ -48,6 +48,9 @@ enum Mode { STRONGER, HARDER, FASTER, BETTER }
 @export var mode_switch_time : float = 0.5
 var mode_switch_timer : float = 0
 
+@export var super_punch_damage : float = 90
+@export var super_punch_collision_radius : float = 70
+
 @export_group("References")
 @export var health_bar : Node
 @export var color_rect_faster : Node
@@ -65,7 +68,7 @@ var mode_switch_timer : float = 0
 @onready var damage_hitbox_scene := preload("res://scenes/damage_hitbox.tscn")
 @onready var sprite_scale_x : float = sprite.scale.x
 @onready var vignette_color : Vector3 = vignette_rect.material.get_shader_parameter("color")
-
+@onready var harder_push = preload("res://scenes/harder_push.tscn")
 
 func change_mode(mode: int) -> void:
 	$CPUParticles2D.burst_multiple_times(1,velocity)
@@ -135,14 +138,6 @@ func mode_stronger_logic(delta: float) -> void:
 				Global.Attacker.PLAYER,
 				punch_collision_radius
 			)
-			
-	if Input.is_action_just_pressed("skill_e") and skill_e_timer <= 0:
-		skill_e_timer = skill_e_time
-		
-		var mouse_pos := get_global_mouse_position()
-		var direction = (mouse_pos - global_position).normalized()
-		
-		global_position += direction * faster_dash_distance
 	
 	if punched and Global.main_camera:
 		Global.main_camera.shake(
@@ -151,7 +146,7 @@ func mode_stronger_logic(delta: float) -> void:
 			stronger_punch_shake_magnitude
 		)
 	
-	# Добивание
+	# Super punch
 	if Input.is_action_just_pressed("skill_e") and skill_e_timer <= 0:
 		skill_e_timer = skill_e_time
 		
@@ -182,11 +177,15 @@ func mode_harder_logic(delta: float) -> void:
 			Global.Attacker.PLAYER,
 			punch_collision_radius
 		)
-		
+	
+	# Push
 	if Input.is_action_just_pressed("skill_e") and skill_e_timer <= 0:
 		skill_e_timer = skill_e_time
 		
+		var harder_push_node = harder_push.instantiate()
+		harder_push_node.global_position = global_position
 		
+		get_tree().current_scene.add_child(harder_push_node)
 
 func mode_faster_logic(delta: float) -> void:
 	if Input.is_action_pressed("attack_punch") and punch_timer <= 0:
@@ -250,6 +249,21 @@ func mode_better_logic(delta: float) -> void:
 			stronger_punch_shake_amplitude,
 			stronger_punch_shake_duration,
 			stronger_punch_shake_magnitude
+		)
+	
+	# Super punch
+	if Input.is_action_just_pressed("skill_e") and skill_e_timer <= 0:
+		skill_e_timer = skill_e_time
+		
+		var mouse_pos := get_global_mouse_position()
+		var direction = (mouse_pos - global_position).normalized()
+		var spawn_pos = global_position + direction * punch_radius
+		
+		Global.spawn_damage_hitbox(
+			super_punch_damage,
+			spawn_pos,
+			Global.Attacker.PLAYER,
+			super_punch_collision_radius
 		)
 
 
