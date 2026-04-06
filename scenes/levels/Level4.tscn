@@ -295,7 +295,7 @@ texture = ExtResource("9_2xj4m")
 [node name="Wave1" type="Node2D" parent="." unique_id=193991006]
 
 [node name="BossEnemy" parent="Wave1" unique_id=1418778037 instance=ExtResource("5_h66bl")]
-position = Vector2(119, -946)
+position = Vector2(-143, -871)
 
 [node name="Pixel2" type="Sprite2D" parent="." unique_id=114316105]
 modulate = Color(0, 0, 0, 0)

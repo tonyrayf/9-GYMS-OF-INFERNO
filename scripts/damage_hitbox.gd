@@ -18,7 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 	# Пополнение ауры
 	if body.is_in_group("enemy") and attacker == Global.Attacker.PLAYER:
 		if Global.player and Global.player.current_mode != Global.player.Mode.BETTER:
-			Global.player.aura += damage * 0.075
+			Global.player.aura += damage * 0.23
 
 
 func _process(delta: float) -> void:

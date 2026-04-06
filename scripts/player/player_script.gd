@@ -18,7 +18,7 @@ extends CharacterBody2D
 
 @export_group("Stats")
 var punch_damage : float
-@export var punch_damage_shfb : Array = [50, 34, 4.2, 100]
+@export var punch_damage_shfb : Array = [50, 34, 5, 100]
 
 var punch_radius : float = 60 # грубо говоря длина ручки
 @export var punch_radius_shfb : Array = [120, 120, 120, 120]
@@ -366,14 +366,14 @@ func _process(delta: float) -> void:
 		
 		if Input.is_action_just_pressed("skill_q"):
 			change_mode(Mode.BETTER)
-	elif q_hint_label.visible:
+	elif q_hint_label.visible and aura <= 2 and current_mode == Mode.BETTER:
 		q_hint_label.visible = false
 		
 		change_mode(Mode.STRONGER)
 	
 	# Aura уходит
 	if current_mode == Mode.BETTER:
-		aura -= 0.2
+		aura -= 0.08
 	
 	# Выполняем логику SHFB
 	match current_mode:

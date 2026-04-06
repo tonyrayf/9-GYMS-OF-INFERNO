@@ -54,6 +54,7 @@ collision_mask = 4
 script = ExtResource("1_jp577")
 attack_speed = 100.0
 max_health = 1000.0
+damage = 20.0
 attack_cooldown = 0.1
 attack_range = 150.0
 

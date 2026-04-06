@@ -1070,28 +1070,19 @@ visible = false
 position = Vector2(-350, -2991)
 
 [node name="EnemyRanged2" parent="Wave1" unique_id=1769928009 instance=ExtResource("16_eim73")]
-position = Vector2(-1213, -2755)
+position = Vector2(-1201, -2191)
 
 [node name="EnemyRanged3" parent="Wave1" unique_id=1631715548 instance=ExtResource("16_eim73")]
-position = Vector2(-844, -3040)
+position = Vector2(-956, -2978)
 
 [node name="EnemyRanged4" parent="Wave1" unique_id=1104946153 instance=ExtResource("16_eim73")]
-position = Vector2(73, -2956)
+position = Vector2(124, -3010)
 
 [node name="EnemyRanged5" parent="Wave1" unique_id=1120707527 instance=ExtResource("16_eim73")]
-position = Vector2(124, -2163)
-
-[node name="EnemyRanged6" parent="Wave1" unique_id=892194231 instance=ExtResource("16_eim73")]
-position = Vector2(-1129, -2194)
+position = Vector2(109, -2143)
 
 [node name="Wave2" type="Node2D" parent="." unique_id=2020529966]
 visible = false
-
-[node name="Enemy" parent="Wave2" unique_id=1604973710 instance=ExtResource("12_rjd1d")]
-position = Vector2(-1129, -2143)
-
-[node name="Vision" parent="Wave2/Enemy" index="4" unique_id=340150669]
-detection_radius = 9999.0
 
 [node name="Enemy2" parent="Wave2" unique_id=1657433947 instance=ExtResource("12_rjd1d")]
 position = Vector2(-838, -2227)
@@ -1110,15 +1101,6 @@ position = Vector2(-146, -2163)
 
 [node name="Vision" parent="Wave2/Enemy4" index="4" unique_id=340150669]
 detection_radius = 9999.0
-
-[node name="Enemy5" parent="Wave2" unique_id=2118808199 instance=ExtResource("12_rjd1d")]
-position = Vector2(157, -2163)
-
-[node name="Vision" parent="Wave2/Enemy5" index="4" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="EnemyRanged" parent="Wave2" unique_id=268978774 instance=ExtResource("16_eim73")]
-position = Vector2(-1025, -3137)
 
 [node name="EnemyRanged2" parent="Wave2" unique_id=874222541 instance=ExtResource("16_eim73")]
 position = Vector2(-101, -3119)
@@ -1242,11 +1224,9 @@ current = true
 [editable path="DialogTrigger2"]
 [editable path="Dialog2"]
 [editable path="Wave1/EnemyRanged"]
-[editable path="Wave2/Enemy"]
 [editable path="Wave2/Enemy2"]
 [editable path="Wave2/Enemy3"]
 [editable path="Wave2/Enemy4"]
-[editable path="Wave2/Enemy5"]
 [editable path="Wave3/EnemyTank"]
 [editable path="Wave3/EnemyTank2"]
 [editable path="Wave3/EnemyTank3"]

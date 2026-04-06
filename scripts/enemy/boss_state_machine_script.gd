@@ -109,10 +109,10 @@ func _physics_process(delta: float) -> void:
 			spawned_enemy4.get_node("Vision").detection_radius = 1500.0 
 			spawned_enemy4.get_node("Vision").get_node("CollisionShape2D").shape.radius = 1500.0
 			change_state("boss_attack")
-		else:
-			if enemy.health<0:
-				change_state("death")
-				spawned_enemy1.change_state("death")
-				spawned_enemy2.change_state("death")
-				spawned_enemy3.change_state("death")
-				spawned_enemy4.change_state("death")
+		#else:
+			#if enemy.health<0:
+				#change_state("death")
+				#spawned_enemy1.change_state("death")
+				#spawned_enemy2.change_state("death")
+				#spawned_enemy3.change_state("death")
+				#spawned_enemy4.change_state("death")
