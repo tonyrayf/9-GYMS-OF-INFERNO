@@ -5,12 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://byykjhe0l8oow" path="res://scenes/tile_map_layer_wall.tscn" id="3_x3k3d"]
 [ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="4_stl8g"]
 [ext_resource type="PackedScene" uid="uid://cmfo8l2hml54g" path="res://scenes/enemy/boss_enemy.tscn" id="5_h66bl"]
-[ext_resource type="PackedScene" path="res://nodes/arena_starter.tscn" id="6_rrgde"]
+[ext_resource type="PackedScene" uid="uid://chxh8qy6dj2vf" path="res://nodes/arena_starter.tscn" id="6_rrgde"]
 [ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="6_vnuxi"]
 [ext_resource type="PackedScene" uid="uid://dxcjxwo3nfxxk" path="res://nodes/arena.tscn" id="7_reskh"]
 [ext_resource type="PackedScene" uid="uid://dljwvib22p0p7" path="res://scenes/dialog.tscn" id="8_g8eim"]
 [ext_resource type="Texture2D" uid="uid://bgeyt6ol347ur" path="res://assets/sprites/boss.png" id="9_2xj4m"]
 [ext_resource type="PackedScene" uid="uid://dcuamekmye12k" path="res://nodes/dialog_trigger.tscn" id="11_2xj4m"]
+[ext_resource type="AudioStream" uid="uid://d4d3kyf4x55hj" path="res://assets/music/bos.MP3" id="12_u5dj7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrgde"]
 size = Vector2(163, 1554)
@@ -42,8 +43,8 @@ size = Vector2(628, 106)
 modulate = Color(0.2790164, 0.26594636, 0.34288767, 1)
 light_mask = 0
 z_index = -4096
-position = Vector2(-1644, -1035)
-scale = Vector2(10000, 5926.22)
+position = Vector2(-1216.5009, -1802.9445)
+scale = Vector2(12390.999, 7462.111)
 texture = ExtResource("1_6qpip")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1198985554]
@@ -132,6 +133,14 @@ texture = ExtResource("1_6qpip")
 [node name="DialogTrigger" parent="." unique_id=970759494 node_paths=PackedStringArray("dialog_node") instance=ExtResource("11_2xj4m")]
 position = Vector2(-2170, -925)
 dialog_node = NodePath("../Dialog")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1672928018]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1016218071]
+stream = ExtResource("12_u5dj7")
+autoplay = true
+max_distance = 59999.0
+attenuation = 0.0
 
 [editable path="ArenaStarter"]
 [editable path="Dialog"]

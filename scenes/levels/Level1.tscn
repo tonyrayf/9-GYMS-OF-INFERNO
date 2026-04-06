@@ -4,9 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://dwab0ac5ejsdu" path="res://scenes/tile_map_layer.tscn" id="1_x4si1"]
 [ext_resource type="Script" uid="uid://drltsc3xmop5d" path="res://scripts/level_test_script.gd" id="1_xbvxr"]
 [ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="2_fh0io"]
+[ext_resource type="Texture2D" uid="uid://dq6lasgxgnoyy" path="res://assets/sprites/kachalka/carpet.png" id="2_ijoxy"]
+[ext_resource type="Texture2D" uid="uid://cmeoh8awnsc8p" path="res://assets/sprites/kachalka/штанга штанга.png" id="3_t2wor"]
 [ext_resource type="PackedScene" uid="uid://byykjhe0l8oow" path="res://scenes/tile_map_layer_wall.tscn" id="4_68ib6"]
 [ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="4_fh0io"]
 [ext_resource type="Script" uid="uid://doduv56xsal7g" path="res://scripts/z_index_fix.gd" id="5_7d7pp"]
+[ext_resource type="Texture2D" uid="uid://b3ojnugaeg8nl" path="res://assets/sprites/kachalka/блин демонический.png" id="5_l40or"]
+[ext_resource type="Texture2D" uid="uid://pjy0n6xearxk" path="res://assets/sprites/kachalka/штанга в бок.png" id="5_t2wor"]
 [ext_resource type="Texture2D" uid="uid://dbm7p7phkihs4" path="res://assets/sprites/characters/janitor.png" id="6_76cw8"]
 [ext_resource type="PackedScene" uid="uid://dljwvib22p0p7" path="res://scenes/dialog.tscn" id="6_lha2r"]
 [ext_resource type="PackedScene" uid="uid://dcuamekmye12k" path="res://nodes/dialog_trigger.tscn" id="7_m00rq"]
@@ -22,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://c8lxxxudcvh48" path="res://assets/sprites/styles/надписи S.png" id="17_bspq0"]
 [ext_resource type="PackedScene" uid="uid://b4tuvljbc8iky" path="res://nodes/goto_level.tscn" id="21_dqba7"]
 [ext_resource type="PackedScene" uid="uid://ct2i8qwmwotrl" path="res://scenes/levels/Level2.tscn" id="22_usw5k"]
+[ext_resource type="AudioStream" uid="uid://6a61a0mf4uqa" path="res://assets/music/титрыхз.mp3" id="23_jsker"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m00rq"]
 size = Vector2(550, 205)
@@ -361,6 +366,30 @@ tracks/19/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../StaticBody2D/Barrier:disabled")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../StaticBody2D/Barrier2:disabled")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_j7nyf"]
 resource_name = "arena_end"
@@ -397,6 +426,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../StaticBody2D/Barrier2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../StaticBody2D/Barrier:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_n5pya"]
@@ -628,6 +681,30 @@ tracks/19/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../StaticBody2D/Barrier:disabled")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 0.71),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../StaticBody2D/Barrier2:disabled")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kypp1"]
 _data = {
@@ -824,13 +901,77 @@ _data = {
 [node name="Level1" type="Node2D" unique_id=895558967]
 script = ExtResource("1_xbvxr")
 
+[node name="Carpet" type="Sprite2D" parent="." unique_id=1173009101]
+modulate = Color(0.5649617, 0.5649616, 0.5649616, 1)
+z_index = -3000
+position = Vector2(-989.00006, -2659)
+scale = Vector2(5.03125, 5.03125)
+texture = ExtResource("2_ijoxy")
+
+[node name="Carpet2" type="Sprite2D" parent="." unique_id=1478313647]
+modulate = Color(0.5649617, 0.5649616, 0.5649616, 1)
+z_index = -3000
+position = Vector2(-107.00006, -2659.0002)
+scale = Vector2(5.03125, 5.03125)
+texture = ExtResource("2_ijoxy")
+
+[node name="ШтангаШтанга" type="Sprite2D" parent="." unique_id=1855116833]
+position = Vector2(-100, -2717)
+scale = Vector2(3.8703704, 3.8703704)
+texture = ExtResource("3_t2wor")
+script = ExtResource("5_7d7pp")
+
+[node name="ШтангаШтанга2" type="Sprite2D" parent="." unique_id=456225357]
+position = Vector2(-992.99994, -2821)
+scale = Vector2(-3.87, 3.87)
+texture = ExtResource("3_t2wor")
+script = ExtResource("5_7d7pp")
+
+[node name="ШтангаШтанга3" type="Sprite2D" parent="." unique_id=121948256]
+position = Vector2(-995, -2547)
+scale = Vector2(-3.87, 3.87)
+texture = ExtResource("3_t2wor")
+script = ExtResource("5_7d7pp")
+
+[node name="ШтангаВБок2" type="Sprite2D" parent="." unique_id=215341048]
+z_index = -3000
+position = Vector2(318, -2949.0002)
+rotation = 0.094804466
+scale = Vector2(5.314815, 5.314815)
+texture = ExtResource("5_t2wor")
+
+[node name="ШтангаВБок" type="Sprite2D" parent="." unique_id=1302341023]
+z_index = -3000
+position = Vector2(249.99991, -2952)
+rotation = 0.27280954
+scale = Vector2(5.314815, 5.314815)
+texture = ExtResource("5_t2wor")
+
 [node name="BG" type="Sprite2D" parent="." unique_id=140525062]
 modulate = Color(0.2790164, 0.26594636, 0.34288767, 1)
 light_mask = 0
 z_index = -4096
-position = Vector2(141.5001, -900.0001)
-scale = Vector2(5537, 5478)
+position = Vector2(-345.99982, -1942.4999)
+scale = Vector2(7656.001, 7562.9995)
 texture = ExtResource("1_fh0io")
+
+[node name="БлинДемонический" type="Sprite2D" parent="." unique_id=369257735]
+z_index = -3000
+position = Vector2(-1211, -3172)
+scale = Vector2(4.125, 4.125)
+texture = ExtResource("5_l40or")
+
+[node name="БлинДемонический2" type="Sprite2D" parent="." unique_id=517675580]
+z_index = -3000
+position = Vector2(-1211.0001, -3199.0002)
+scale = Vector2(4.125, 4.125)
+texture = ExtResource("5_l40or")
+
+[node name="БлинДемонический3" type="Sprite2D" parent="." unique_id=1970942023]
+z_index = -3000
+position = Vector2(-1213, -3233)
+scale = Vector2(4.125, 4.125)
+texture = ExtResource("5_l40or")
 
 [node name="TileMapLayerGround" parent="." unique_id=430121727 instance=ExtResource("1_x4si1")]
 scale = Vector2(3.785, 3.785)
@@ -971,6 +1112,16 @@ shape = SubResource("RectangleShape2D_kypp1")
 position = Vector2(12, -3322)
 shape = SubResource("RectangleShape2D_n5pya")
 
+[node name="Barrier2" type="CollisionShape2D" parent="StaticBody2D" unique_id=644964802]
+position = Vector2(-619, -1814)
+shape = SubResource("RectangleShape2D_n5pya")
+disabled = true
+
+[node name="Barrier" type="CollisionShape2D" parent="StaticBody2D" unique_id=1501559763]
+position = Vector2(-544, -3322)
+shape = SubResource("RectangleShape2D_n5pya")
+disabled = true
+
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1355866417]
 position = Vector2(-480, -1282)
 shape = SubResource("CapsuleShape2D_brv20")
@@ -979,6 +1130,7 @@ shape = SubResource("CapsuleShape2D_brv20")
 libraries/ = SubResource("AnimationLibrary_7d7pp")
 
 [node name="Wave1" type="Node2D" parent="." unique_id=124333201]
+visible = false
 
 [node name="Enemy" parent="Wave1" unique_id=1657433947 instance=ExtResource("10_e5nfq")]
 position = Vector2(-1109, -2308)
@@ -1017,6 +1169,7 @@ position = Vector2(-569, -2469)
 detection_radius = 9999.0
 
 [node name="Wave2" type="Node2D" parent="." unique_id=2020529966]
+visible = false
 
 [node name="Enemy" parent="Wave2" unique_id=1604973710 instance=ExtResource("10_e5nfq")]
 position = Vector2(-1129, -3048)
@@ -1090,9 +1243,10 @@ position = Vector2(-1285, -2841)
 [node name="Vision" parent="Wave2/Enemy12" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="ArenaStarter" parent="." unique_id=232513328 node_paths=PackedStringArray("anim_player") instance=ExtResource("12_6owa4")]
+[node name="ArenaStarter" parent="." unique_id=232513328 node_paths=PackedStringArray("anim_player", "audio_music") instance=ExtResource("12_6owa4")]
 position = Vector2(-692, -1880)
 anim_player = NodePath("../AnimationPlayer2")
+audio_music = NodePath("../AudioStreamPlayer2D")
 
 [node name="CollisionShape2D" parent="ArenaStarter" index="0" unique_id=2141170505]
 position = Vector2(55, -106.5)
@@ -1157,6 +1311,15 @@ modulate = Color(0, 0, 0, 0)
 position = Vector2(332.00003, -1716.0001)
 scale = Vector2(13766, 8969)
 texture = ExtResource("1_fh0io")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1279736285]
+stream = ExtResource("23_jsker")
+autoplay = true
+max_distance = 59999.0
+attenuation = 0.0
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1280838980]
+current = true
 
 [editable path="DialogTrigger"]
 [editable path="DialogTrigger2"]

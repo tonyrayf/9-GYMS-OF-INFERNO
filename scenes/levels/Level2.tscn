@@ -4,10 +4,14 @@
 [ext_resource type="Script" uid="uid://drltsc3xmop5d" path="res://scripts/level_test_script.gd" id="1_nkm7c"]
 [ext_resource type="PackedScene" uid="uid://dwab0ac5ejsdu" path="res://scenes/tile_map_layer.tscn" id="2_fpd7d"]
 [ext_resource type="PackedScene" uid="uid://byykjhe0l8oow" path="res://scenes/tile_map_layer_wall.tscn" id="3_nkm7c"]
+[ext_resource type="Texture2D" uid="uid://dq6lasgxgnoyy" path="res://assets/sprites/kachalka/carpet.png" id="3_uie84"]
+[ext_resource type="Texture2D" uid="uid://cmeoh8awnsc8p" path="res://assets/sprites/kachalka/штанга штанга.png" id="4_0j73a"]
 [ext_resource type="Script" uid="uid://doduv56xsal7g" path="res://scripts/z_index_fix.gd" id="5_4p5gg"]
 [ext_resource type="Texture2D" uid="uid://cpgqtfse6hotr" path="res://assets/sprites/characters/kuplinov.png" id="5_uh3oe"]
+[ext_resource type="Texture2D" uid="uid://pjy0n6xearxk" path="res://assets/sprites/kachalka/штанга в бок.png" id="6_cco8p"]
 [ext_resource type="PackedScene" uid="uid://dcuamekmye12k" path="res://nodes/dialog_trigger.tscn" id="6_hmwnr"]
 [ext_resource type="Script" uid="uid://c8r1itl8bg0i3" path="res://scripts/onetime/lvl1_dialog_trigger.gd" id="7_4ao78"]
+[ext_resource type="Texture2D" uid="uid://b3ojnugaeg8nl" path="res://assets/sprites/kachalka/блин демонический.png" id="7_6vhad"]
 [ext_resource type="PackedScene" uid="uid://dljwvib22p0p7" path="res://scenes/dialog.tscn" id="8_pi6sb"]
 [ext_resource type="Texture2D" uid="uid://c6fcndj86wypi" path="res://assets/sprites/инвентарь.png" id="9_8tmga"]
 [ext_resource type="Texture2D" uid="uid://bai62o5s3igac" path="res://assets/sprites/characters/vyzhiwalowo.png" id="10_4p5gg"]
@@ -26,6 +30,7 @@
 [ext_resource type="Animation" uid="uid://btb8j1xflvvwe" path="res://resources/arena_end.res" id="18_pi6sb"]
 [ext_resource type="PackedScene" uid="uid://b4tuvljbc8iky" path="res://nodes/goto_level.tscn" id="21_4p5gg"]
 [ext_resource type="PackedScene" uid="uid://byv2utsyq5s1t" path="res://scenes/levels/Level3.tscn" id="22_hmwnr"]
+[ext_resource type="PackedScene" uid="uid://c4r8asjegge" path="res://scenes/enemy/tank_enemy.tscn" id="26_eim73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m00rq"]
 size = Vector2(550, 205)
@@ -57,6 +62,9 @@ size = Vector2(1188.5, 97)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_brv20"]
 radius = 51.0
 height = 188.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eim73"]
+size = Vector2(749, 97)
 
 [sub_resource type="Animation" id="Animation_m00rq"]
 length = 0.001
@@ -343,6 +351,30 @@ tracks/19/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../StaticBody2D/Barrier2:disabled")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../StaticBody2D/Barrier:disabled")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_n5pya"]
 resource_name = "arena_start"
@@ -573,6 +605,30 @@ tracks/19/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../StaticBody2D/Barrier2:disabled")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../StaticBody2D/Barrier:disabled")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kypp1"]
 _data = {
@@ -773,9 +829,75 @@ script = ExtResource("1_nkm7c")
 modulate = Color(0.2790164, 0.26594636, 0.34288767, 1)
 light_mask = 0
 z_index = -4096
-position = Vector2(141.5001, -900.0001)
-scale = Vector2(5537, 5478)
+position = Vector2(-212.50021, -1742.5004)
+scale = Vector2(7825.0005, 7162.9995)
 texture = ExtResource("1_mctl7")
+
+[node name="Carpet" type="Sprite2D" parent="." unique_id=5428705]
+modulate = Color(0.5649617, 0.5649616, 0.5649616, 1)
+z_index = -3000
+position = Vector2(-989.00006, -2659)
+scale = Vector2(5.03125, 5.03125)
+texture = ExtResource("3_uie84")
+
+[node name="Carpet2" type="Sprite2D" parent="." unique_id=1158359614]
+modulate = Color(0.5649617, 0.5649616, 0.5649616, 1)
+z_index = -3000
+position = Vector2(-107.00006, -2659.0002)
+scale = Vector2(5.03125, 5.03125)
+texture = ExtResource("3_uie84")
+
+[node name="ШтангаШтанга" type="Sprite2D" parent="." unique_id=2067001210]
+position = Vector2(-100, -2717)
+scale = Vector2(3.8703704, 3.8703704)
+texture = ExtResource("4_0j73a")
+script = ExtResource("5_4p5gg")
+
+[node name="ШтангаШтанга2" type="Sprite2D" parent="." unique_id=1711348762]
+position = Vector2(-992.99994, -2821)
+rotation = 3.1415927
+scale = Vector2(3.87, -3.87)
+texture = ExtResource("4_0j73a")
+script = ExtResource("5_4p5gg")
+
+[node name="ШтангаШтанга3" type="Sprite2D" parent="." unique_id=928287372]
+position = Vector2(-995, -2547)
+rotation = 3.1415927
+scale = Vector2(3.87, -3.87)
+texture = ExtResource("4_0j73a")
+script = ExtResource("5_4p5gg")
+
+[node name="ШтангаВБок2" type="Sprite2D" parent="." unique_id=960605194]
+z_index = -3000
+position = Vector2(318, -2949.0002)
+rotation = 0.094804466
+scale = Vector2(5.314815, 5.314815)
+texture = ExtResource("6_cco8p")
+
+[node name="ШтангаВБок" type="Sprite2D" parent="." unique_id=78840281]
+z_index = -3000
+position = Vector2(249.99991, -2952)
+rotation = 0.27280954
+scale = Vector2(5.314815, 5.314815)
+texture = ExtResource("6_cco8p")
+
+[node name="БлинДемонический" type="Sprite2D" parent="." unique_id=2030815267]
+z_index = -3000
+position = Vector2(-1211, -3172)
+scale = Vector2(4.125, 4.125)
+texture = ExtResource("7_6vhad")
+
+[node name="БлинДемонический2" type="Sprite2D" parent="." unique_id=331436195]
+z_index = -3000
+position = Vector2(-1211.0001, -3199.0002)
+scale = Vector2(4.125, 4.125)
+texture = ExtResource("7_6vhad")
+
+[node name="БлинДемонический3" type="Sprite2D" parent="." unique_id=92766936]
+z_index = -3000
+position = Vector2(-1213, -3233)
+scale = Vector2(4.125, 4.125)
+texture = ExtResource("7_6vhad")
 
 [node name="TileMapLayerGround" parent="." unique_id=430121727 instance=ExtResource("2_fpd7d")]
 scale = Vector2(3.785, 3.785)
@@ -927,10 +1049,21 @@ shape = SubResource("RectangleShape2D_n5pya")
 position = Vector2(-480, -1282)
 shape = SubResource("CapsuleShape2D_brv20")
 
+[node name="Barrier2" type="CollisionShape2D" parent="StaticBody2D" unique_id=341107586]
+position = Vector2(-619, -1814)
+shape = SubResource("RectangleShape2D_eim73")
+disabled = true
+
+[node name="Barrier" type="CollisionShape2D" parent="StaticBody2D" unique_id=1759780390]
+position = Vector2(-544, -3322)
+shape = SubResource("RectangleShape2D_eim73")
+disabled = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=551732132]
 libraries/ = SubResource("AnimationLibrary_7d7pp")
 
 [node name="Wave1" type="Node2D" parent="." unique_id=124333201]
+visible = false
 
 [node name="EnemyRanged" parent="Wave1" unique_id=2055528447 instance=ExtResource("16_eim73")]
 position = Vector2(-350, -2991)
@@ -983,26 +1116,35 @@ position = Vector2(157, -2163)
 [node name="Vision" parent="Wave2/Enemy5" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="EnemyRunner" parent="Wave2" unique_id=1219582955 instance=ExtResource("15_8tmga")]
-position = Vector2(-1030, -3010)
+[node name="EnemyRanged" parent="Wave2" unique_id=268978774 instance=ExtResource("16_eim73")]
+position = Vector2(-1025, -3137)
 
-[node name="Vision" parent="Wave2/EnemyRunner" index="3" unique_id=340150669]
-detection_radius = 9999.0
+[node name="EnemyRanged2" parent="Wave2" unique_id=874222541 instance=ExtResource("16_eim73")]
+position = Vector2(-101, -3119)
 
-[node name="EnemyRunner2" parent="Wave2" unique_id=899020115 instance=ExtResource("15_8tmga")]
-position = Vector2(-547, -3068)
-
-[node name="Vision" parent="Wave2/EnemyRunner2" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="EnemyRunner3" parent="Wave2" unique_id=986076745 instance=ExtResource("15_8tmga")]
-position = Vector2(-30, -3010)
-
-[node name="Vision" parent="Wave2/EnemyRunner3" index="3" unique_id=340150669]
-detection_radius = 9999.0
+[node name="EnemyRanged3" parent="Wave2" unique_id=1227739751 instance=ExtResource("16_eim73")]
+position = Vector2(-542, -3155)
 
 [node name="Wave3" type="Node2D" parent="." unique_id=1284883108]
 visible = false
+
+[node name="EnemyTank" parent="Wave3" unique_id=114116421 instance=ExtResource("26_eim73")]
+position = Vector2(-1040, -2934)
+
+[node name="Vision" parent="Wave3/EnemyTank" index="3" unique_id=340150669]
+detection_radius = 9999.0
+
+[node name="EnemyTank2" parent="Wave3" unique_id=575602847 instance=ExtResource("26_eim73")]
+position = Vector2(-574, -3016)
+
+[node name="Vision" parent="Wave3/EnemyTank2" index="3" unique_id=340150669]
+detection_radius = 9999.0
+
+[node name="EnemyTank3" parent="Wave3" unique_id=224648868 instance=ExtResource("26_eim73")]
+position = Vector2(-84, -2868)
+
+[node name="Vision" parent="Wave3/EnemyTank3" index="3" unique_id=340150669]
+detection_radius = 9999.0
 
 [node name="ArenaStarter" parent="." unique_id=232513328 node_paths=PackedStringArray("anim_player") instance=ExtResource("13_8n7ay")]
 position = Vector2(-702, -2056)
@@ -1072,6 +1214,15 @@ position = Vector2(332, -1716.4998)
 scale = Vector2(13766, 8969)
 texture = ExtResource("1_mctl7")
 
+[node name="EnemyRunner" parent="." unique_id=897800292 instance=ExtResource("15_8tmga")]
+position = Vector2(-185, -982)
+
+[node name="EnemyRunner2" parent="." unique_id=1496400063 instance=ExtResource("15_8tmga")]
+position = Vector2(303, -1027)
+
+[node name="EnemyRunner3" parent="." unique_id=1958833701 instance=ExtResource("15_8tmga")]
+position = Vector2(743, -1004)
+
 [editable path="DialogTrigger"]
 [editable path="Dialog"]
 [editable path="DialogTrigger2"]
@@ -1082,11 +1233,8 @@ texture = ExtResource("1_mctl7")
 [editable path="Wave2/Enemy3"]
 [editable path="Wave2/Enemy4"]
 [editable path="Wave2/Enemy5"]
-[editable path="Wave2/EnemyRunner"]
-[editable path="Wave2/EnemyRunner/RunnerStateMachine"]
-[editable path="Wave2/EnemyRunner2"]
-[editable path="Wave2/EnemyRunner2/RunnerStateMachine"]
-[editable path="Wave2/EnemyRunner3"]
-[editable path="Wave2/EnemyRunner3/RunnerStateMachine"]
+[editable path="Wave3/EnemyTank"]
+[editable path="Wave3/EnemyTank2"]
+[editable path="Wave3/EnemyTank3"]
 [editable path="ArenaStarter"]
 [editable path="GotoLevel"]

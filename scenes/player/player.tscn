@@ -15,14 +15,95 @@
 [ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="11_fm80t"]
 [ext_resource type="Script" path="res://scripts/cpu_particles_script.gd" id="12_gx1jg"]
 [ext_resource type="Texture2D" uid="uid://bhueck8omllbt" path="res://assets/sprites/styles/надписи B.png" id="12_myrg7"]
+[ext_resource type="FontFile" uid="uid://cq64l4qxre023" path="res://resources/EpilepsySans.ttf" id="14_6cv16"]
+[ext_resource type="Shader" uid="uid://doaudei12m5wd" path="res://shaders/pixelation.gdshader" id="15_j4nxn"]
+[ext_resource type="Texture2D" uid="uid://bkp8ynh8o4uae" path="res://assets/sprites/attack/attack1.png" id="16_007i1"]
+[ext_resource type="Texture2D" uid="uid://cydmisblhcuya" path="res://assets/sprites/attack/attack2.png" id="17_6cv16"]
+[ext_resource type="Texture2D" uid="uid://qbgwtog1hlj1" path="res://assets/sprites/attack/attack3.png" id="18_j4nxn"]
+[ext_resource type="Texture2D" uid="uid://f4ppoin7d5v2" path="res://assets/sprites/attack/attack4.png" id="19_28m0y"]
+[ext_resource type="Texture2D" uid="uid://qaommtd865pv" path="res://assets/sprites/attack/attack5.png" id="20_uniwh"]
+[ext_resource type="Texture2D" uid="uid://3gswp1jla238" path="res://assets/sprites/attack/attack6.png" id="21_iqsei"]
+[ext_resource type="Texture2D" uid="uid://cufvyeo7c5c0l" path="res://assets/sprites/attack/attack7.png" id="22_tffgl"]
+[ext_resource type="Texture2D" uid="uid://bv53txwic6klf" path="res://assets/sprites/attack/attack8.png" id="23_pk8ii"]
+[ext_resource type="Texture2D" uid="uid://hbjsoaonthdg" path="res://assets/sprites/attack/attack9.png" id="24_5mf0n"]
+[ext_resource type="Texture2D" uid="uid://bcqmfmnlawbyi" path="res://assets/sprites/attack/attack10.png" id="25_4hvnv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 45.01111
 
+[sub_resource type="LabelSettings" id="LabelSettings_j4nxn"]
+font = ExtResource("14_6cv16")
+font_size = 73
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_28m0y"]
+shader = ExtResource("15_j4nxn")
+shader_parameter/size = 47.465
+shader_parameter/radius = 0.32
+
+[sub_resource type="Gradient" id="Gradient_6cv16"]
+interpolation_mode = 1
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0, 0.4849624)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j4nxn"]
+gradient = SubResource("Gradient_6cv16")
+width = 199
+height = 198
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6cv16"]
+font = ExtResource("14_6cv16")
+font_size = 81
+
+[sub_resource type="LabelSettings" id="LabelSettings_28m0y"]
+font = ExtResource("14_6cv16")
+font_size = 77
+
 [sub_resource type="Gradient" id="Gradient_myrg7"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0.45882353)
 
-[node name="Player" type="CharacterBody2D" unique_id=1281337577 node_paths=PackedStringArray("health_bar", "color_rect_faster", "sprite", "aura_bar", "style_sprites", "vignette_rect") groups=["player"]]
+[sub_resource type="SpriteFrames" id="SpriteFrames_fcs02"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_007i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6cv16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_j4nxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_28m0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_uniwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_iqsei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_tffgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_pk8ii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_5mf0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_4hvnv")
+}],
+"loop": false,
+"name": &"default",
+"speed": 28.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=1281337577 node_paths=PackedStringArray("health_bar", "color_rect_faster", "sprite", "aura_bar", "style_sprites", "vignette_rect", "e_cooldown_bar", "q_hint_label") groups=["player"]]
 collision_mask = 5
 script = ExtResource("1_g2els")
 health_bar = NodePath("CanvasLayer/HealthBar")
@@ -31,6 +112,8 @@ sprite = NodePath("Player")
 aura_bar = NodePath("CanvasLayer/AuraBar")
 style_sprites = [NodePath("CanvasLayer/НадписиS"), NodePath("CanvasLayer/НадписиH"), NodePath("CanvasLayer/НадписиF"), NodePath("CanvasLayer/НадписиB")]
 vignette_rect = NodePath("CanvasLayer/ColorRect_Vignette")
+e_cooldown_bar = NodePath("CanvasLayer/ECooldownBar")
+q_hint_label = NodePath("CanvasLayer/Q")
 
 [node name="PointLight2D" parent="." unique_id=330833123 instance=ExtResource("2_h17s1")]
 
@@ -70,7 +153,7 @@ scale = Vector2(3.4374986, 3.4374986)
 texture = ExtResource("6_qek5x")
 
 [node name="ШкалаЗдоровья2" type="Sprite2D" parent="CanvasLayer" unique_id=167393719]
-position = Vector2(310, 192.595)
+position = Vector2(310, 228.595)
 scale = Vector2(3.4374986, 3.4374986)
 texture = ExtResource("6_qek5x")
 
@@ -108,10 +191,10 @@ tint_under = Color(0.7756207, 0.29858285, 0.9748538, 1)
 tint_progress = Color(0.96862745, 0, 0, 1)
 
 [node name="AuraBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=558900916]
-offset_left = 155.0
-offset_top = 179.0
+offset_left = 154.99998
+offset_top = 215.00002
 offset_right = 464.0
-offset_bottom = 205.99976
+offset_bottom = 241.99977
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -119,6 +202,45 @@ nine_patch_stretch = true
 texture_progress = ExtResource("8_h17s1")
 tint_under = Color(0.7756207, 0.29858285, 0.9748538, 1)
 tint_progress = Color(0.6370646, 0.784852, 0.96493226, 1)
+
+[node name="F" type="Label" parent="CanvasLayer" unique_id=940440196]
+offset_left = 507.0
+offset_top = 875.0
+offset_right = 653.0
+offset_bottom = 968.0
+text = "⇄  F"
+label_settings = SubResource("LabelSettings_j4nxn")
+
+[node name="ECooldownBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=814253386]
+material = SubResource("ShaderMaterial_28m0y")
+offset_left = 1508.0
+offset_top = 810.0
+offset_right = 1734.0
+offset_bottom = 1036.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_j4nxn")
+tint_progress = Color(0.57254905, 0.9490196, 0.9490196, 0.48235294)
+
+[node name="E" type="Label" parent="CanvasLayer" unique_id=1416555643]
+offset_left = 1591.0
+offset_top = 866.0
+offset_right = 1649.0
+offset_bottom = 959.0
+text = "E"
+label_settings = SubResource("LabelSettings_6cv16")
+
+[node name="Q" type="Label" parent="CanvasLayer" unique_id=1249561968]
+visible = false
+offset_left = 293.0
+offset_top = 181.0
+offset_right = 353.0
+offset_bottom = 280.0
+pivot_offset = Vector2(30, 37)
+text = "Q"
+label_settings = SubResource("LabelSettings_28m0y")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1496892784]
 z_index = 100
@@ -136,3 +258,11 @@ scale_amount_min = 2.0
 scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_myrg7")
 script = ExtResource("12_gx1jg")
+
+[node name="Attack" type="AnimatedSprite2D" parent="." unique_id=70412696]
+position = Vector2(-1.5258789e-05, 0)
+scale = Vector2(3.5000005, 3.5)
+sprite_frames = SubResource("SpriteFrames_fcs02")
+frame = 9
+frame_progress = 1.0
+offset = Vector2(32.85714, 0)

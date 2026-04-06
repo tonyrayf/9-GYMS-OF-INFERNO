@@ -5,11 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="1_pkx4w"]
 [ext_resource type="Texture2D" uid="uid://bihumh6gfrd8c" path="res://assets/sprites/anatoly.png" id="2_4wims"]
 [ext_resource type="Texture2D" uid="uid://rskywfini3t0" path="res://assets/sprites/IMG_20260404_182241_617.png" id="4_b1kyf"]
-[ext_resource type="FontFile" uid="uid://cq64l4qxre023" path="res://resources/EpilepsySans.ttf" id="6_b1kyf"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_owmcw"]
-font = ExtResource("6_b1kyf")
-font_size = 40
+[ext_resource type="LabelSettings" uid="uid://bym5eur6dj7e3" path="res://resources/new_label_settings.tres" id="6_b1kyf"]
 
 [sub_resource type="Animation" id="Animation_b1kyf"]
 length = 0.001
@@ -340,7 +336,7 @@ offset_left = 299.0
 offset_top = 837.0
 offset_right = 1644.0
 offset_bottom = 985.0
-label_settings = SubResource("LabelSettings_owmcw")
+label_settings = ExtResource("6_b1kyf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1805627162]
 libraries/ = SubResource("AnimationLibrary_ygo2i")

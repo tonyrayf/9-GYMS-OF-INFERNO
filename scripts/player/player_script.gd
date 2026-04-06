@@ -12,6 +12,7 @@ extends CharacterBody2D
 @export_group("Vitals")
 @export var max_health : float = 100.0
 @export var health : float = max_health
+@export var max_aura : float = 100.0
 @export var aura : float = 0.0
 @export var ultimate_charge : float = 0.0
 
@@ -58,6 +59,8 @@ var mode_switch_timer : float = 0
 @export var aura_bar : Node
 @export var style_sprites : Array[Node]
 @export var vignette_rect : Node
+@export var e_cooldown_bar : Node
+@export var q_hint_label : Node
 
 @export_group("Visual params")
 @export var stronger_punch_shake_amplitude : float = 40
@@ -69,6 +72,8 @@ var mode_switch_timer : float = 0
 @onready var sprite_scale_x : float = sprite.scale.x
 @onready var vignette_color : Vector3 = vignette_rect.material.get_shader_parameter("color")
 @onready var harder_push = preload("res://scenes/harder_push.tscn")
+@onready var attack_sprite : Node = $Attack
+
 
 func change_mode(mode: int) -> void:
 	$CPUParticles2D.burst_multiple_times(1,velocity)
@@ -129,7 +134,6 @@ func mode_stronger_logic(delta: float) -> void:
 		
 		print("Урон он заряда/Таймер: ", charged_damage, "/", stronger_charge_timer)
 		
-		Global.main_camera.shake(40,stronger_charge_time*0.1,3)
 		do_punch()
 		
 		punched = Global.spawn_damage_hitbox(
@@ -140,11 +144,14 @@ func mode_stronger_logic(delta: float) -> void:
 			)
 	
 	if punched and Global.main_camera:
-		Global.main_camera.shake(
-			stronger_punch_shake_amplitude,
-			stronger_punch_shake_duration,
-			stronger_punch_shake_magnitude
-		)
+		if abs(stronger_charge_time - stronger_charge_timer) > stronger_charge_time * 2 / 3:
+			Global.main_camera.shake(40,stronger_charge_time*0.1,3)
+		else:
+			Global.main_camera.shake(
+				stronger_punch_shake_amplitude,
+				stronger_punch_shake_duration,
+				stronger_punch_shake_magnitude
+			)
 	
 	# Super punch
 	if Input.is_action_just_pressed("skill_e") and skill_e_timer <= 0:
@@ -155,10 +162,10 @@ func mode_stronger_logic(delta: float) -> void:
 		var spawn_pos = global_position + direction * punch_radius
 		
 		Global.spawn_damage_hitbox(
-			punch_damage,
+			super_punch_damage,
 			spawn_pos,
 			Global.Attacker.PLAYER,
-			punch_collision_radius
+			super_punch_collision_radius
 		)
 
 func mode_harder_logic(delta: float) -> void:
@@ -170,6 +177,7 @@ func mode_harder_logic(delta: float) -> void:
 		var direction = (mouse_pos - global_position).normalized()
 		var spawn_pos = global_position + direction * punch_radius
 		
+		do_punch()
 		
 		Global.spawn_damage_hitbox(
 			punch_damage,
@@ -195,6 +203,8 @@ func mode_faster_logic(delta: float) -> void:
 		
 		var direction = (mouse_pos - global_position).normalized()
 		var spawn_pos = global_position + direction * punch_radius
+		
+		do_punch()
 		
 		Global.spawn_damage_hitbox(
 			punch_damage,
@@ -244,6 +254,8 @@ func mode_better_logic(delta: float) -> void:
 				punch_collision_radius
 			)
 	
+	do_punch()
+	
 	if punched and Global.main_camera:
 		Global.main_camera.shake(
 			stronger_punch_shake_amplitude,
@@ -273,9 +285,10 @@ func deal_damage(damage: float) -> void:
 
 func do_punch() -> void:
 	var mouse_pos = get_global_mouse_position()
-	var direction = (mouse_pos - global_position).normalized()
 	var angle = global_position.angle_to_point(mouse_pos)
 	
+	attack_sprite.play()
+	attack_sprite.rotation = angle
 
 
 func toggle_faster_shader(active: bool):
@@ -305,6 +318,10 @@ func _process(delta: float) -> void:
 	if health_bar:
 		health_bar.value = lerp(health_bar.value, health / max_health, 0.2)
 	
+	# Aura bar
+	if aura_bar:
+		aura_bar.value = lerp(aura_bar.value, aura / max_aura, 0.2)
+	
 	# Death
 	if health <= 0:
 		get_tree().reload_current_scene()
@@ -331,8 +348,23 @@ func _process(delta: float) -> void:
 
 	# Skill E timer
 	if skill_e_timer > 0:
-		skill_e_timer = max(skill_e_timer - delta, 0)
+		e_cooldown_bar.value = 1 - skill_e_timer / skill_e_time
 		
+		skill_e_timer = min(max(skill_e_timer - delta, 0), skill_e_time)
+	
+	# Skill Q
+	if aura >= 95:
+		q_hint_label.visible = true
+		
+		if Input.is_action_just_pressed("skill_q"):
+			change_mode(Mode.BETTER)
+	else:
+		q_hint_label.visible = false
+	
+	# Aura уходит
+	if current_mode == Mode.BETTER:
+		aura -= 0.2
+	
 	# Выполняем логику SHFB
 	match current_mode:
 		Mode.STRONGER: mode_stronger_logic(delta)
@@ -347,7 +379,6 @@ func _process(delta: float) -> void:
 		"color",
 		vignette_rect.material.get_shader_parameter("color").lerp(vignette_color, 0.07)
 	)
-
 
 
 func _physics_process(delta: float) -> void:

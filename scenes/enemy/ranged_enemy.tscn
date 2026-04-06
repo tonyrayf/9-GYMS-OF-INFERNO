@@ -6,12 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://baiv2hdcfcbtb" path="res://assets/sprites/какашка.png" id="2_ypobh"]
 [ext_resource type="PackedScene" uid="uid://dxnly5cq2feps" path="res://scenes/detect_hitbox.tscn" id="3_mvi7f"]
 [ext_resource type="PackedScene" uid="uid://c2kdsn64jbkp2" path="res://nodes/ranged_state_machine_node.tscn" id="3_npp3m"]
-[ext_resource type="Texture2D" uid="uid://djm7oui3ss80" path="res://assets/sprites/shadow.png" id="3_r22rp"]
 [ext_resource type="PackedScene" uid="uid://ddslmwbpca3pq" path="res://nodes/patrol_node.tscn" id="4_ypdm1"]
 [ext_resource type="PackedScene" uid="uid://bhhd2awumwmfl" path="res://nodes/death_node.tscn" id="5_2jbxt"]
 [ext_resource type="PackedScene" uid="uid://bny12kkfd15r0" path="res://nodes/ranged_attack_node.tscn" id="7_ypdm1"]
 [ext_resource type="PackedScene" uid="uid://ble0xvjeh0ebu" path="res://nodes/enemy_healthbar.tscn" id="10_2m57y"]
 [ext_resource type="PackedScene" uid="uid://dfruakk4ebwew" path="res://nodes/point_light_2d.tscn" id="11_kstvd"]
+
+[sub_resource type="Gradient" id="Gradient_kstvd"]
+offsets = PackedFloat32Array(0.28057554, 0.37410071)
+colors = PackedColorArray(1, 0, 0, 0.31764707, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r22rp"]
+gradient = SubResource("Gradient_kstvd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ul2o7"]
 radius = 45.01111
@@ -31,8 +39,8 @@ texture = ExtResource("2_ypobh")
 
 [node name="SpriteHitMarker" type="Sprite2D" parent="." unique_id=1678478371]
 visible = false
-scale = Vector2(10, 10)
-texture = ExtResource("3_r22rp")
+scale = Vector2(5.945313, 5.945313)
+texture = SubResource("GradientTexture2D_r22rp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=487829434]
 scale = Vector2(7, 7)

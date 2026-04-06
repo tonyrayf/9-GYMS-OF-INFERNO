@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bym5eur6dj7e3"]
+
+[ext_resource type="FontFile" uid="uid://cq64l4qxre023" path="res://resources/EpilepsySans.ttf" id="1_o0qrp"]
+
+[resource]
+font = ExtResource("1_o0qrp")
+font_size = 40

@@ -38,7 +38,7 @@ func _physics_process(_delta: float) -> void:
 	if vision_area.current_body_name=="Player" and \
 	a.distance_to(last_player_pos) <= enemy.attack_range*0.6 and\
 	a.distance_to(last_player_pos) > enemy.attack_range*0.4:
-		if not attack_cooldown_flag:	
+		if not attack_cooldown_flag:
 			attack_cooldown_flag = true
 			attack_cooldown_timer.start()
 

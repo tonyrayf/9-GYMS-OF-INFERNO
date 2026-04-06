@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://drltsc3xmop5d" path="res://scripts/level_test_script.gd" id="1_8qlrg"]
 [ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="2_ugcos"]
+[ext_resource type="Texture2D" uid="uid://dq6lasgxgnoyy" path="res://assets/sprites/kachalka/carpet.png" id="3_51yjx"]
 [ext_resource type="PackedScene" uid="uid://dwab0ac5ejsdu" path="res://scenes/tile_map_layer.tscn" id="3_rs68w"]
 [ext_resource type="PackedScene" uid="uid://byykjhe0l8oow" path="res://scenes/tile_map_layer_wall.tscn" id="4_20mws"]
+[ext_resource type="Texture2D" uid="uid://cmeoh8awnsc8p" path="res://assets/sprites/kachalka/штанга штанга.png" id="4_l0o4u"]
 [ext_resource type="Texture2D" uid="uid://bo6m46jpyf5l" path="res://assets/sprites/characters/voitenko (3).png" id="5_ugcos"]
+[ext_resource type="Texture2D" uid="uid://pjy0n6xearxk" path="res://assets/sprites/kachalka/штанга в бок.png" id="6_f30i7"]
 [ext_resource type="Script" uid="uid://doduv56xsal7g" path="res://scripts/z_index_fix.gd" id="6_nik0u"]
+[ext_resource type="Texture2D" uid="uid://b3ojnugaeg8nl" path="res://assets/sprites/kachalka/блин демонический.png" id="7_cqetg"]
 [ext_resource type="PackedScene" uid="uid://dcuamekmye12k" path="res://nodes/dialog_trigger.tscn" id="7_jy1lg"]
 [ext_resource type="Script" uid="uid://c8r1itl8bg0i3" path="res://scripts/onetime/lvl1_dialog_trigger.gd" id="8_h8kw8"]
 [ext_resource type="PackedScene" uid="uid://dljwvib22p0p7" path="res://scenes/dialog.tscn" id="9_0i7gq"]
@@ -23,7 +27,7 @@
 [ext_resource type="Animation" uid="uid://btb8j1xflvvwe" path="res://resources/arena_end.res" id="18_nik0u"]
 [ext_resource type="Texture2D" uid="uid://c8lxxxudcvh48" path="res://assets/sprites/styles/надписи S.png" id="19_pgd7w"]
 [ext_resource type="PackedScene" uid="uid://b4tuvljbc8iky" path="res://nodes/goto_level.tscn" id="22_ewe7k"]
-[ext_resource type="PackedScene" uid="uid://bjyftgycyh2wa" path="res://scenes/levels/Level4.tscn" id="24_nik0u"]
+[ext_resource type="PackedScene" uid="uid://cq82nqbjlkcbo" path="res://scenes/levels/Level4.tscn" id="24_nik0u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m00rq"]
 size = Vector2(550, 205)
@@ -55,6 +59,9 @@ size = Vector2(1188.5, 97)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_brv20"]
 radius = 51.0
 height = 188.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nik0u"]
+size = Vector2(749, 97)
 
 [sub_resource type="Animation" id="Animation_m00rq"]
 length = 0.001
@@ -363,6 +370,30 @@ tracks/19/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../StaticBody2D/Barrier2:disabled")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../StaticBody2D/Barrier:disabled")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_n5pya"]
 resource_name = "arena_start"
@@ -593,6 +624,30 @@ tracks/19/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../StaticBody2D/Barrier:disabled")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../StaticBody2D/Barrier2:disabled")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kypp1"]
 _data = {
@@ -793,9 +848,75 @@ script = ExtResource("1_8qlrg")
 modulate = Color(0.2790164, 0.26594636, 0.34288767, 1)
 light_mask = 0
 z_index = -4096
-position = Vector2(141.5001, -900.0001)
-scale = Vector2(5537, 5478)
+position = Vector2(-920.5001, -1994.4998)
+scale = Vector2(10391.001, 7667)
 texture = ExtResource("2_ugcos")
+
+[node name="Carpet" type="Sprite2D" parent="." unique_id=1889896139]
+modulate = Color(0.5649617, 0.5649616, 0.5649616, 1)
+z_index = -3000
+position = Vector2(-989.00006, -2659)
+scale = Vector2(5.03125, 5.03125)
+texture = ExtResource("3_51yjx")
+
+[node name="Carpet2" type="Sprite2D" parent="." unique_id=81905982]
+modulate = Color(0.5649617, 0.5649616, 0.5649616, 1)
+z_index = -3000
+position = Vector2(-107.00006, -2659.0002)
+scale = Vector2(5.03125, 5.03125)
+texture = ExtResource("3_51yjx")
+
+[node name="ШтангаШтанга" type="Sprite2D" parent="." unique_id=1392210176]
+position = Vector2(-100, -2717)
+scale = Vector2(3.8703704, 3.8703704)
+texture = ExtResource("4_l0o4u")
+script = ExtResource("6_nik0u")
+
+[node name="ШтангаШтанга2" type="Sprite2D" parent="." unique_id=1715312506]
+position = Vector2(-992.99994, -2821)
+rotation = 3.1415927
+scale = Vector2(3.87, -3.87)
+texture = ExtResource("4_l0o4u")
+script = ExtResource("6_nik0u")
+
+[node name="ШтангаШтанга3" type="Sprite2D" parent="." unique_id=260298186]
+position = Vector2(-995, -2547)
+rotation = 3.1415927
+scale = Vector2(3.87, -3.87)
+texture = ExtResource("4_l0o4u")
+script = ExtResource("6_nik0u")
+
+[node name="ШтангаВБок2" type="Sprite2D" parent="." unique_id=103463728]
+z_index = -3000
+position = Vector2(318, -2949.0002)
+rotation = 0.094804466
+scale = Vector2(5.314815, 5.314815)
+texture = ExtResource("6_f30i7")
+
+[node name="ШтангаВБок" type="Sprite2D" parent="." unique_id=883562964]
+z_index = -3000
+position = Vector2(249.99991, -2952)
+rotation = 0.27280954
+scale = Vector2(5.314815, 5.314815)
+texture = ExtResource("6_f30i7")
+
+[node name="БлинДемонический" type="Sprite2D" parent="." unique_id=255211335]
+z_index = -3000
+position = Vector2(-1211, -3172)
+scale = Vector2(4.125, 4.125)
+texture = ExtResource("7_cqetg")
+
+[node name="БлинДемонический2" type="Sprite2D" parent="." unique_id=351889106]
+z_index = -3000
+position = Vector2(-1211.0001, -3199.0002)
+scale = Vector2(4.125, 4.125)
+texture = ExtResource("7_cqetg")
+
+[node name="БлинДемонический3" type="Sprite2D" parent="." unique_id=793961210]
+z_index = -3000
+position = Vector2(-1213, -3233)
+scale = Vector2(4.125, 4.125)
+texture = ExtResource("7_cqetg")
 
 [node name="TileMapLayerGround" parent="." unique_id=430121727 instance=ExtResource("3_rs68w")]
 scale = Vector2(3.785, 3.785)
@@ -946,6 +1067,16 @@ shape = SubResource("RectangleShape2D_n5pya")
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1355866417]
 position = Vector2(-480, -1282)
 shape = SubResource("CapsuleShape2D_brv20")
+
+[node name="Barrier2" type="CollisionShape2D" parent="StaticBody2D" unique_id=963153460]
+position = Vector2(-619, -1814)
+shape = SubResource("RectangleShape2D_nik0u")
+disabled = true
+
+[node name="Barrier" type="CollisionShape2D" parent="StaticBody2D" unique_id=919079304]
+position = Vector2(-544, -3322)
+shape = SubResource("RectangleShape2D_nik0u")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=551732132]
 libraries/ = SubResource("AnimationLibrary_7d7pp")

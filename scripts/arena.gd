@@ -8,6 +8,9 @@ var current_wave : int = 0
 @onready var wave_number : int = len(waves)
 
 @export var arena_active : bool = false
+@export var audio_music : Node
+
+@onready var no_battle_music = preload("res://assets/music/титрыхз.mp3")
 
 
 func _ready() -> void:
@@ -28,4 +31,6 @@ func _process(delta: float) -> void:
 			# Арена - ВСЁ
 			else:
 				anim_player.play("arena_end")
+				audio_music.stream = no_battle_music
+				audio_music.play()
 				queue_free()

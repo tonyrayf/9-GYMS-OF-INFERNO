@@ -47,9 +47,9 @@ func move_to(target: Vector2,space: float = 100,inert: bool = false) -> void:
 	inertia = inert
 	
 	if global_position.distance_to(target_pos) < personal_space:
-			moving = false
-			velocity = Vector2.ZERO
-			return
+		moving = false
+		velocity = Vector2.ZERO
+		return
 	
 	moving = true
 	
@@ -96,8 +96,8 @@ func spawn_ranged_attack(attack_sprite: Sprite2D,damage: float,position: Vector2
 	tween.tween_callback(attack_sprite.show)
 	tween.tween_property(attack_sprite, "global_position", position,attack_fly_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(attack_sprite, "rotation_degrees", 360.0, attack_fly_duration).as_relative()
-	tween.parallel().tween_property(attack_sprite, "scale", Vector2(6.0, 6.0), attack_fly_duration/2).set_trans(Tween.TRANS_LINEAR)
-	tween.tween_property(attack_sprite, "scale", Vector2(8.0, 8.0), attack_fly_duration/2).set_trans(Tween.TRANS_LINEAR)
+	tween.parallel().tween_property(attack_sprite, "scale", Vector2(2.0, 2.0), attack_fly_duration/2).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(attack_sprite, "scale", Vector2(2.0, 2.0), attack_fly_duration/2).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_callback(attack_sprite.hide)
 	tween.tween_callback(marker_instance.queue_free)
 	tween.tween_property(attack_sprite, "position", Vector2.ZERO, 0.0)
