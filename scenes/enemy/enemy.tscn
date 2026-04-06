@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://ufyufsglq1sm" path="res://scripts/sprite_script.gd" id="3_dq3v8"]
 [ext_resource type="PackedScene" uid="uid://b7xogisgrj488" path="res://nodes/state_machine_node.tscn" id="3_lv24u"]
 [ext_resource type="PackedScene" uid="uid://ddslmwbpca3pq" path="res://nodes/patrol_node.tscn" id="4_dq3v8"]
+[ext_resource type="Texture2D" uid="uid://djm7oui3ss80" path="res://assets/sprites/shadow.png" id="4_peoo5"]
 [ext_resource type="PackedScene" uid="uid://dfbaai843j3aq" path="res://nodes/attack_node.tscn" id="6_o4ugq"]
 [ext_resource type="PackedScene" uid="uid://bhhd2awumwmfl" path="res://nodes/death_node.tscn" id="8_82oub"]
 [ext_resource type="PackedScene" uid="uid://dxnly5cq2feps" path="res://scenes/detect_hitbox.tscn" id="9_fa78f"]
@@ -23,6 +24,12 @@ script = ExtResource("1_7tubb")
 scale = Vector2(7, 7)
 texture = ExtResource("2_4efjx")
 script = ExtResource("3_dq3v8")
+
+[node name="SpriteHitMarker" type="Sprite2D" parent="." unique_id=518037983]
+visible = false
+modulate = Color(1, 1, 1, 0.3137255)
+scale = Vector2(8, 8)
+texture = ExtResource("4_peoo5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251935809]
 shape = SubResource("CircleShape2D_g2els")

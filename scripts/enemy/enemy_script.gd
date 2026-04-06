@@ -20,14 +20,17 @@ var initial_position
 var look_vector
 var move_direction
 var personal_space
+var my_sprite
 
 func _ready() -> void:
 	initial_position = global_position
 	max_health = health
+	my_sprite = get_node("Sprite2D")
 
 func deal_damage(damage: float) -> void:
 	print(health," NOW")
 	health -= damage
+	my_sprite.simple_flash()
 
 
 func _process(delta: float) -> void:
