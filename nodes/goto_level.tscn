@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b4tuvljbc8iky"]
+
+[ext_resource type="Script" uid="uid://bnj0q60hbcgp5" path="res://nodes/goto_level.gd" id="1_ntrkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evgd3"]
+size = Vector2(74.81752, 36.38687)
+
+[node name="GotoLevel" type="Area2D" unique_id=1892595658]
+script = ExtResource("1_ntrkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1299597778]
+scale = Vector2(5.48, 5.48)
+shape = SubResource("RectangleShape2D_evgd3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

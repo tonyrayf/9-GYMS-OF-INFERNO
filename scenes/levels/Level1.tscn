@@ -13,12 +13,15 @@
 [ext_resource type="Script" uid="uid://c8r1itl8bg0i3" path="res://scripts/onetime/lvl1_dialog_trigger.gd" id="8_brv20"]
 [ext_resource type="PackedScene" uid="uid://ixnf6jqlqi8n" path="res://scenes/enemy/enemy.tscn" id="10_e5nfq"]
 [ext_resource type="PackedScene" uid="uid://chxh8qy6dj2vf" path="res://nodes/arena_starter.tscn" id="12_6owa4"]
+[ext_resource type="Texture2D" uid="uid://d1ilmry1rt1hl" path="res://assets/sprites/блин демонический (1).png" id="13_bspq0"]
 [ext_resource type="Texture2D" uid="uid://c6fcndj86wypi" path="res://assets/sprites/инвентарь.png" id="13_n5pya"]
 [ext_resource type="PackedScene" uid="uid://dxcjxwo3nfxxk" path="res://nodes/arena.tscn" id="14_j7nyf"]
 [ext_resource type="Texture2D" uid="uid://s5dy8dfwx6uu" path="res://assets/sprites/styles/надписи H.png" id="14_njy47"]
 [ext_resource type="Texture2D" uid="uid://bhueck8omllbt" path="res://assets/sprites/styles/надписи B.png" id="15_j7nyf"]
 [ext_resource type="Texture2D" uid="uid://cccdvpqmiw3fu" path="res://assets/sprites/styles/надписи F.png" id="16_xbvxr"]
 [ext_resource type="Texture2D" uid="uid://c8lxxxudcvh48" path="res://assets/sprites/styles/надписи S.png" id="17_bspq0"]
+[ext_resource type="PackedScene" uid="uid://b4tuvljbc8iky" path="res://nodes/goto_level.tscn" id="21_dqba7"]
+[ext_resource type="PackedScene" uid="uid://ct2i8qwmwotrl" path="res://scenes/levels/Level2.tscn" id="22_usw5k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m00rq"]
 size = Vector2(550, 205)
@@ -645,6 +648,179 @@ height = 1684
 fill_from = Vector2(0.517094, 0)
 fill_to = Vector2(0.517094, 1)
 
+[sub_resource type="Animation" id="Animation_dqba7"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Pixel2:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Pixel2:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Pixel2:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Pixel2:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:anim_end")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_usw5k"]
+resource_name = "level_end"
+length = 1.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Pixel2:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Pixel2:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Pixel2:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Pixel2:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.16666667, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:anim_end")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_jsker"]
+resource_name = "level_start"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Pixel2:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Pixel2:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Pixel2:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Pixel2:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.16666667, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ex7q"]
+_data = {
+&"RESET": SubResource("Animation_dqba7"),
+&"level_end": SubResource("Animation_usw5k"),
+&"level_start": SubResource("Animation_jsker")
+}
+
 [node name="Level1" type="Node2D" unique_id=895558967]
 script = ExtResource("1_xbvxr")
 
@@ -707,13 +883,31 @@ shape = SubResource("RectangleShape2D_m00rq")
 full_text = [[1, "О, новенький! А ты чего такой злой?"], [0, "Вы убили моего брата и ограбили нашу семейную качалку."], [1, "Что? Убили? Я видел, что его душу разделили на части и поместили\\nв магические блины."], [1, "От них и питается наша качалка. "], [0, "Тогда я должен вернуть блины, чтобы его душа упокоилась с миром."], [1, "Хорошо, я тебя остановить не смогу. Блины вон там."]]
 
 [node name="Инвентарь" type="Sprite2D" parent="." unique_id=2014755842]
-position = Vector2(-569.00006, -3975.0002)
+position = Vector2(-579, -4008.0002)
 scale = Vector2(3.3157895, 3.3157895)
 texture = ExtResource("13_n5pya")
 script = ExtResource("5_7d7pp")
 
+[node name="БлинДемонический(1)" type="Sprite2D" parent="." unique_id=746221642]
+position = Vector2(-657.5, -3991.5)
+scale = Vector2(3.7083309, 3.7083309)
+texture = ExtResource("13_bspq0")
+script = ExtResource("5_7d7pp")
+
+[node name="БлинДемонический(1)2" type="Sprite2D" parent="." unique_id=1100890162]
+position = Vector2(-582.5, -3991.5)
+scale = Vector2(3.7083309, 3.7083309)
+texture = ExtResource("13_bspq0")
+script = ExtResource("5_7d7pp")
+
+[node name="БлинДемонический(1)3" type="Sprite2D" parent="." unique_id=1802108756]
+position = Vector2(-505.5, -3989.5)
+scale = Vector2(3.7083309, 3.7083309)
+texture = ExtResource("13_bspq0")
+script = ExtResource("5_7d7pp")
+
 [node name="Player" parent="." unique_id=1281337577 instance=ExtResource("2_fh0io")]
-position = Vector2(-9, -409)
+position = Vector2(-23, -385)
 
 [node name="Camera" parent="." unique_id=197222917 instance=ExtResource("4_fh0io")]
 position = Vector2(-637, -1933)
@@ -944,6 +1138,26 @@ position = Vector2(-297.99988, -2608.5)
 scale = Vector2(3.2397788, 1.0112827)
 texture = SubResource("GradientTexture2D_6owa4")
 
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="." unique_id=1076999937]
+root_node = NodePath("../GotoLevel")
+libraries/ = SubResource("AnimationLibrary_6ex7q")
+autoplay = &"level_start"
+
+[node name="GotoLevel" parent="." unique_id=1892595658 node_paths=PackedStringArray("anim_player") instance=ExtResource("21_dqba7")]
+position = Vector2(-612, -3942)
+next_level = ExtResource("22_usw5k")
+anim_player = NodePath("../AnimationPlayer3")
+active = true
+
+[node name="CollisionShape2D" parent="GotoLevel" index="0" unique_id=1299597778]
+position = Vector2(40, -0.6999512)
+
+[node name="Pixel2" type="Sprite2D" parent="." unique_id=1807303982]
+modulate = Color(0, 0, 0, 0)
+position = Vector2(332, -1716.4998)
+scale = Vector2(13766, 8969)
+texture = ExtResource("1_fh0io")
+
 [editable path="DialogTrigger"]
 [editable path="DialogTrigger2"]
 [editable path="Dialog2"]
@@ -972,3 +1186,4 @@ texture = SubResource("GradientTexture2D_6owa4")
 [editable path="Wave2/Enemy11"]
 [editable path="Wave2/Enemy12"]
 [editable path="ArenaStarter"]
+[editable path="GotoLevel"]

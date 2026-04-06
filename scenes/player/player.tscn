@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c8lxxxudcvh48" path="res://assets/sprites/styles/надписи S.png" id="10_ugbui"]
 [ext_resource type="Texture2D" uid="uid://cccdvpqmiw3fu" path="res://assets/sprites/styles/надписи F.png" id="11_fcs02"]
 [ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="11_fm80t"]
-[ext_resource type="Script" uid="uid://h0ys65h0ho85" path="res://scripts/cpu_particles_script.gd" id="12_gx1jg"]
+[ext_resource type="Script" path="res://scripts/cpu_particles_script.gd" id="12_gx1jg"]
 [ext_resource type="Texture2D" uid="uid://bhueck8omllbt" path="res://assets/sprites/styles/надписи B.png" id="12_myrg7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
