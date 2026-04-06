@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://b4tuvljbc8iky" path="res://nodes/goto_level.tscn" id="21_4p5gg"]
 [ext_resource type="PackedScene" uid="uid://byv2utsyq5s1t" path="res://scenes/levels/Level3.tscn" id="22_hmwnr"]
 [ext_resource type="PackedScene" uid="uid://c4r8asjegge" path="res://scenes/enemy/tank_enemy.tscn" id="26_eim73"]
+[ext_resource type="AudioStream" uid="uid://6a61a0mf4uqa" path="res://assets/music/титрыхз.mp3" id="32_0j73a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m00rq"]
 size = Vector2(550, 205)
@@ -1146,16 +1147,18 @@ position = Vector2(-84, -2868)
 [node name="Vision" parent="Wave3/EnemyTank3" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="ArenaStarter" parent="." unique_id=232513328 node_paths=PackedStringArray("anim_player") instance=ExtResource("13_8n7ay")]
+[node name="ArenaStarter" parent="." unique_id=232513328 node_paths=PackedStringArray("anim_player", "audio_music") instance=ExtResource("13_8n7ay")]
 position = Vector2(-702, -2056)
 anim_player = NodePath("../AnimationPlayer2")
+audio_music = NodePath("../AudioStreamPlayer2D")
 
 [node name="CollisionShape2D" parent="ArenaStarter" index="0" unique_id=2141170505]
 position = Vector2(57, 88)
 
-[node name="Arena" parent="." unique_id=364084964 node_paths=PackedStringArray("anim_player", "waves") instance=ExtResource("15_uh3oe")]
+[node name="Arena" parent="." unique_id=364084964 node_paths=PackedStringArray("anim_player", "waves", "audio_music") instance=ExtResource("15_uh3oe")]
 anim_player = NodePath("../AnimationPlayer2")
 waves = [NodePath("../Wave1"), NodePath("../Wave2"), NodePath("../Wave3")]
+audio_music = NodePath("../AudioStreamPlayer2D")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=706700020]
 root_node = NodePath("../AnimationPlayer")
@@ -1222,6 +1225,17 @@ position = Vector2(303, -1027)
 
 [node name="EnemyRunner3" parent="." unique_id=1958833701 instance=ExtResource("15_8tmga")]
 position = Vector2(743, -1004)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=153331417]
+position = Vector2(743, -1004)
+stream = ExtResource("32_0j73a")
+autoplay = true
+max_distance = 59999.0
+attenuation = 0.0
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1945194153]
+position = Vector2(743, -1004)
+current = true
 
 [editable path="DialogTrigger"]
 [editable path="Dialog"]

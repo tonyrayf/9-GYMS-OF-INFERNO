@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bgeyt6ol347ur" path="res://assets/sprites/boss.png" id="9_2xj4m"]
 [ext_resource type="PackedScene" uid="uid://dcuamekmye12k" path="res://nodes/dialog_trigger.tscn" id="11_2xj4m"]
 [ext_resource type="AudioStream" uid="uid://d4d3kyf4x55hj" path="res://assets/music/bos.MP3" id="12_u5dj7"]
+[ext_resource type="Script" uid="uid://co8mv6dhnyqrh" path="res://scenes/levels/ending_starter.gd" id="13_h6fe6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrgde"]
 size = Vector2(163, 1554)
@@ -36,6 +37,178 @@ size = Vector2(163, 4603)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml44n"]
 size = Vector2(628, 106)
+
+[sub_resource type="Animation" id="Animation_h6fe6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pixel:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pixel:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pixel:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pixel:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node:start_ending")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ml44n"]
+resource_name = "end"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pixel:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.11000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.66)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pixel:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.11000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.66)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pixel:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.11000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.66)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pixel:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.11000001, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.66)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node:start_ending")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_iisik"]
+resource_name = "start"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pixel:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.10000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pixel:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.10000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pixel:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.10000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pixel:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.10000001, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5dj7"]
+_data = {
+&"RESET": SubResource("Animation_h6fe6"),
+&"end": SubResource("Animation_ml44n"),
+&"start": SubResource("Animation_iisik")
+}
 
 [node name="Level4" type="Node2D" unique_id=1248673820]
 
@@ -123,6 +296,7 @@ texture = ExtResource("9_2xj4m")
 
 [node name="BossEnemy" parent="Wave1" unique_id=1418778037 instance=ExtResource("5_h66bl")]
 position = Vector2(119, -946)
+max_health = 2.0
 
 [node name="Pixel2" type="Sprite2D" parent="." unique_id=114316105]
 modulate = Color(0, 0, 0, 0)
@@ -141,6 +315,20 @@ stream = ExtResource("12_u5dj7")
 autoplay = true
 max_distance = 59999.0
 attenuation = 0.0
+
+[node name="Node" type="Node" parent="." unique_id=932582543]
+script = ExtResource("13_h6fe6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=983488626]
+libraries/ = SubResource("AnimationLibrary_u5dj7")
+autoplay = &"start"
+
+[node name="Pixel" type="Sprite2D" parent="." unique_id=686044449]
+modulate = Color(0, 0, 0, 1)
+z_index = 4096
+position = Vector2(-732.4824, -1537.279)
+scale = Vector2(-16892.035, 9882.442)
+texture = ExtResource("1_6qpip")
 
 [editable path="ArenaStarter"]
 [editable path="Dialog"]

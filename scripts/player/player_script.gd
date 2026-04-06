@@ -157,6 +157,8 @@ func mode_stronger_logic(delta: float) -> void:
 	if Input.is_action_just_pressed("skill_e") and skill_e_timer <= 0:
 		skill_e_timer = skill_e_time
 		
+		do_punch(1, Color.RED)
+		
 		var mouse_pos := get_global_mouse_position()
 		var direction = (mouse_pos - global_position).normalized()
 		var spawn_pos = global_position + direction * punch_radius
@@ -204,7 +206,7 @@ func mode_faster_logic(delta: float) -> void:
 		var direction = (mouse_pos - global_position).normalized()
 		var spawn_pos = global_position + direction * punch_radius
 		
-		do_punch()
+		do_punch(3)
 		
 		Global.spawn_damage_hitbox(
 			punch_damage,
@@ -254,7 +256,7 @@ func mode_better_logic(delta: float) -> void:
 				punch_collision_radius
 			)
 	
-	do_punch()
+		do_punch()
 	
 	if punched and Global.main_camera:
 		Global.main_camera.shake(
@@ -267,12 +269,14 @@ func mode_better_logic(delta: float) -> void:
 	if Input.is_action_just_pressed("skill_e") and skill_e_timer <= 0:
 		skill_e_timer = skill_e_time
 		
+		do_punch(1, Color.RED)
+		
 		var mouse_pos := get_global_mouse_position()
 		var direction = (mouse_pos - global_position).normalized()
 		var spawn_pos = global_position + direction * punch_radius
 		
 		Global.spawn_damage_hitbox(
-			super_punch_damage,
+			super_punch_damage * 2,
 			spawn_pos,
 			Global.Attacker.PLAYER,
 			super_punch_collision_radius
@@ -283,11 +287,13 @@ func deal_damage(damage: float) -> void:
 	health -= damage * take_damage_multi
 
 
-func do_punch() -> void:
+func do_punch(speed: float = 1, modulate: Color = Color.WHITE) -> void:
 	var mouse_pos = get_global_mouse_position()
 	var angle = global_position.angle_to_point(mouse_pos)
 	
-	attack_sprite.play()
+	attack_sprite.modulate = modulate
+	
+	attack_sprite.play("default", speed)
 	attack_sprite.rotation = angle
 
 

@@ -1251,9 +1251,10 @@ audio_music = NodePath("../AudioStreamPlayer2D")
 [node name="CollisionShape2D" parent="ArenaStarter" index="0" unique_id=2141170505]
 position = Vector2(55, -106.5)
 
-[node name="Arena" parent="." unique_id=364084964 node_paths=PackedStringArray("anim_player", "waves") instance=ExtResource("14_j7nyf")]
+[node name="Arena" parent="." unique_id=364084964 node_paths=PackedStringArray("anim_player", "waves", "audio_music") instance=ExtResource("14_j7nyf")]
 anim_player = NodePath("../AnimationPlayer2")
 waves = [NodePath("../Wave1"), NodePath("../Wave2")]
+audio_music = NodePath("../AudioStreamPlayer2D")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=706700020]
 root_node = NodePath("../AnimationPlayer")
