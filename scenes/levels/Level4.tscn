@@ -1,11 +1,11 @@
-[gd_scene format=4 uid="uid://bjyftgycyh2wa"]
+[gd_scene format=4 uid="uid://cq82nqbjlkcbo"]
 
 [ext_resource type="Texture2D" uid="uid://b61sp5b4b1li0" path="res://assets/sprites/Pixel.png" id="1_6qpip"]
 [ext_resource type="PackedScene" uid="uid://dwab0ac5ejsdu" path="res://scenes/tile_map_layer.tscn" id="2_f3pvd"]
 [ext_resource type="PackedScene" uid="uid://byykjhe0l8oow" path="res://scenes/tile_map_layer_wall.tscn" id="3_x3k3d"]
 [ext_resource type="PackedScene" uid="uid://bdtpol41yul1o" path="res://scenes/player/player.tscn" id="4_stl8g"]
 [ext_resource type="PackedScene" uid="uid://cmfo8l2hml54g" path="res://scenes/enemy/boss_enemy.tscn" id="5_h66bl"]
-[ext_resource type="PackedScene" uid="uid://chxh8qy6dj2vf" path="res://nodes/arena_starter.tscn" id="6_rrgde"]
+[ext_resource type="PackedScene" path="res://nodes/arena_starter.tscn" id="6_rrgde"]
 [ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="6_vnuxi"]
 [ext_resource type="PackedScene" uid="uid://dxcjxwo3nfxxk" path="res://nodes/arena.tscn" id="7_reskh"]
 
@@ -96,7 +96,8 @@ tile_map_data = PackedByteArray("AADk//3/BAAAAAAAAADl//3/BAAAAAAAAADm//3/BAAAAAA
 position = Vector2(-4755, -979)
 
 [node name="Camera" parent="." unique_id=197222917 instance=ExtResource("6_vnuxi")]
-position = Vector2(-4389, -978)
+position = Vector2(139, -769)
+zoom = Vector2(0.15, 0.15)
 
 [node name="ArenaStarter" parent="." unique_id=232513328 instance=ExtResource("6_rrgde")]
 position = Vector2(-3390, -3000)
@@ -110,7 +111,7 @@ shape = SubResource("RectangleShape2D_ml44n")
 [node name="Wave1" type="Node2D" parent="." unique_id=193991006]
 
 [node name="BossEnemy" parent="Wave1" unique_id=1418778037 instance=ExtResource("5_h66bl")]
-position = Vector2(187, -838)
+position = Vector2(119, -946)
 
 [node name="Pixel2" type="Sprite2D" parent="." unique_id=114316105]
 modulate = Color(0, 0, 0, 0)

@@ -4,7 +4,7 @@ var enemy
 var attack_sprites_list1
 var attack_sprites_list2
 var attack_end_flag: bool = false
-var repeat_times = 1
+var repeat_times = 10
 
 func _ready() -> void:
 	enemy = get_parent().get_parent()
@@ -58,11 +58,11 @@ func circle_attack(radius,amount,time,damage,sprite_index=0) -> void:
 		
 func mass_circle_attack():
 	var damage = 10
-	circle_attack(300,5,0.9,damage)
-	circle_attack(520,12,1,damage,10)
-	circle_attack(750,20,1.2,damage,35)
-	await circle_attack(900,100,1.3,damage,100)
-	#circle_attack(1200,110,1.3,damage,200)
+	circle_attack(300,9,0.9,damage)
+	circle_attack(750,12,1,damage,24)
+	circle_attack(1100,20,1.2,damage,44)
+	circle_attack(1550,100,1.3,damage,144)
+	await circle_attack(2000,110,1.3,damage,250)
 
 func line_attack(line_pos,line_dir,amount,time,damage,distance,sprite_index=0):
 	enemy.spawn_ranged_attack(attack_sprites_list2[sprite_index],damage,line_pos,time,spawn_damage.bind(damage,line_pos))
@@ -72,7 +72,7 @@ func line_attack(line_pos,line_dir,amount,time,damage,distance,sprite_index=0):
 	var y1
 	var y2
 	var a = (amount-1)/2-1
-	for i in range(a):
+	for i in range(1,a):
 		if(line_dir==0):
 			x1 = line_pos.x+i*d
 			x2 = line_pos.x-i*d
@@ -100,28 +100,31 @@ func line_attack(line_pos,line_dir,amount,time,damage,distance,sprite_index=0):
 	
 func mass_line_attack_horizontal():
 	var pos = enemy.global_position
-	var d = 300#distance between lines
-	var d2 = 80#inline distance
+	var d = 700#distance between lines
+	var d2 = 200#inline distance
 	var damage = 20
 	circle_attack(100,10,0.9,damage)
-	line_attack(pos+Vector2(0,0.5*d),0,21,1,damage,d2,10)
-	line_attack(pos+Vector2(0,1.5*d),0,21,1,damage,d2,31)
-	line_attack(pos+Vector2(0,2.5*d),0,21,1,damage,d2,52)
-	line_attack(pos+Vector2(0,-0.5*d),0,21,1,damage,d2,73)
-	line_attack(pos+Vector2(0,-1.5*d),0,21,1,damage,d2,94)
-	await line_attack(pos+Vector2(0,-2.5*d),0,21,1,damage,d2,115)
+	line_attack(pos+Vector2(0,0.5*d),0,23,1,damage,d2,10)
+	line_attack(pos+Vector2(0,1.5*d),0,23,1,damage,d2,33)
+	line_attack(pos+Vector2(0,2.5*d),0,23,1,damage,d2,56)
+	line_attack(pos+Vector2(0,-0.5*d),0,23,1,damage,d2,79)
+	line_attack(pos+Vector2(0,-1.5*d),0,23,1,damage,d2,102)
+	await line_attack(pos+Vector2(0,-2.5*d),0,23,1,damage,d2,125)
 	
 func mass_line_attack_vertical():
 	var pos = enemy.global_position
-	var d = 300#distance between lines
-	var d2 = 80#inline distance
+	var d = 700#distance between lines
+	var d2 = 200#inline distance
 	var damage = 20
 	circle_attack(100,10,0.9,damage)
-	line_attack(pos+Vector2(0.5*d,0),1,17,1,damage,d2,11)
-	line_attack(pos+Vector2(1.5*d,0),1,17,1,damage,d2,29)
-	line_attack(pos+Vector2(-0.5*d,0),1,17,1,damage,d2,47)
-	await line_attack(pos+Vector2(-1.5*d,0),1,17,1,damage,d2,65)
+	line_attack(pos+Vector2(0.5*d,0),1,23,1,damage,d2,10)
+	line_attack(pos+Vector2(1.5*d,0),1,23,1,damage,d2,33)
+	line_attack(pos+Vector2(2.5*d,0),1,23,1,damage,d2,56)
+	line_attack(pos+Vector2(-0.5*d,0),1,23,1,damage,d2,79)
+	line_attack(pos+Vector2(-1.5*d,0),1,23,1,damage,d2,102)
+	await line_attack(pos+Vector2(-2.5*d,0),1,23,1,damage,d2,125)
+	
 	
 
 func spawn_damage(damage,whereTo) -> void:
-	Global.spawn_damage_hitbox(damage,whereTo,Global.Attacker.ENEMY,50)
+	Global.spawn_damage_hitbox(damage,whereTo,Global.Attacker.ENEMY,100)

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://baiv2hdcfcbtb" path="res://assets/sprites/какашка.png" id="2_ypobh"]
 [ext_resource type="PackedScene" uid="uid://dxnly5cq2feps" path="res://scenes/detect_hitbox.tscn" id="3_mvi7f"]
 [ext_resource type="PackedScene" uid="uid://c2kdsn64jbkp2" path="res://nodes/ranged_state_machine_node.tscn" id="3_npp3m"]
+[ext_resource type="Texture2D" uid="uid://djm7oui3ss80" path="res://assets/sprites/shadow.png" id="3_r22rp"]
 [ext_resource type="PackedScene" uid="uid://ddslmwbpca3pq" path="res://nodes/patrol_node.tscn" id="4_ypdm1"]
 [ext_resource type="PackedScene" uid="uid://bhhd2awumwmfl" path="res://nodes/death_node.tscn" id="5_2jbxt"]
 [ext_resource type="PackedScene" uid="uid://bny12kkfd15r0" path="res://nodes/ranged_attack_node.tscn" id="7_ypdm1"]
@@ -27,6 +28,11 @@ attack_range = 1350.0
 [node name="AttackSprite" type="Sprite2D" parent="." unique_id=491223841]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_ypobh")
+
+[node name="SpriteHitMarker" type="Sprite2D" parent="." unique_id=1678478371]
+visible = false
+scale = Vector2(10, 10)
+texture = ExtResource("3_r22rp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=487829434]
 scale = Vector2(7, 7)

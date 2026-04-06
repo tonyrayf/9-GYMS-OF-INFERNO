@@ -1,7 +1,7 @@
 extends Camera2D
 
 
-@export var follow_player : bool = true
+@export var follow_player : bool = false
 
 var shake_time : float = 0 # длительность шейка
 var shake_timer : float = 0

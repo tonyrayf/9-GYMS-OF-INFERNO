@@ -6,9 +6,10 @@ var bullethell
 var stage = 1
 
 func _ready() -> void:
-	for child in get_children():
-		if "enemy" in child:
-			child.enemy = enemy
+	#for child in get_children():
+	#		child.enemy = enemy
+	enemy=get_parent()
+	
 	
 	var template1 = enemy.get_node("RangedAttackSprite1")
 	var template2 = enemy.get_node("RangedAttackSprite2")
@@ -30,15 +31,15 @@ var spawned_enemy3
 var spawned_enemy4
 	
 func _physics_process(delta: float) -> void:
-	if (enemy.health<=0):
-		change_state("death")
-		return
+	#if (enemy.health<=0):
+	#	change_state("death")
+	#	return
 	if(not Global.player):
 		change_state("death")
 	if (current_state=="placeholder"):
 		change_state("bullethell",false)
 		
-	#print(enemy.health,"  ",enemy.max_health,"  ",stage," ",current_state)
+	print(enemy.health,"  ",enemy.max_health,"  ",stage," ",current_state, " ", enemy.max_health*0.75<enemy.health)
 		
 	if bullethell and (not bullethell.attack_end_flag):
 		pass
@@ -52,8 +53,8 @@ func _physics_process(delta: float) -> void:
 			spawned_enemy2.get_node("Vision").get_node("CollisionShape2D").shape.radius = 1000.0
 			change_state("boss_attack")
 		else:
-			if(not is_instance_valid(spawned_enemy1) and not is_instance_valid(spawned_enemy2) \
-			and not is_instance_valid(spawned_enemy3)):
+			if(not is_instance_valid(spawned_enemy1)) and (not is_instance_valid(spawned_enemy2)) \
+			and (not is_instance_valid(spawned_enemy3)) and (enemy.max_health*0.75>enemy.health):
 				stage+=1
 				bullethell.repeat_times = 2
 				change_state("bullethell")
@@ -71,7 +72,7 @@ func _physics_process(delta: float) -> void:
 			change_state("boss_attack")
 		else:
 			if(not is_instance_valid(spawned_enemy1) and not is_instance_valid(spawned_enemy2) \
-			and not is_instance_valid(spawned_enemy3)):
+			and not is_instance_valid(spawned_enemy3)) and (enemy.max_health*0.5>enemy.health):
 				stage+=1
 				bullethell.repeat_times = 3
 				change_state("bullethell")
@@ -89,7 +90,7 @@ func _physics_process(delta: float) -> void:
 			change_state("boss_attack")
 		else:
 			if(not is_instance_valid(spawned_enemy1) and not is_instance_valid(spawned_enemy2) \
-			and not is_instance_valid(spawned_enemy3)):
+			and not is_instance_valid(spawned_enemy3)) and (enemy.max_health*0.75>enemy.health):
 				stage+=1
 				bullethell.repeat_times = 4
 				change_state("bullethell")
@@ -109,8 +110,9 @@ func _physics_process(delta: float) -> void:
 			spawned_enemy4.get_node("Vision").get_node("CollisionShape2D").shape.radius = 1500.0
 			change_state("boss_attack")
 		else:
-			if(not is_instance_valid(spawned_enemy1) and not is_instance_valid(spawned_enemy2) \
-			and not is_instance_valid(spawned_enemy3)) and not is_instance_valid(spawned_enemy4): 
-				#stage+=1
-				#bullethell.repeat_times = 4
+			if enemy.health<0:
 				change_state("death")
+				spawned_enemy1.change_state("death")
+				spawned_enemy2.change_state("death")
+				spawned_enemy3.change_state("death")
+				spawned_enemy4.change_state("death")
