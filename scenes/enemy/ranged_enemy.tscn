@@ -31,7 +31,7 @@ texture = ExtResource("2_ypobh")
 
 [node name="SpriteHitMarker" type="Sprite2D" parent="." unique_id=1678478371]
 visible = false
-scale = Vector2(10, 10)
+scale = Vector2(0.01, 0.01)
 texture = ExtResource("3_r22rp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=487829434]
