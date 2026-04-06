@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://r44838babesn" path="res://assets/sprites/boss5.png" id="8_hyj5c"]
 [ext_resource type="PackedScene" uid="uid://bra02lbd2yoq8" path="res://nodes/boss_attack_node.tscn" id="9_00jbt"]
 [ext_resource type="Texture2D" uid="uid://k4aish4qpjss" path="res://assets/sprites/Purple_pixel.png" id="11_nvk41"]
-[ext_resource type="Script" uid="uid://h0ys65h0ho85" path="res://scripts/cpu_particles_script.gd" id="12_vx8xy"]
+[ext_resource type="Script" path="res://scripts/cpu_particles_script.gd" id="12_vx8xy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dtcxm"]
 animations = [{

@@ -10,7 +10,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not is_instance_valid(itself):
 		return
-	var target_dir = sign(Global.player.global_position.x-itself.global_position.x)
-	if target_dir != 0:
-		scale.x = lerp(scale.x, original_scale_x * target_dir, 0.2)
+	if Global.player:
+		var target_dir = sign(Global.player.global_position.x-itself.global_position.x)
+		if target_dir != 0:
+			scale.x = lerp(scale.x, original_scale_x * target_dir, 0.2)
 	

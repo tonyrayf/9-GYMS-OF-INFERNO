@@ -57,10 +57,10 @@ func circle_attack(radius,amount,time,damage,sprite_index=0) -> void:
 	await enemy.spawn_ranged_attack(attack_sprites_list1[sprite_index+amount-1],damage,Vector2(x,y),time,spawn_damage.bind(damage,Vector2(x,y)))
 		
 func mass_circle_attack():
-	var damage = 20
-	circle_attack(100,10,0.9,damage)
-	circle_attack(300,25,1,damage,10)
-	circle_attack(600,65,1.2,damage,35)
+	var damage = 10
+	circle_attack(300,5,0.9,damage)
+	circle_attack(520,12,1,damage,10)
+	circle_attack(750,20,1.2,damage,35)
 	await circle_attack(900,100,1.3,damage,100)
 	#circle_attack(1200,110,1.3,damage,200)
 

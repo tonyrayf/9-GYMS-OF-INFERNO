@@ -23,7 +23,7 @@
 [ext_resource type="Animation" uid="uid://btb8j1xflvvwe" path="res://resources/arena_end.res" id="18_nik0u"]
 [ext_resource type="Texture2D" uid="uid://c8lxxxudcvh48" path="res://assets/sprites/styles/надписи S.png" id="19_pgd7w"]
 [ext_resource type="PackedScene" uid="uid://b4tuvljbc8iky" path="res://nodes/goto_level.tscn" id="22_ewe7k"]
-[ext_resource type="PackedScene" uid="uid://ct2i8qwmwotrl" path="res://scenes/levels/Level2.tscn" id="23_nik0u"]
+[ext_resource type="PackedScene" uid="uid://bjyftgycyh2wa" path="res://scenes/levels/Level4.tscn" id="24_nik0u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m00rq"]
 size = Vector2(550, 205)
@@ -1120,7 +1120,7 @@ autoplay = &"level_start"
 
 [node name="GotoLevel" parent="." unique_id=1892595658 node_paths=PackedStringArray("anim_player") instance=ExtResource("22_ewe7k")]
 position = Vector2(-612, -3942)
-next_level = ExtResource("23_nik0u")
+next_level = ExtResource("24_nik0u")
 anim_player = NodePath("../AnimationPlayer3")
 active = true
 

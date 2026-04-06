@@ -12,7 +12,7 @@ func _ready() -> void:
 	set_physics_process(false) 
 	
 func _physics_process(_delta: float) -> void:
-	if enemy.global_position.distance_to(Global.player.global_position) <= enemy.attack_range:
+	if Global.player and enemy.global_position.distance_to(Global.player.global_position) <= enemy.attack_range:
 		if not attack_cooldown_flag:	
 			Global.spawn_damage_hitbox(enemy.damage,enemy.global_position,Global.Attacker.ENEMY,enemy.attack_range)
 			attack_cooldown_flag = true
