@@ -7,10 +7,28 @@
 [ext_resource type="PackedScene" uid="uid://cmfo8l2hml54g" path="res://scenes/enemy/boss_enemy.tscn" id="5_h66bl"]
 [ext_resource type="PackedScene" path="res://nodes/arena_starter.tscn" id="6_rrgde"]
 [ext_resource type="PackedScene" uid="uid://bhloh8uks6g2n" path="res://scenes/main_camera.tscn" id="6_vnuxi"]
-[ext_resource type="PackedScene" path="res://nodes/arena.tscn" id="7_reskh"]
+[ext_resource type="PackedScene" uid="uid://dxcjxwo3nfxxk" path="res://nodes/arena.tscn" id="7_reskh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rrgde"]
+size = Vector2(163, 1554)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btbtd"]
-size = Vector2(87, 1775)
+size = Vector2(163, 1894)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_reskh"]
+size = Vector2(162.5, 1742)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8eim"]
+size = Vector2(3050.75, 226.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xj4m"]
+size = Vector2(4744.375, 226.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5dj7"]
+size = Vector2(4744.375, 226.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6fe6"]
+size = Vector2(163, 4603)
 
 [node name="Level4" type="Node2D" unique_id=1248673820]
 
@@ -25,8 +43,36 @@ texture = ExtResource("1_6qpip")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1198985554]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=196694574]
-position = Vector2(-5136, -1007)
+position = Vector2(-5168.5, -999)
+shape = SubResource("RectangleShape2D_rrgde")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=659661249]
+position = Vector2(-2262, -2429)
 shape = SubResource("RectangleShape2D_btbtd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1045312331]
+position = Vector2(-2261.25, 511)
+shape = SubResource("RectangleShape2D_reskh")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=721080324]
+position = Vector2(-3705.625, -1595.75)
+shape = SubResource("RectangleShape2D_g8eim")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1267072453]
+position = Vector2(-3705, -338)
+shape = SubResource("RectangleShape2D_g8eim")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=2142685567]
+position = Vector2(111.8125, 1297)
+shape = SubResource("RectangleShape2D_2xj4m")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=704387071]
+position = Vector2(130, -3259)
+shape = SubResource("RectangleShape2D_u5dj7")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=294207946]
+position = Vector2(2441, -1030.5)
+shape = SubResource("RectangleShape2D_h6fe6")
 
 [node name="TileMapLayerGround" parent="." unique_id=430121727 instance=ExtResource("2_f3pvd")]
 scale = Vector2(3.785, 3.785)
@@ -49,21 +95,19 @@ position = Vector2(-4755, -979)
 [node name="Camera" parent="." unique_id=197222917 instance=ExtResource("6_vnuxi")]
 position = Vector2(-4389, -978)
 
-[node name="ArenaStarter" parent="." unique_id=232513328 node_paths=PackedStringArray("anim_player", "enemies") instance=ExtResource("6_rrgde")]
+[node name="ArenaStarter" parent="." unique_id=232513328 node_paths=PackedStringArray("enemies") instance=ExtResource("6_rrgde")]
 position = Vector2(-2697, -1266)
-anim_player = NodePath("")
-enemies = [NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+enemies = [null, null, null, null, null, null]
 
 [node name="CollisionShape2D" parent="ArenaStarter" index="0" unique_id=2141170505]
-position = Vector2(-414, -1539)
+position = Vector2(-433, -1044)
 
-[node name="Arena" parent="." unique_id=364084964 node_paths=PackedStringArray("anim_player", "waves") instance=ExtResource("7_reskh")]
-anim_player = NodePath("")
+[node name="Arena" parent="." unique_id=364084964 node_paths=PackedStringArray("waves") instance=ExtResource("7_reskh")]
 waves = [NodePath("../Wave1")]
 
 [node name="Wave1" type="Node2D" parent="." unique_id=193991006]
 
-[node name="BossEnemy" parent="." unique_id=1418778037 instance=ExtResource("5_h66bl")]
+[node name="BossEnemy" parent="Wave1" unique_id=1418778037 instance=ExtResource("5_h66bl")]
 position = Vector2(187, -838)
 
 [editable path="ArenaStarter"]
