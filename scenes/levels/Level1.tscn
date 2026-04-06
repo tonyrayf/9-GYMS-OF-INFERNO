@@ -1154,7 +1154,7 @@ position = Vector2(40, -0.6999512)
 
 [node name="Pixel2" type="Sprite2D" parent="." unique_id=1807303982]
 modulate = Color(0, 0, 0, 0)
-position = Vector2(332, -1716.4998)
+position = Vector2(332.00003, -1716.0001)
 scale = Vector2(13766, 8969)
 texture = ExtResource("1_fh0io")
 

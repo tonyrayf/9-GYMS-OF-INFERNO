@@ -17,10 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://ixnf6jqlqi8n" path="res://scenes/enemy/enemy.tscn" id="12_rjd1d"]
 [ext_resource type="PackedScene" uid="uid://chxh8qy6dj2vf" path="res://nodes/arena_starter.tscn" id="13_8n7ay"]
 [ext_resource type="Texture2D" uid="uid://s5dy8dfwx6uu" path="res://assets/sprites/styles/надписи H.png" id="14_o163v"]
+[ext_resource type="PackedScene" uid="uid://3ip5n2tjry85" path="res://scenes/enemy/runner_enemy.tscn" id="15_8tmga"]
 [ext_resource type="PackedScene" uid="uid://dxcjxwo3nfxxk" path="res://nodes/arena.tscn" id="15_uh3oe"]
 [ext_resource type="Texture2D" uid="uid://bhueck8omllbt" path="res://assets/sprites/styles/надписи B.png" id="15_uie84"]
 [ext_resource type="Texture2D" uid="uid://cccdvpqmiw3fu" path="res://assets/sprites/styles/надписи F.png" id="16_0j73a"]
 [ext_resource type="Texture2D" uid="uid://c8lxxxudcvh48" path="res://assets/sprites/styles/надписи S.png" id="17_cco8p"]
+[ext_resource type="Animation" uid="uid://btb8j1xflvvwe" path="res://resources/arena_end.res" id="18_pi6sb"]
 [ext_resource type="PackedScene" uid="uid://b4tuvljbc8iky" path="res://nodes/goto_level.tscn" id="21_4p5gg"]
 [ext_resource type="PackedScene" uid="uid://byv2utsyq5s1t" path="res://scenes/levels/Level3.tscn" id="22_hmwnr"]
 
@@ -82,21 +84,10 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Janitor1:scale:x")
+tracks/2/path = NodePath("Janitor1:scale:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(8.427084, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Janitor1:scale:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(8.802084, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
@@ -115,17 +106,6 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(-638.00006, -0.25, 0, 0.1, 113.60327, -471.51343, -0.06666666, -51.921875, 0, 0),
 "times": PackedFloat32Array(0, 0.36666667)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Janitor1:scale:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(8.427084, -0.25, 0, 0.10000001, -11.672594, -8.143103, -0.06666666, 0.5226898, 0, 0),
-"times": PackedFloat32Array(0.2, 0.36666667)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7d7pp"]
@@ -363,43 +343,6 @@ tracks/19/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_j7nyf"]
-resource_name = "arena_end"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Camera:zoom:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.695, -0.25, 0, 0.25, 0, 1, -0.10269185, -0.050833337, 0, 0),
-"times": PackedFloat32Array(0, 0.56666666)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Camera:zoom:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.695, -0.25, 0, 0.25, 0, 1, -0.10269185, -0.050833337, 0, 0),
-"times": PackedFloat32Array(0, 0.56666666)
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Camera:follow_player")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5642968),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
 [sub_resource type="Animation" id="Animation_n5pya"]
 resource_name = "arena_start"
 length = 5.0
@@ -633,7 +576,7 @@ tracks/19/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kypp1"]
 _data = {
 &"RESET": SubResource("Animation_6owa4"),
-&"arena_end": SubResource("Animation_j7nyf"),
+&"arena_end": ExtResource("18_pi6sb"),
 &"arena_start": SubResource("Animation_n5pya")
 }
 
@@ -849,7 +792,7 @@ tile_map_data = PackedByteArray("AAD7//7/BAAAAAAAAAD8//7/BAAAAAAAAAD9//7/BAAAAAA
 
 [node name="Janitor1" type="Sprite2D" parent="." unique_id=552163773]
 position = Vector2(-638.00006, -1297.0001)
-scale = Vector2(8.427084, 8.802084)
+scale = Vector2(6.022, 8.802084)
 texture = ExtResource("5_uh3oe")
 script = ExtResource("5_4p5gg")
 
@@ -987,127 +930,100 @@ shape = SubResource("CapsuleShape2D_brv20")
 libraries/ = SubResource("AnimationLibrary_7d7pp")
 
 [node name="Wave1" type="Node2D" parent="." unique_id=124333201]
+visible = false
 
-[node name="Enemy" parent="Wave1" unique_id=1657433947 instance=ExtResource("12_rjd1d")]
-position = Vector2(-1109, -2308)
+[node name="EnemyRunner" parent="Wave1" unique_id=897800292 instance=ExtResource("15_8tmga")]
+position = Vector2(-1210, -2682)
 
-[node name="Vision" parent="Wave1/Enemy" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave1/EnemyRunner" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy2" parent="Wave1" unique_id=1975403956 instance=ExtResource("12_rjd1d")]
-position = Vector2(75, -2675)
+[node name="EnemyRunner2" parent="Wave1" unique_id=1081774583 instance=ExtResource("15_8tmga")]
+position = Vector2(-916, -2949)
 
-[node name="Vision" parent="Wave1/Enemy2" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave1/EnemyRunner2" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy3" parent="Wave1" unique_id=1472716620 instance=ExtResource("12_rjd1d")]
-position = Vector2(-1025, -2966)
+[node name="EnemyRunner3" parent="Wave1" unique_id=1348214231 instance=ExtResource("15_8tmga")]
+position = Vector2(-440, -2992)
 
-[node name="Vision" parent="Wave1/Enemy3" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave1/EnemyRunner3" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy4" parent="Wave1" unique_id=1723269947 instance=ExtResource("12_rjd1d")]
-position = Vector2(-378, -2966)
+[node name="EnemyRunner4" parent="Wave1" unique_id=1452961660 instance=ExtResource("15_8tmga")]
+position = Vector2(30, -2841)
 
-[node name="Vision" parent="Wave1/Enemy4" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave1/EnemyRunner4" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy5" parent="Wave1" unique_id=1848318916 instance=ExtResource("12_rjd1d")]
-position = Vector2(-60, -2224)
+[node name="EnemyRunner5" parent="Wave1" unique_id=1314387547 instance=ExtResource("15_8tmga")]
+position = Vector2(240, -2440)
 
-[node name="Vision" parent="Wave1/Enemy5" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy6" parent="Wave1" unique_id=926241810 instance=ExtResource("12_rjd1d")]
-position = Vector2(-569, -2469)
-
-[node name="Vision" parent="Wave1/Enemy6" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave1/EnemyRunner5" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
 [node name="Wave2" type="Node2D" parent="." unique_id=2020529966]
 
 [node name="Enemy" parent="Wave2" unique_id=1604973710 instance=ExtResource("12_rjd1d")]
-position = Vector2(-1129, -3048)
+position = Vector2(-1129, -2143)
 
 [node name="Vision" parent="Wave2/Enemy" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy2" parent="Wave2" unique_id=1302350722 instance=ExtResource("12_rjd1d")]
-position = Vector2(-818, -3132)
+[node name="Enemy2" parent="Wave2" unique_id=1657433947 instance=ExtResource("12_rjd1d")]
+position = Vector2(-838, -2227)
 
 [node name="Vision" parent="Wave2/Enemy2" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy3" parent="Wave2" unique_id=426129963 instance=ExtResource("12_rjd1d")]
-position = Vector2(-494, -3132)
+[node name="Enemy3" parent="Wave2" unique_id=1965972227 instance=ExtResource("12_rjd1d")]
+position = Vector2(-503, -2219)
 
 [node name="Vision" parent="Wave2/Enemy3" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy4" parent="Wave2" unique_id=2131296344 instance=ExtResource("12_rjd1d")]
-position = Vector2(-144, -3091)
+[node name="Enemy4" parent="Wave2" unique_id=1793302652 instance=ExtResource("12_rjd1d")]
+position = Vector2(-146, -2163)
 
 [node name="Vision" parent="Wave2/Enemy4" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy5" parent="Wave2" unique_id=937771979 instance=ExtResource("12_rjd1d")]
-position = Vector2(124, -2882)
+[node name="Enemy5" parent="Wave2" unique_id=2118808199 instance=ExtResource("12_rjd1d")]
+position = Vector2(157, -2163)
 
 [node name="Vision" parent="Wave2/Enemy5" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy6" parent="Wave2" unique_id=589827596 instance=ExtResource("12_rjd1d")]
-position = Vector2(124, -2553)
+[node name="EnemyRunner" parent="Wave2" unique_id=1219582955 instance=ExtResource("15_8tmga")]
+position = Vector2(-1030, -3010)
 
-[node name="Vision" parent="Wave2/Enemy6" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave2/EnemyRunner" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy7" parent="Wave2" unique_id=1975085846 instance=ExtResource("12_rjd1d")]
-position = Vector2(-69, -2262)
+[node name="EnemyRunner2" parent="Wave2" unique_id=899020115 instance=ExtResource("15_8tmga")]
+position = Vector2(-547, -3068)
 
-[node name="Vision" parent="Wave2/Enemy7" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave2/EnemyRunner2" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy8" parent="Wave2" unique_id=2052576213 instance=ExtResource("12_rjd1d")]
-position = Vector2(-435, -2178)
+[node name="EnemyRunner3" parent="Wave2" unique_id=986076745 instance=ExtResource("15_8tmga")]
+position = Vector2(-30, -3010)
 
-[node name="Vision" parent="Wave2/Enemy8" index="3" unique_id=340150669]
+[node name="Vision" parent="Wave2/EnemyRunner3" index="3" unique_id=340150669]
 detection_radius = 9999.0
 
-[node name="Enemy9" parent="Wave2" unique_id=1952702342 instance=ExtResource("12_rjd1d")]
-position = Vector2(-838, -2140)
-
-[node name="Vision" parent="Wave2/Enemy9" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy10" parent="Wave2" unique_id=1266361935 instance=ExtResource("12_rjd1d")]
-position = Vector2(-1129, -2265)
-
-[node name="Vision" parent="Wave2/Enemy10" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy11" parent="Wave2" unique_id=2069015907 instance=ExtResource("12_rjd1d")]
-position = Vector2(-1285, -2556)
-
-[node name="Vision" parent="Wave2/Enemy11" index="3" unique_id=340150669]
-detection_radius = 9999.0
-
-[node name="Enemy12" parent="Wave2" unique_id=1462848407 instance=ExtResource("12_rjd1d")]
-position = Vector2(-1285, -2841)
-
-[node name="Vision" parent="Wave2/Enemy12" index="3" unique_id=340150669]
-detection_radius = 9999.0
+[node name="Wave3" type="Node2D" parent="." unique_id=1284883108]
 
 [node name="ArenaStarter" parent="." unique_id=232513328 node_paths=PackedStringArray("anim_player") instance=ExtResource("13_8n7ay")]
-position = Vector2(-692, -1880)
+position = Vector2(-702, -2056)
 anim_player = NodePath("../AnimationPlayer2")
 
 [node name="CollisionShape2D" parent="ArenaStarter" index="0" unique_id=2141170505]
-position = Vector2(55, -106.5)
+position = Vector2(57, 88)
 
 [node name="Arena" parent="." unique_id=364084964 node_paths=PackedStringArray("anim_player", "waves") instance=ExtResource("15_uh3oe")]
 anim_player = NodePath("../AnimationPlayer2")
-waves = [NodePath("../Wave1"), NodePath("../Wave2")]
+waves = [NodePath("../Wave1"), NodePath("../Wave2"), NodePath("../Wave3")]
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=706700020]
 root_node = NodePath("../AnimationPlayer")
@@ -1140,6 +1056,7 @@ scale = Vector2(9, 9)
 texture = ExtResource("17_cco8p")
 
 [node name="Pixel" type="Sprite2D" parent="." unique_id=1810330355]
+visible = false
 light_mask = 0
 z_index = 4096
 position = Vector2(-297.99988, -2608.5)
@@ -1170,29 +1087,26 @@ texture = ExtResource("1_mctl7")
 [editable path="Dialog"]
 [editable path="DialogTrigger2"]
 [editable path="Dialog2"]
-[editable path="Wave1/Enemy"]
-[editable path="Wave1/Enemy/Vision"]
-[editable path="Wave1/Enemy2"]
-[editable path="Wave1/Enemy2/Vision"]
-[editable path="Wave1/Enemy3"]
-[editable path="Wave1/Enemy3/Vision"]
-[editable path="Wave1/Enemy4"]
-[editable path="Wave1/Enemy4/Vision"]
-[editable path="Wave1/Enemy5"]
-[editable path="Wave1/Enemy5/Vision"]
-[editable path="Wave1/Enemy6"]
-[editable path="Wave1/Enemy6/Vision"]
+[editable path="Wave1/EnemyRunner"]
+[editable path="Wave1/EnemyRunner/RunnerStateMachine"]
+[editable path="Wave1/EnemyRunner2"]
+[editable path="Wave1/EnemyRunner2/RunnerStateMachine"]
+[editable path="Wave1/EnemyRunner3"]
+[editable path="Wave1/EnemyRunner3/RunnerStateMachine"]
+[editable path="Wave1/EnemyRunner4"]
+[editable path="Wave1/EnemyRunner4/RunnerStateMachine"]
+[editable path="Wave1/EnemyRunner5"]
+[editable path="Wave1/EnemyRunner5/RunnerStateMachine"]
 [editable path="Wave2/Enemy"]
 [editable path="Wave2/Enemy2"]
 [editable path="Wave2/Enemy3"]
 [editable path="Wave2/Enemy4"]
 [editable path="Wave2/Enemy5"]
-[editable path="Wave2/Enemy6"]
-[editable path="Wave2/Enemy7"]
-[editable path="Wave2/Enemy8"]
-[editable path="Wave2/Enemy9"]
-[editable path="Wave2/Enemy10"]
-[editable path="Wave2/Enemy11"]
-[editable path="Wave2/Enemy12"]
+[editable path="Wave2/EnemyRunner"]
+[editable path="Wave2/EnemyRunner/RunnerStateMachine"]
+[editable path="Wave2/EnemyRunner2"]
+[editable path="Wave2/EnemyRunner2/RunnerStateMachine"]
+[editable path="Wave2/EnemyRunner3"]
+[editable path="Wave2/EnemyRunner3/RunnerStateMachine"]
 [editable path="ArenaStarter"]
 [editable path="GotoLevel"]

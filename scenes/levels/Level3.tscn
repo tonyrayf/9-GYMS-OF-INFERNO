@@ -1106,7 +1106,6 @@ scale = Vector2(9, 9)
 texture = ExtResource("19_pgd7w")
 
 [node name="Pixel" type="Sprite2D" parent="." unique_id=1810330355]
-visible = false
 light_mask = 0
 z_index = 4096
 position = Vector2(-297.99988, -2608.5)

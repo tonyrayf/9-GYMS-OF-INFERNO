@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://dfibdbujutaw4" path="res://assets/sprites/IMG_20260404_170357_013.png" id="2_lvxji"]
 [ext_resource type="Texture2D" uid="uid://djm7oui3ss80" path="res://assets/sprites/shadow.png" id="2_p47bc"]
 [ext_resource type="Material" uid="uid://brw0ci8n76jlh" path="res://shaders/faster_mat.tres" id="3_lvxji"]
-[ext_resource type="Texture2D" uid="uid://rfu7lqq7tv40" path="res://assets/sprites/punch.png" id="4_5gtgg"]
 [ext_resource type="Material" uid="uid://cn1hggvk3yf8u" path="res://shaders/vignette.tres" id="5_75vfm"]
 [ext_resource type="Texture2D" uid="uid://dqpu0n6fhktqv" path="res://assets/sprites/шкала здоровья.png" id="6_qek5x"]
 [ext_resource type="Texture2D" uid="uid://didd2l1qiijh7" path="res://assets/sprites/шкала здоровья линия.png" id="7_5gtgg"]
@@ -23,14 +22,13 @@ radius = 45.01111
 [sub_resource type="Gradient" id="Gradient_myrg7"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0.45882353)
 
-[node name="Player" type="CharacterBody2D" unique_id=1281337577 node_paths=PackedStringArray("health_bar", "color_rect_faster", "sprite", "aura_bar", "punch_sprite", "style_sprites", "vignette_rect") groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1281337577 node_paths=PackedStringArray("health_bar", "color_rect_faster", "sprite", "aura_bar", "style_sprites", "vignette_rect") groups=["player"]]
 collision_mask = 5
 script = ExtResource("1_g2els")
 health_bar = NodePath("CanvasLayer/HealthBar")
 color_rect_faster = NodePath("CanvasLayer/ColorRect_Faster")
 sprite = NodePath("Player")
 aura_bar = NodePath("CanvasLayer/AuraBar")
-punch_sprite = NodePath("Punch")
 style_sprites = [NodePath("CanvasLayer/НадписиS"), NodePath("CanvasLayer/НадписиH"), NodePath("CanvasLayer/НадписиF"), NodePath("CanvasLayer/НадписиB")]
 vignette_rect = NodePath("CanvasLayer/ColorRect_Vignette")
 
@@ -50,12 +48,6 @@ region_rect = Rect2(0.13325119, -0.108854294, 34.044804, 30.634874)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251935809]
 shape = SubResource("CircleShape2D_g2els")
-
-[node name="Punch" type="Sprite2D" parent="." unique_id=1519439340]
-position = Vector2(120, -1.9073486e-06)
-scale = Vector2(3.4375, 3.4375)
-texture = ExtResource("4_5gtgg")
-offset = Vector2(0, 2.9090908)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=106143462]
 

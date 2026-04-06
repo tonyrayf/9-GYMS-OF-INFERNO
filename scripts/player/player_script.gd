@@ -53,7 +53,6 @@ var mode_switch_timer : float = 0
 @export var color_rect_faster : Node
 @export var sprite : Node
 @export var aura_bar : Node
-@export var punch_sprite : Node
 @export var style_sprites : Array[Node]
 @export var vignette_rect : Node
 
@@ -248,12 +247,6 @@ func do_punch() -> void:
 	var direction = (mouse_pos - global_position).normalized()
 	var angle = global_position.angle_to_point(mouse_pos)
 	
-	punch_sprite.position = direction * 120
-	punch_sprite.rotation = angle
-	if (angle < -PI/2 or angle > PI/2):
-		punch_sprite.scale.y = -abs(punch_sprite.scale.y)
-	elif (angle > -PI/2 or angle < PI/2):
-		punch_sprite.scale.y = abs(punch_sprite.scale.y)
 
 
 func toggle_faster_shader(active: bool):

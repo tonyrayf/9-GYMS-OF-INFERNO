@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bnhokwpc3xg5d"]
+
+[ext_resource type="Script" uid="uid://kadeeqwc1wdh" path="res://scenes/levels/intro.gd" id="1_g3box"]
+[ext_resource type="VideoStream" uid="uid://btidryetgylov" path="res://assets/0406-_1_.ogv" id="2_k14st"]
+
+[node name="Intro" type="Node2D" unique_id=1033114837]
+script = ExtResource("1_g3box")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=33225778]
+offset_right = 2568.0
+offset_bottom = 1440.0
+stream = ExtResource("2_k14st")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1601879819]
+position = Vector2(1284, 720)
+zoom = Vector2(0.75, 0.75)
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
