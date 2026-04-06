@@ -9,10 +9,10 @@
 [ext_resource type="Script" uid="uid://doduv56xsal7g" path="res://scripts/z_index_fix.gd" id="5_7d7pp"]
 [ext_resource type="Texture2D" uid="uid://dbm7p7phkihs4" path="res://assets/sprites/characters/janitor.png" id="6_76cw8"]
 [ext_resource type="PackedScene" uid="uid://dljwvib22p0p7" path="res://scenes/dialog.tscn" id="6_lha2r"]
-[ext_resource type="PackedScene" path="res://nodes/dialog_trigger.tscn" id="7_m00rq"]
+[ext_resource type="PackedScene" uid="uid://dcuamekmye12k" path="res://nodes/dialog_trigger.tscn" id="7_m00rq"]
 [ext_resource type="Script" uid="uid://c8r1itl8bg0i3" path="res://scripts/onetime/lvl1_dialog_trigger.gd" id="8_brv20"]
 [ext_resource type="PackedScene" uid="uid://ixnf6jqlqi8n" path="res://scenes/enemy/enemy.tscn" id="10_e5nfq"]
-[ext_resource type="PackedScene" path="res://nodes/arena_starter.tscn" id="12_6owa4"]
+[ext_resource type="PackedScene" uid="uid://chxh8qy6dj2vf" path="res://nodes/arena_starter.tscn" id="12_6owa4"]
 [ext_resource type="Texture2D" uid="uid://c6fcndj86wypi" path="res://assets/sprites/инвентарь.png" id="13_n5pya"]
 [ext_resource type="PackedScene" uid="uid://dxcjxwo3nfxxk" path="res://nodes/arena.tscn" id="14_j7nyf"]
 [ext_resource type="Texture2D" uid="uid://s5dy8dfwx6uu" path="res://assets/sprites/styles/надписи H.png" id="14_njy47"]
@@ -938,7 +938,6 @@ scale = Vector2(9, 9)
 texture = ExtResource("17_bspq0")
 
 [node name="Pixel" type="Sprite2D" parent="." unique_id=1810330355]
-visible = false
 light_mask = 0
 z_index = 4096
 position = Vector2(-297.99988, -2608.5)
